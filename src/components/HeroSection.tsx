@@ -1,6 +1,5 @@
 import Link from "next/link";
 import AnimatedCard from "./AnimatedCard";
-import FloatingShapes from "./FloatingShapes";
 import ScrollReveal from "./ScrollReveal";
 import IdleFloat from "./IdleFloat";
 import AuroraBackground from "./AuroraBackground";
@@ -19,7 +18,6 @@ export default function HeroSection({ locale }: { locale: Locale }) {
       <div className="bg-noise pointer-events-none absolute inset-0 z-[1]" />
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
       <AuroraBackground />
-      <FloatingShapes />
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-2">
         <ScrollReveal stagger={0.12}>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 text-sm font-medium text-muted backdrop-blur">
@@ -65,28 +63,24 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-sky-400/20 blur-3xl dark:bg-sky-500/20" />
 
           <ParallaxFloat speed={-0.14} className="absolute -left-8 -top-10 z-20 hidden sm:block">
-            <IdleFloat>
-              <div className="flex items-center gap-2.5 rounded-xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/15 text-sm text-accent">
-                  ✓
-                </span>
-                <div>
-                  <div className="text-xs font-semibold">Нов лийд</div>
-                  <div className="text-xs text-muted">Уеб форма · преди 2 мин</div>
-                </div>
+            <div className="flex items-center gap-2.5 rounded-xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/15 text-sm text-accent">
+                ✓
+              </span>
+              <div>
+                <div className="text-xs font-semibold">Нов лийд</div>
+                <div className="text-xs text-muted">Уеб форма · преди 2 мин</div>
               </div>
-            </IdleFloat>
+            </div>
           </ParallaxFloat>
 
           <ParallaxFloat speed={0.2} className="absolute -bottom-8 -right-4 z-20 hidden sm:block">
-            <IdleFloat>
-              <div className="rounded-xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
-                <div className="text-xs text-muted">SEO трафик</div>
-                <div className="mt-0.5 flex items-center gap-1 text-lg font-bold text-accent">
-                  <span aria-hidden>▲</span> +24%
-                </div>
+            <div className="rounded-xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
+              <div className="text-xs text-muted">SEO трафик</div>
+              <div className="mt-0.5 flex items-center gap-1 text-lg font-bold text-accent">
+                <span aria-hidden>▲</span> +24%
               </div>
-            </IdleFloat>
+            </div>
           </ParallaxFloat>
 
           <TiltCard>
