@@ -1,4 +1,3 @@
-import Link from "next/link";
 import AnimatedCard from "./AnimatedCard";
 import ScrollReveal from "./ScrollReveal";
 import { content, type Locale } from "@/lib/content";
@@ -11,7 +10,6 @@ export default function AutomationsSection({
   teaser?: boolean;
 }) {
   const t = content[locale];
-  const href = locale === "bg" ? "/automations" : "/en/automations";
   const items = teaser ? t.automations.items.slice(0, 3) : t.automations.items;
 
   return (
@@ -36,17 +34,6 @@ export default function AutomationsSection({
           </AnimatedCard>
         ))}
       </ScrollReveal>
-      {teaser && (
-        <div className="mt-10 text-center">
-          <Link
-            href={href}
-            className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition hover:border-accent"
-          >
-            {t.cta.viewAutomations}
-            <span aria-hidden>→</span>
-          </Link>
-        </div>
-      )}
     </section>
   );
 }

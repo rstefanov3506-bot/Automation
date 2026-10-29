@@ -23,7 +23,6 @@ export const content = {
         { value: "<24ч", label: "отговор на запитване" },
         { value: "24/7", label: "работещи агенти" },
       ],
-      scrollCue: "Разгледай",
     },
     automations: {
       title: "Какво автоматизираме",
@@ -103,8 +102,6 @@ export const content = {
       cta: "Изпрати запитване",
     },
     cta: {
-      viewAutomations: "Виж всички автоматизации",
-      viewPricing: "Виж всички пакети",
       contactBanner: "Имаш въпрос или искаш оферта по мярка?",
       contactBannerCta: "Пиши ни",
     },
@@ -134,7 +131,6 @@ export const content = {
         { value: "<24h", label: "inquiry response" },
         { value: "24/7", label: "agents running" },
       ],
-      scrollCue: "Explore",
     },
     automations: {
       title: "What we automate",
@@ -214,8 +210,6 @@ export const content = {
       cta: "Send inquiry",
     },
     cta: {
-      viewAutomations: "View all automations",
-      viewPricing: "View all pricing",
       contactBanner: "Have a question or need a custom quote?",
       contactBannerCta: "Get in touch",
     },

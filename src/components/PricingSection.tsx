@@ -10,7 +10,6 @@ export default function PricingSection({
   teaser?: boolean;
 }) {
   const t = content[locale];
-  const href = locale === "bg" ? "/pricing" : "/en/pricing";
   const contactHref = locale === "bg" ? "/contact" : "/en/contact";
   const tiers = teaser
     ? t.pricing.tiers.filter((tier) => tier.highlighted)
@@ -72,17 +71,7 @@ export default function PricingSection({
             </div>
           ))}
         </ScrollReveal>
-        {teaser ? (
-          <div className="mt-10 text-center">
-            <Link
-              href={href}
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition hover:border-accent"
-            >
-              {t.cta.viewPricing}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
-        ) : (
+        {!teaser && (
           <p className="mt-8 text-center text-sm text-muted">{t.pricing.addonNote}</p>
         )}
       </div>
