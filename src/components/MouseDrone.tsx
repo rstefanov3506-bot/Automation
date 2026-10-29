@@ -23,8 +23,11 @@ export default function MouseDrone() {
 
     document.documentElement.classList.add("drone-cursor");
 
-    const xTo = gsap.quickTo(wrapRef.current, "x", { duration: 0.1, ease: "none" });
-    const yTo = gsap.quickTo(wrapRef.current, "y", { duration: 0.1, ease: "none" });
+    // quickSetter writes the transform directly with no tween/lerp at all,
+    // so the drone tracks the real cursor 1:1 - only the rotation/scale
+    // flourishes below stay eased for a bit of life.
+    const xTo = gsap.quickSetter(wrapRef.current, "x", "px");
+    const yTo = gsap.quickSetter(wrapRef.current, "y", "px");
 
     let lastX = window.innerWidth / 2;
     let lastY = window.innerHeight / 2;
@@ -45,7 +48,7 @@ export default function MouseDrone() {
         const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
         gsap.to(bodyRef.current, {
           rotate: gsap.utils.clamp(-25, 25, angle * 0.15),
-          duration: 0.12,
+          duration: 0.08,
           ease: "power2.out",
           overwrite: "auto",
         });

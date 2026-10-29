@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MouseDrone from "@/components/MouseDrone";
+import HeroParticles from "@/components/HeroParticles";
 
 export const metadata: Metadata = {
   title: "Noxlytics — AI automations for business",
@@ -26,8 +27,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
+        <div className="fixed inset-0 z-0">
+          <HeroParticles className="h-full w-full opacity-40" />
+        </div>
         <MouseDrone />
-        {children}
+        <div className="relative z-[1] flex min-h-full flex-1 flex-col">{children}</div>
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ import { content } from "@/lib/content";
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="flex min-h-screen flex-col text-foreground">
       <SiteHeader locale="en" altHref="/automations" />
       <PageSkeleton locale="en" title={content.en.automations.title} />
       <SiteFooter locale="en" />

@@ -5,8 +5,6 @@ import ScrollReveal from "./ScrollReveal";
 import IdleFloat from "./IdleFloat";
 import AuroraBackground from "./AuroraBackground";
 import TiltCard from "./TiltCard";
-import NeuralNetwork from "./NeuralNetwork";
-import HeroParticles from "./HeroParticles";
 import { content, brand, type Locale } from "@/lib/content";
 
 export default function HeroSection({ locale }: { locale: Locale }) {
@@ -19,7 +17,6 @@ export default function HeroSection({ locale }: { locale: Locale }) {
       <div className="bg-noise pointer-events-none absolute inset-0 z-[1]" />
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
       <AuroraBackground />
-      <HeroParticles className="absolute inset-0 z-[2] opacity-60" />
       <FloatingShapes />
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-2">
         <ScrollReveal stagger={0.12}>
@@ -63,7 +60,6 @@ export default function HeroSection({ locale }: { locale: Locale }) {
         <IdleFloat className="relative mx-auto w-full max-w-md">
           <div className="absolute -right-6 -top-6 h-40 w-40 rounded-full bg-accent/25 blur-3xl" />
           <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-sky-400/20 blur-3xl dark:bg-sky-500/20" />
-          <NeuralNetwork className="pointer-events-none absolute -right-20 -top-24 hidden h-56 w-72 opacity-80 sm:block" />
           <TiltCard>
             <AnimatedCard className="relative rounded-2xl border border-border bg-surface/90 p-6 shadow-2xl backdrop-blur">
               <div className="flex items-center justify-between">

@@ -7,7 +7,7 @@ import ContactSection from "@/components/ContactSection";
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="flex min-h-screen flex-col text-foreground">
       <SiteHeader locale="en" altHref="/" />
       <HeroSection locale="en" />
       <AutomationsSection locale="en" teaser />
