@@ -53,16 +53,16 @@ export const content = {
       tiers: [
         {
           name: "Starter",
-          build: "390 лв",
-          monthly: "99 лв/мес",
+          build: "199 €",
+          monthly: "49 €/мес",
           features: ["1 автоматизация", "Без табло", "Имейл отчети"],
           cta: "Избери Starter",
           highlighted: false,
         },
         {
           name: "Growth",
-          build: "990 лв",
-          monthly: "199 лв/мес",
+          build: "499 €",
+          monthly: "99 €/мес",
           features: [
             "2–3 автоматизации",
             "+ 1 бонус автоматизация",
@@ -73,8 +73,8 @@ export const content = {
         },
         {
           name: "Business",
-          build: "1990 лв",
-          monthly: "349 лв/мес",
+          build: "999 €",
+          monthly: "179 €/мес",
           features: [
             "4+ автоматизации",
             "Приоритетна поддръжка",
@@ -84,7 +84,7 @@ export const content = {
           highlighted: false,
         },
       ],
-      addonNote: "Custom интеграции (напр. Microinvest) — add-on от 790 лв.",
+      addonNote: "Custom интеграции (напр. Microinvest) — add-on от 399 €.",
     },
     contact: {
       title: "Готов за автоматизация?",
@@ -147,16 +147,16 @@ export const content = {
       tiers: [
         {
           name: "Starter",
-          build: "€200",
-          monthly: "€50/mo",
+          build: "€199",
+          monthly: "€49/mo",
           features: ["1 automation", "No dashboard", "Email reports"],
           cta: "Choose Starter",
           highlighted: false,
         },
         {
           name: "Growth",
-          build: "€500",
-          monthly: "€100/mo",
+          build: "€499",
+          monthly: "€99/mo",
           features: [
             "2–3 automations",
             "+ 1 bonus automation",
@@ -167,8 +167,8 @@ export const content = {
         },
         {
           name: "Business",
-          build: "€1000",
-          monthly: "€175/mo",
+          build: "€999",
+          monthly: "€179/mo",
           features: [
             "4+ automations",
             "Priority support",
@@ -178,7 +178,7 @@ export const content = {
           highlighted: false,
         },
       ],
-      addonNote: "Custom integrations (e.g. Microinvest) — add-on from €400.",
+      addonNote: "Custom integrations (e.g. Microinvest) — add-on from €399.",
     },
     contact: {
       title: "Ready to automate?",
