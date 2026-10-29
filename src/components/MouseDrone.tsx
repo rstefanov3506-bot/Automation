@@ -4,10 +4,11 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 // Replaces the system cursor with the automation-drone mascot so its
-// movement has a real, obvious logic — it follows the user's actual
-// mouse (smoothed with a touch of trailing lag) instead of an
-// arbitrary scroll-driven flight path. Only on devices with a real
-// mouse; left alone entirely on touch and for reduced-motion.
+// movement has a real, obvious logic - it follows the user's actual
+// mouse almost 1:1, with just enough smoothing to keep the tilt/wing
+// motion readable, instead of an arbitrary scroll-driven flight path.
+// Only on devices with a real mouse; left alone entirely on touch and
+// for reduced-motion.
 export default function MouseDrone() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -22,8 +23,8 @@ export default function MouseDrone() {
 
     document.documentElement.classList.add("drone-cursor");
 
-    const xTo = gsap.quickTo(wrapRef.current, "x", { duration: 0.45, ease: "power3" });
-    const yTo = gsap.quickTo(wrapRef.current, "y", { duration: 0.45, ease: "power3" });
+    const xTo = gsap.quickTo(wrapRef.current, "x", { duration: 0.1, ease: "none" });
+    const yTo = gsap.quickTo(wrapRef.current, "y", { duration: 0.1, ease: "none" });
 
     let lastX = window.innerWidth / 2;
     let lastY = window.innerHeight / 2;
@@ -44,8 +45,9 @@ export default function MouseDrone() {
         const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
         gsap.to(bodyRef.current, {
           rotate: gsap.utils.clamp(-25, 25, angle * 0.15),
-          duration: 0.3,
+          duration: 0.12,
           ease: "power2.out",
+          overwrite: "auto",
         });
       }
       lastX = e.clientX;

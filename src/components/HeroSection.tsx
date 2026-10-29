@@ -6,6 +6,7 @@ import IdleFloat from "./IdleFloat";
 import AuroraBackground from "./AuroraBackground";
 import TiltCard from "./TiltCard";
 import NeuralNetwork from "./NeuralNetwork";
+import HeroParticles from "./HeroParticles";
 import { content, brand, type Locale } from "@/lib/content";
 
 export default function HeroSection({ locale }: { locale: Locale }) {
@@ -18,6 +19,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
       <div className="bg-noise pointer-events-none absolute inset-0 z-[1]" />
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
       <AuroraBackground />
+      <HeroParticles className="absolute inset-0 z-[2] opacity-60" />
       <FloatingShapes />
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-2">
         <ScrollReveal stagger={0.12}>
