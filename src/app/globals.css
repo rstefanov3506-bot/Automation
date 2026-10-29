@@ -7,7 +7,7 @@
   --foreground: #0a0a0a;
   --surface: #ffffff;
   --border: rgba(10, 10, 10, 0.08);
-  --accent: #10b981;
+  --accent: #047857;
   --accent-contrast: #ffffff;
   --muted: #57534e;
 }
@@ -49,6 +49,10 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+p {
+  text-wrap: pretty;
+}
+
 h1,
 h2,
 h3 {
@@ -71,11 +75,10 @@ h3 {
   mix-blend-mode: overlay;
 }
 
+/* Solid accent color, not a gradient clip - gradient text reads as
+   decorative AI-template polish rather than meaning. */
 .gradient-text {
-  background: linear-gradient(100deg, var(--foreground), var(--accent) 85%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent);
 }
 
 /* The drone replaces the system cursor on devices with a real mouse.

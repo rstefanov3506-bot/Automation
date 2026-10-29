@@ -72,7 +72,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
                 </span>
                 <div>
                   <div className="text-xs font-semibold">Нов лийд</div>
-                  <div className="text-[11px] text-muted">Уеб форма · преди 2 мин</div>
+                  <div className="text-xs text-muted">Уеб форма · преди 2 мин</div>
                 </div>
               </div>
             </IdleFloat>
@@ -81,7 +81,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           <ParallaxFloat speed={0.2} className="absolute -bottom-8 -right-4 z-20 hidden sm:block">
             <IdleFloat>
               <div className="rounded-xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
-                <div className="text-[11px] text-muted">SEO трафик</div>
+                <div className="text-xs text-muted">SEO трафик</div>
                 <div className="mt-0.5 flex items-center gap-1 text-lg font-bold text-accent">
                   <span aria-hidden>▲</span> +24%
                 </div>
@@ -113,7 +113,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
                   >
                     <span className="text-sm font-medium">{row.label}</span>
                     <span className="flex items-center gap-1.5 text-xs font-medium text-accent">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                       {row.status}
                     </span>
                   </div>
