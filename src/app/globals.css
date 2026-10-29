@@ -77,3 +77,11 @@ h3 {
   background-clip: text;
   color: transparent;
 }
+
+/* The drone replaces the system cursor on devices with a real mouse.
+   Set once MouseDrone confirms hover+fine-pointer support, so touch
+   devices and reduced-motion keep their normal cursor. */
+html.drone-cursor,
+html.drone-cursor * {
+  cursor: none !important;
+}

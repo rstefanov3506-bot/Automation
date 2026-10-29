@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ScrollPointer from "@/components/ScrollPointer";
+import MouseDrone from "@/components/MouseDrone";
 
 export const metadata: Metadata = {
   title: "Noxlytics — AI automations for business",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
-        <ScrollPointer />
+        <MouseDrone />
         {children}
       </body>
     </html>

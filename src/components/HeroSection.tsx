@@ -33,7 +33,6 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               href={pricingHref}
-              data-drone-target
               className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast shadow-[0_8px_30px_-8px_var(--accent)] transition hover:scale-[1.03] hover:opacity-90"
             >
               {t.hero.ctaPrimary}
