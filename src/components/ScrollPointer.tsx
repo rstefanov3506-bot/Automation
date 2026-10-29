@@ -8,37 +8,50 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// A small AI-node marker that rides a fixed vertical track and travels
-// from top to bottom as the visitor scrolls through the whole page —
-// our answer to the "bee that moves as you scroll" reference, just with
-// an automation/node motif instead of a bee. Desktop only (there's no
-// room for a side rail on phones) and off entirely for reduced-motion.
+// Our take on the "bee that moves as you scroll" reference: a small
+// automation-node marker that drops into place on load, idles with a
+// gentle wobble, and rides a fixed track down the page as you scroll —
+// a persistent, clearly visible companion, not a background decoration.
+// Desktop only, and off entirely for reduced-motion.
 export default function ScrollPointer() {
-  const dotRef = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const nodeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!dotRef.current) return;
+    if (!wrapRef.current || !nodeRef.current) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = gsap.context(() => {
-      gsap.to(dotRef.current, {
-        rotate: 360,
-        duration: 9,
-        ease: "none",
+      // Drop-in entrance
+      gsap.fromTo(
+        nodeRef.current,
+        { y: -40, opacity: 0, scale: 0.6, rotate: -25 },
+        { y: 0, opacity: 1, scale: 1, rotate: 0, duration: 0.9, ease: "back.out(1.7)", delay: 0.3 }
+      );
+
+      // Idle wobble/sway, like a little creature keeping itself alive
+      gsap.to(nodeRef.current, {
+        rotate: 10,
+        x: 4,
+        duration: 2.2,
+        ease: "sine.inOut",
         repeat: -1,
+        yoyo: true,
+        delay: 1.2,
       });
 
+      // Vertical travel tied to whole-document scroll progress
       gsap.fromTo(
-        dotRef.current,
-        { top: "8%" },
+        wrapRef.current,
+        { top: "10%" },
         {
-          top: "92%",
+          top: "88%",
           ease: "none",
           scrollTrigger: {
             trigger: document.documentElement,
             start: "top top",
             end: "bottom bottom",
-            scrub: 0.4,
+            scrub: 0.5,
           },
         }
       );
@@ -50,27 +63,24 @@ export default function ScrollPointer() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed right-4 top-0 z-40 hidden h-screen w-10 lg:block xl:right-8"
+      className="pointer-events-none fixed inset-y-0 right-5 z-40 hidden w-16 lg:block xl:right-10"
     >
-      <div className="relative h-full w-full">
-        <div className="absolute left-1/2 top-[6%] bottom-[6%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
-        <div
-          ref={dotRef}
-          className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{ top: "8%" }}
-        >
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 24 24"
-            className="text-accent drop-shadow-[0_0_10px_var(--accent)]"
-          >
-            <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.45" />
-            <circle cx="12" cy="12" r="2.6" fill="currentColor" />
-            <circle cx="12" cy="3" r="1.3" fill="currentColor" />
-            <circle cx="21" cy="12" r="1.3" fill="currentColor" opacity="0.75" />
-            <circle cx="12" cy="21" r="1.3" fill="currentColor" opacity="0.5" />
-            <circle cx="3" cy="12" r="1.3" fill="currentColor" opacity="0.75" />
+      <div className="absolute left-1/2 top-[8%] bottom-[8%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
+      <div
+        ref={wrapRef}
+        className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{ top: "10%" }}
+      >
+        <div ref={nodeRef} className="relative">
+          <div className="absolute inset-0 -z-10 scale-150 rounded-full bg-accent/30 blur-xl" />
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="16" fill="var(--surface)" stroke="var(--accent)" strokeWidth="1.5" />
+            <circle cx="22" cy="22" r="5" fill="var(--accent)" />
+            <circle cx="22" cy="7" r="2.2" fill="var(--accent)" />
+            <circle cx="37" cy="22" r="2.2" fill="var(--accent)" opacity="0.8" />
+            <circle cx="22" cy="37" r="2.2" fill="var(--accent)" opacity="0.6" />
+            <circle cx="7" cy="22" r="2.2" fill="var(--accent)" opacity="0.8" />
+            <path d="M22 11v6M22 27v6M11 22h6M27 22h6" stroke="var(--accent)" strokeWidth="1.2" opacity="0.6" />
           </svg>
         </div>
       </div>

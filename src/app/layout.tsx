@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import TechParticles from "@/components/TechParticles";
 import ScrollPointer from "@/components/ScrollPointer";
 
 export const metadata: Metadata = {
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
-        <TechParticles />
         <ScrollPointer />
         {children}
       </body>
