@@ -12,7 +12,8 @@ export const content = {
     },
     hero: {
       eyebrow: "AI автоматизации за бизнеса",
-      title: "Агенти, които работят вместо теб",
+      title: "Агенти, които работят",
+      titleAccent: "вместо теб",
       subtitle:
         "Изграждаме и поддържаме AI автоматизации — лийдове, чатботове, SEO, счетоводни интеграции — с контролен панел, от който виждаш какво се случва.",
       ctaPrimary: "Виж пакетите",
@@ -58,6 +59,7 @@ export const content = {
           features: ["1 автоматизация", "Без табло", "Имейл отчети"],
           cta: "Избери Starter",
           highlighted: false,
+          badge: undefined as string | undefined,
         },
         {
           name: "Growth",
@@ -70,6 +72,7 @@ export const content = {
           ],
           cta: "Избери Growth",
           highlighted: true,
+          badge: "Най-избран",
         },
         {
           name: "Business",
@@ -82,6 +85,7 @@ export const content = {
           ],
           cta: "Избери Business",
           highlighted: false,
+          badge: undefined as string | undefined,
         },
       ],
       addonNote: "Custom интеграции (напр. Microinvest) — add-on от 399 €.",
@@ -106,7 +110,8 @@ export const content = {
     },
     hero: {
       eyebrow: "AI automations for business",
-      title: "Agents that work for you",
+      title: "Agents that work",
+      titleAccent: "for you",
       subtitle:
         "We build and run AI automations — leads, chatbots, SEO, accounting integrations — with a dashboard that shows you what's happening.",
       ctaPrimary: "See pricing",
@@ -152,6 +157,7 @@ export const content = {
           features: ["1 automation", "No dashboard", "Email reports"],
           cta: "Choose Starter",
           highlighted: false,
+          badge: undefined as string | undefined,
         },
         {
           name: "Growth",
@@ -164,6 +170,7 @@ export const content = {
           ],
           cta: "Choose Growth",
           highlighted: true,
+          badge: "Most popular",
         },
         {
           name: "Business",
@@ -176,6 +183,7 @@ export const content = {
           ],
           cta: "Choose Business",
           highlighted: false,
+          badge: undefined as string | undefined,
         },
       ],
       addonNote: "Custom integrations (e.g. Microinvest) — add-on from €399.",

@@ -4,6 +4,8 @@ import ThemeToggle from "./ThemeToggle";
 import FloatingShapes from "./FloatingShapes";
 import ScrollReveal from "./ScrollReveal";
 import IdleFloat from "./IdleFloat";
+import AuroraBackground from "./AuroraBackground";
+import TiltCard from "./TiltCard";
 import { content, brand, type Locale } from "@/lib/content";
 
 export default function HomePage({ locale }: { locale: Locale }) {
@@ -46,16 +48,19 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
+        <div className="bg-noise pointer-events-none absolute inset-0 z-[1]" />
         <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
+        <AuroraBackground />
         <FloatingShapes />
-        <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 pb-24 pt-20 lg:grid-cols-2 lg:pt-28">
+        <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 pb-24 pt-20 lg:grid-cols-2 lg:pt-28">
           <ScrollReveal stagger={0.12}>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-muted">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 text-sm font-medium text-muted backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {t.hero.eyebrow}
             </p>
-            <h1 className="max-w-xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-              {t.hero.title}
+            <h1 className="max-w-xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              {t.hero.title}{" "}
+              <span className="gradient-text">{t.hero.titleAccent}</span>
             </h1>
             <p className="mt-6 max-w-md text-lg text-muted">
               {t.hero.subtitle}
@@ -63,7 +68,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="#pricing"
-                className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast transition hover:opacity-90"
+                className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast shadow-[0_8px_30px_-8px_var(--accent)] transition hover:scale-[1.03] hover:opacity-90"
               >
                 {t.hero.ctaPrimary}
               </a>
@@ -78,37 +83,40 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
           {/* Dashboard preview mock */}
           <IdleFloat className="relative mx-auto w-full max-w-md">
-            <div className="absolute -right-6 -top-6 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
-            <AnimatedCard className="relative rounded-2xl border border-border bg-surface p-6 shadow-xl">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-muted">
-                  {brand} · dashboard
-                </span>
-                <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-accent" />
-                </div>
-              </div>
-              <div className="mt-6 space-y-3">
-                {[
-                  { label: "Lead capture", status: "active" },
-                  { label: "WhatsApp assistant", status: "active" },
-                  { label: "SEO reports", status: "running" },
-                ].map((row) => (
-                  <div
-                    key={row.label}
-                    className="flex items-center justify-between rounded-xl border border-border bg-background px-4 py-3"
-                  >
-                    <span className="text-sm font-medium">{row.label}</span>
-                    <span className="flex items-center gap-1.5 text-xs font-medium text-accent">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-                      {row.status}
-                    </span>
+            <div className="absolute -right-6 -top-6 h-40 w-40 rounded-full bg-accent/25 blur-3xl" />
+            <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-sky-400/20 blur-3xl dark:bg-sky-500/20" />
+            <TiltCard>
+              <AnimatedCard className="relative rounded-2xl border border-border bg-surface/90 p-6 shadow-2xl backdrop-blur">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-muted">
+                    {brand} · dashboard
+                  </span>
+                  <div className="flex gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-accent" />
                   </div>
-                ))}
-              </div>
-            </AnimatedCard>
+                </div>
+                <div className="mt-6 space-y-3">
+                  {[
+                    { label: "Lead capture", status: "active" },
+                    { label: "WhatsApp assistant", status: "active" },
+                    { label: "SEO reports", status: "running" },
+                  ].map((row) => (
+                    <div
+                      key={row.label}
+                      className="flex items-center justify-between rounded-xl border border-border bg-background px-4 py-3"
+                    >
+                      <span className="text-sm font-medium">{row.label}</span>
+                      <span className="flex items-center gap-1.5 text-xs font-medium text-accent">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                        {row.status}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedCard>
+            </TiltCard>
           </IdleFloat>
         </div>
       </section>
@@ -144,12 +152,17 @@ export default function HomePage({ locale }: { locale: Locale }) {
             {t.pricing.tiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`flex flex-col rounded-2xl border p-8 ${
+                className={`flex flex-col rounded-2xl border p-8 transition hover:-translate-y-1 ${
                   tier.highlighted
-                    ? "border-accent bg-background shadow-lg ring-1 ring-accent"
-                    : "border-border bg-background"
+                    ? "border-accent bg-background shadow-[0_20px_60px_-15px_var(--accent)] ring-1 ring-accent md:scale-105"
+                    : "border-border bg-background hover:border-accent/50"
                 }`}
               >
+                {tier.badge && (
+                  <span className="mb-4 inline-block w-fit rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-contrast">
+                    {tier.badge}
+                  </span>
+                )}
                 <h3 className="text-lg font-semibold">{tier.name}</h3>
                 <div className="mt-4">
                   <span className="text-3xl font-bold">{tier.build}</span>
