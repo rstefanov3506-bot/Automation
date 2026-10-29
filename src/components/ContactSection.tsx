@@ -1,4 +1,5 @@
 import { content, type Locale } from "@/lib/content";
+import ContactForm from "./ContactForm";
 
 export default function ContactSection({
   locale,
@@ -15,12 +16,10 @@ export default function ContactSection({
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
           {t.cta.contactBanner}
         </h2>
-        <a
-          href="mailto:hello@noxlytics.com"
-          className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast transition hover:opacity-90"
-        >
-          {t.cta.contactBannerCta}
-        </a>
+        <p className="mx-auto mt-3 max-w-md text-muted">{t.contact.subtitle}</p>
+        <div className="mt-8">
+          <ContactForm locale={locale} />
+        </div>
       </section>
     );
   }
@@ -29,12 +28,9 @@ export default function ContactSection({
     <section id="contact" className="mx-auto w-full max-w-6xl px-6 py-24 text-center">
       <h2 className="text-3xl font-bold tracking-tight">{t.contact.title}</h2>
       <p className="mt-3 text-muted">{t.contact.subtitle}</p>
-      <a
-        href="mailto:hello@noxlytics.com"
-        className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast transition hover:opacity-90"
-      >
-        {t.contact.cta}
-      </a>
+      <div className="mt-8">
+        <ContactForm locale={locale} />
+      </div>
     </section>
   );
 }
