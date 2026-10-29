@@ -18,7 +18,7 @@ export default function PricingSection({
   return (
     <section
       id="pricing"
-      className={`border-y border-border bg-surface ${teaser ? "py-20" : "py-24"}`}
+      className={`border-y border-border bg-surface/60 backdrop-blur-sm ${teaser ? "py-20" : "py-24"}`}
     >
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="text-center">
