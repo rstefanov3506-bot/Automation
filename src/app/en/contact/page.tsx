@@ -1,13 +1,13 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import ContactSection from "@/components/ContactSection";
+import PageSkeleton from "@/components/PageSkeleton";
+import { content } from "@/lib/content";
 
 export default function Page() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <SiteHeader locale="en" altHref="/contact" />
-      <div className="h-10" />
-      <ContactSection locale="en" />
+      <PageSkeleton locale="en" title={content.en.contact.title} />
       <SiteFooter locale="en" />
     </div>
   );

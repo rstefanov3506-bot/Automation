@@ -1,15 +1,13 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import AutomationsSection from "@/components/AutomationsSection";
-import ContactSection from "@/components/ContactSection";
+import PageSkeleton from "@/components/PageSkeleton";
+import { content } from "@/lib/content";
 
 export default function Page() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <SiteHeader locale="en" altHref="/automations" />
-      <div className="h-6" />
-      <AutomationsSection locale="en" />
-      <ContactSection locale="en" teaser />
+      <PageSkeleton locale="en" title={content.en.automations.title} />
       <SiteFooter locale="en" />
     </div>
   );
