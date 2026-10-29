@@ -1,6 +1,9 @@
 import Link from "next/link";
 import AnimatedCard from "./AnimatedCard";
 import ThemeToggle from "./ThemeToggle";
+import FloatingShapes from "./FloatingShapes";
+import ScrollReveal from "./ScrollReveal";
+import IdleFloat from "./IdleFloat";
 import { content, brand, type Locale } from "@/lib/content";
 
 export default function HomePage({ locale }: { locale: Locale }) {
@@ -44,8 +47,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
+        <FloatingShapes />
         <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 pb-24 pt-20 lg:grid-cols-2 lg:pt-28">
-          <div>
+          <ScrollReveal stagger={0.12}>
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-muted">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {t.hero.eyebrow}
@@ -70,10 +74,10 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 {t.hero.ctaSecondary}
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Dashboard preview mock */}
-          <div className="relative mx-auto w-full max-w-md">
+          <IdleFloat className="relative mx-auto w-full max-w-md">
             <div className="absolute -right-6 -top-6 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
             <AnimatedCard className="relative rounded-2xl border border-border bg-surface p-6 shadow-xl">
               <div className="flex items-center justify-between">
@@ -105,7 +109,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 ))}
               </div>
             </AnimatedCard>
-          </div>
+          </IdleFloat>
         </div>
       </section>
 
@@ -114,7 +118,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
         <h2 className="text-center text-3xl font-bold tracking-tight">
           {t.automations.title}
         </h2>
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ScrollReveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {t.automations.items.map((item) => (
             <AnimatedCard
               key={item.name}
@@ -124,7 +128,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
               <p className="mt-2 text-sm text-muted">{item.desc}</p>
             </AnimatedCard>
           ))}
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Pricing */}
@@ -136,7 +140,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
             </h2>
             <p className="mt-3 text-muted">{t.pricing.subtitle}</p>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <ScrollReveal className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {t.pricing.tiers.map((tier) => (
               <div
                 key={tier.name}
@@ -172,7 +176,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 </a>
               </div>
             ))}
-          </div>
+          </ScrollReveal>
           <p className="mt-8 text-center text-sm text-muted">
             {t.pricing.addonNote}
           </p>
