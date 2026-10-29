@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import MobileNav from "./MobileNav";
 import { content, brand, type Locale } from "@/lib/content";
 
 export default function SiteHeader({
@@ -31,7 +32,7 @@ export default function SiteHeader({
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="hidden items-center gap-3 md:flex">
           <Link
             href={altHref}
             className="text-sm font-medium text-muted transition hover:text-foreground"
@@ -46,6 +47,13 @@ export default function SiteHeader({
             {t.nav.cta}
           </Link>
         </div>
+        <MobileNav
+          links={t.nav.links}
+          altHref={altHref}
+          altLabel={altLocale.toUpperCase()}
+          contactHref={contactHref}
+          ctaLabel={t.nav.cta}
+        />
       </div>
     </header>
   );
