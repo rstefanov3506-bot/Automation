@@ -9,10 +9,12 @@ if (typeof window !== "undefined") {
 }
 
 // Our answer to the "bee that flies across the page as you scroll"
-// reference: a sizeable automation-drone mascot with fluttering wings
-// that weaves left-right and travels down the page as the whole
-// document scrolls — not a thin side-rail dot. Desktop only, off for
-// reduced-motion.
+// reference: a small automation-drone mascot that hovers next to the
+// next clickable button on the page — hero CTA, then the highlighted
+// pricing plan, then the contact button — and travels from one to the
+// next as you scroll, instead of following an arbitrary path. Any
+// element can opt in with a `data-drone-target` attribute. Desktop
+// only, off for reduced-motion.
 export default function ScrollPointer() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -23,15 +25,15 @@ export default function ScrollPointer() {
     if (!wrapRef.current || !bodyRef.current) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    let flightTween: gsap.core.Tween | undefined;
+
     const ctx = gsap.context(() => {
-      // Entrance
       gsap.fromTo(
         bodyRef.current,
         { scale: 0.4, opacity: 0, rotate: -20 },
         { scale: 1, opacity: 1, rotate: 0, duration: 0.8, ease: "back.out(2)", delay: 0.4 }
       );
 
-      // Fast wing flutter
       [wingLRef.current, wingRRef.current].forEach((wing) => {
         if (!wing) return;
         gsap.to(wing, {
@@ -44,7 +46,6 @@ export default function ScrollPointer() {
         });
       });
 
-      // Idle bob + tilt while "hovering"
       gsap.to(bodyRef.current, {
         y: -8,
         rotate: 6,
@@ -54,44 +55,69 @@ export default function ScrollPointer() {
         yoyo: true,
         delay: 1.2,
       });
+    });
 
-      // Flight path: weaves left/right and travels top-to-bottom across
-      // the whole document's scroll progress. `end` is computed fresh on
-      // every ScrollTrigger.refresh() so late-loading content (fonts,
-      // images) that changes page height doesn't leave this stuck near
-      // the top.
-      gsap.to(wrapRef.current, {
-        keyframes: {
-          "0%": { top: "12%", left: "84%" },
-          "20%": { top: "28%", left: "18%" },
-          "40%": { top: "46%", left: "74%" },
-          "60%": { top: "62%", left: "14%" },
-          "80%": { top: "78%", left: "66%" },
-          "100%": { top: "90%", left: "10%" },
-        },
+    // Builds (or rebuilds) the flight path from the live position of
+    // every [data-drone-target] element on the current page. Uses
+    // document-space coordinates (absolute positioning) so the marker
+    // scrolls naturally with the page instead of needing per-frame
+    // recalculation against the viewport.
+    function buildFlight() {
+      if (!wrapRef.current) return;
+      const targets = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-drone-target]")
+      );
+      flightTween?.scrollTrigger?.kill();
+      flightTween?.kill();
+      if (targets.length === 0) return;
+
+      const docHeight = document.documentElement.scrollHeight;
+      const viewportH = window.innerHeight;
+      const scrollable = Math.max(docHeight - viewportH, 1);
+
+      const keyframes: Record<string, { top: string; left: string }> = {
+        "0%": { top: "18%", left: "84%" },
+      };
+
+      targets.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const docTop = rect.top + window.scrollY;
+        const docCenterX = rect.left + window.scrollX + rect.width / 2;
+        // Scroll position at which this button sits roughly mid-viewport.
+        const scrollAtTarget = Math.min(
+          Math.max(docTop - viewportH * 0.55, 0),
+          scrollable
+        );
+        const pct = ((scrollAtTarget / scrollable) * 100).toFixed(2);
+        keyframes[`${pct}%`] = {
+          top: `${Math.round(docTop - 64)}px`,
+          left: `${Math.round(docCenterX + 110)}px`,
+        };
+      });
+
+      flightTween = gsap.to(wrapRef.current, {
+        keyframes,
         ease: "none",
         scrollTrigger: {
           trigger: document.documentElement,
           start: "top top",
           end: () => document.documentElement.scrollHeight - window.innerHeight,
           scrub: 0.6,
-          invalidateOnRefresh: true,
         },
       });
-    });
+    }
 
-    // Page height can still be settling after fonts/images load, which
-    // leaves the scroll range stale — force a recalculation once things
-    // have had a moment to finish.
-    const refresh = () => ScrollTrigger.refresh();
-    window.addEventListener("load", refresh);
-    const t1 = setTimeout(refresh, 400);
-    const t2 = setTimeout(refresh, 1200);
+    const t1 = setTimeout(buildFlight, 350);
+    const t2 = setTimeout(buildFlight, 1200);
+    const onLoad = () => buildFlight();
+    window.addEventListener("load", onLoad);
 
     return () => {
-      window.removeEventListener("load", refresh);
+      window.removeEventListener("load", onLoad);
       clearTimeout(t1);
       clearTimeout(t2);
+      flightTween?.scrollTrigger?.kill();
+      flightTween?.kill();
       ctx.revert();
     };
   }, []);
@@ -100,8 +126,8 @@ export default function ScrollPointer() {
     <div
       aria-hidden
       ref={wrapRef}
-      className="pointer-events-none fixed z-40 hidden -translate-x-1/2 -translate-y-1/2 lg:block"
-      style={{ top: "12%", left: "84%" }}
+      className="pointer-events-none absolute z-40 hidden -translate-x-1/2 -translate-y-1/2 lg:block"
+      style={{ top: "18%", left: "84%" }}
     >
       <div ref={bodyRef} className="relative">
         <div className="absolute inset-0 -z-10 scale-[2.4] rounded-full bg-accent/25 blur-2xl" />

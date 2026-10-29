@@ -60,6 +60,7 @@ export default function PricingSection({
               </ul>
               <Link
                 href={contactHref}
+                data-drone-target={tier.highlighted ? true : undefined}
                 className={`mt-8 rounded-full px-5 py-3 text-center text-sm font-semibold transition ${
                   tier.highlighted
                     ? "bg-accent text-accent-contrast hover:opacity-90"

@@ -17,6 +17,7 @@ export default function ContactSection({
         </h2>
         <a
           href="mailto:hello@noxlytics.com"
+          data-drone-target
           className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast transition hover:opacity-90"
         >
           {t.cta.contactBannerCta}
