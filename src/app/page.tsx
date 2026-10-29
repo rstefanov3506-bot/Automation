@@ -11,7 +11,7 @@ export default function Page() {
       <SiteHeader locale="bg" altHref="/en" />
       <HeroSection locale="bg" />
       <AutomationsSection locale="bg" teaser />
-      <PricingSection locale="bg" teaser />
+      <PricingSection locale="bg" />
       <ContactSection locale="bg" teaser />
       <SiteFooter locale="bg" />
     </div>
