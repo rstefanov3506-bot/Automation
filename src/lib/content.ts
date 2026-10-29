@@ -4,9 +4,9 @@ export const content = {
   bg: {
     nav: {
       links: [
-        { label: "Автоматизации", href: "#automations" },
-        { label: "Пакети", href: "#pricing" },
-        { label: "Контакти", href: "#contact" },
+        { label: "Автоматизации", href: "/automations" },
+        { label: "Пакети", href: "/pricing" },
+        { label: "Контакти", href: "/contact" },
       ],
       cta: "Запитване",
     },
@@ -18,9 +18,16 @@ export const content = {
         "Изграждаме и поддържаме AI автоматизации — лийдове, чатботове, SEO, счетоводни интеграции — с контролен панел, от който виждаш какво се случва.",
       ctaPrimary: "Виж пакетите",
       ctaSecondary: "Запитване",
+      stats: [
+        { value: "6+", label: "вида автоматизации" },
+        { value: "<24ч", label: "отговор на запитване" },
+        { value: "24/7", label: "работещи агенти" },
+      ],
+      scrollCue: "Разгледай",
     },
     automations: {
       title: "Какво автоматизираме",
+      subtitle: "Шест категории автоматизации, които покриват най-честите тесни места в бизнеса.",
       items: [
         {
           name: "Лийдове / CRM",
@@ -95,6 +102,12 @@ export const content = {
       subtitle: "Пиши ни и ще се свържем до 1 работен ден.",
       cta: "Изпрати запитване",
     },
+    cta: {
+      viewAutomations: "Виж всички автоматизации",
+      viewPricing: "Виж всички пакети",
+      contactBanner: "Имаш въпрос или искаш оферта по мярка?",
+      contactBannerCta: "Пиши ни",
+    },
     footer: {
       rights: "Всички права запазени.",
     },
@@ -102,9 +115,9 @@ export const content = {
   en: {
     nav: {
       links: [
-        { label: "Automations", href: "#automations" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "Contact", href: "#contact" },
+        { label: "Automations", href: "/en/automations" },
+        { label: "Pricing", href: "/en/pricing" },
+        { label: "Contact", href: "/en/contact" },
       ],
       cta: "Get in touch",
     },
@@ -116,9 +129,16 @@ export const content = {
         "We build and run AI automations — leads, chatbots, SEO, accounting integrations — with a dashboard that shows you what's happening.",
       ctaPrimary: "See pricing",
       ctaSecondary: "Get in touch",
+      stats: [
+        { value: "6+", label: "automation types" },
+        { value: "<24h", label: "inquiry response" },
+        { value: "24/7", label: "agents running" },
+      ],
+      scrollCue: "Explore",
     },
     automations: {
       title: "What we automate",
+      subtitle: "Six categories of automation covering the most common bottlenecks in a growing business.",
       items: [
         {
           name: "Leads / CRM",
@@ -192,6 +212,12 @@ export const content = {
       title: "Ready to automate?",
       subtitle: "Reach out and we'll get back within 1 business day.",
       cta: "Send inquiry",
+    },
+    cta: {
+      viewAutomations: "View all automations",
+      viewPricing: "View all pricing",
+      contactBanner: "Have a question or need a custom quote?",
+      contactBannerCta: "Get in touch",
     },
     footer: {
       rights: "All rights reserved.",

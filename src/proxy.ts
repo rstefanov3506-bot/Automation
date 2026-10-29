@@ -1,19 +1,24 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// .com visitors see the English homepage at "/", .bg visitors see Bulgarian.
-// Both domains point at this same deployment (see README for DNS setup).
+// Bulgarian routes live at the root; English mirrors each one under /en.
+// .com visitors get rewritten from the bg path to its /en equivalent,
+// .bg visitors see the bg path as-is. Both domains point at this same
+// deployment (see README for DNS setup).
+const BG_ROUTES = ["/", "/automations", "/pricing", "/contact"];
+
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
   const { pathname } = request.nextUrl;
 
-  if (pathname === "/" && host.includes(".com")) {
-    return NextResponse.rewrite(new URL("/en", request.url));
+  if (host.includes(".com") && BG_ROUTES.includes(pathname)) {
+    const target = pathname === "/" ? "/en" : `/en${pathname}`;
+    return NextResponse.rewrite(new URL(target, request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/"],
+  matcher: ["/", "/automations", "/pricing", "/contact"],
 };

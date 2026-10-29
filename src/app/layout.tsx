@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import TechParticles from "@/components/TechParticles";
+import ScrollPointer from "@/components/ScrollPointer";
 
 export const metadata: Metadata = {
   title: "Noxlytics — AI automations for business",
@@ -24,7 +26,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <TechParticles />
+        <ScrollPointer />
+        {children}
+      </body>
     </html>
   );
 }
