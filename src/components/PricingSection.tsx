@@ -40,7 +40,7 @@ export default function PricingSection({
               }`}
             >
               {tier.badge && (
-                <span className="mb-4 inline-block w-fit rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-contrast">
+                <span className="mb-4 inline-block w-fit rounded-full bg-ember px-3 py-1 text-xs font-semibold text-ember-contrast">
                   {tier.badge}
                 </span>
               )}

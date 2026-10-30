@@ -14,6 +14,8 @@
      separate gray - one ink carries both roles instead of two unrelated
      neutrals, same contrast level as the old #57534e (~7:1). */
   --muted: rgba(10, 10, 10, 0.68);
+  --ember: #f5b544;
+  --ember-contrast: #0a0d12;
 }
 
 .dark {
@@ -35,6 +37,8 @@
   --color-accent: var(--accent);
   --color-accent-contrast: var(--accent-contrast);
   --color-muted: var(--muted);
+  --color-ember: var(--ember);
+  --color-ember-contrast: var(--ember-contrast);
   --font-sans: "Onest Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo,

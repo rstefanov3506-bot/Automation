@@ -100,6 +100,11 @@ CSS custom properties, redefined under `.dark`:
   Cyrillic; deliberately not Sofia Sans (cyberninjas' signature). Not
   `next/font/google` - that fetches from Google at build time, which the
   sandbox blocks.
+- `--ember` `#f5b544` / `--ember-contrast` `#0a0d12` (same in both themes,
+  Tailwind `bg-ember text-ember-contrast`): the brand's rare warm accent.
+  Currently used ONLY on the pricing "most popular" badge. Fill only, never
+  as text on light backgrounds (fails contrast); keep it to one element
+  per screen.
 - Mono: **JetBrains Mono Variable** (`@fontsource-variable/jetbrains-mono`,
   `--font-mono`). Functional only: `.label-mono` (uppercase 12px 500
   +0.08em) for eyebrows, plus step numbers (01-04), dashboard title,
