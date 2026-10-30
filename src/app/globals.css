@@ -37,6 +37,8 @@
   --color-muted: var(--muted);
   --font-sans: "Onest Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
 }
 
 html {
@@ -121,6 +123,16 @@ h3 {
     inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
     0 20px 60px -15px rgba(var(--accent-rgb), 0.25),
     0 4px 16px -4px rgba(var(--accent-rgb), 0.15);
+}
+
+/* Functional label (brand guidelines): JetBrains Mono, uppercase, 12px,
+   weight 500, +0.08em tracking. For eyebrows and statuses, never body. */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* Goal tabs: short fade when the panel content switches. */

@@ -100,6 +100,10 @@ CSS custom properties, redefined under `.dark`:
   Cyrillic; deliberately not Sofia Sans (cyberninjas' signature). Not
   `next/font/google` - that fetches from Google at build time, which the
   sandbox blocks.
+- Mono: **JetBrains Mono Variable** (`@fontsource-variable/jetbrains-mono`,
+  `--font-mono`). Functional only: `.label-mono` (uppercase 12px 500
+  +0.08em) for eyebrows, plus step numbers (01-04), dashboard title,
+  statuses and timestamps in the hero mock. Never for headings or body.
 - `.edge-light` = 1px inset top highlight on cards (light/dark variants,
   combined variant with `.shadow-accent`). Applied to automations/trust
   cards, hero dashboard, goals panel, ROI card. Do not add it to elements

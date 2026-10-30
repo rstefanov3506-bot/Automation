@@ -34,7 +34,7 @@ export default function GoalsSection({ locale }: { locale: Locale }) {
   return (
     <section id="goals" className="mx-auto w-full max-w-6xl px-6 py-20">
       <div className="text-center">
-        <p className="text-sm font-medium text-accent">{t.eyebrow}</p>
+        <p className="label-mono text-accent">{t.eyebrow}</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight">{t.title}</h2>
         <p className="mx-auto mt-3 max-w-xl text-muted">{t.subtitle}</p>
       </div>
@@ -97,13 +97,13 @@ export default function GoalsSection({ locale }: { locale: Locale }) {
                     />
                   )}
                   <span
-                    className={`relative z-[1] flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-sm font-semibold ${
+                    className={`relative z-[1] flex h-8 w-8 shrink-0 items-center justify-center rounded-full border font-mono text-xs font-semibold ${
                       i === tab.steps.length - 1
                         ? "border-accent bg-accent text-accent-contrast"
                         : "border-border bg-background text-accent"
                     }`}
                   >
-                    {i + 1}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="pt-1">{step}</span>
                 </li>

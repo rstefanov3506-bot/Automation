@@ -20,7 +20,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
       <AuroraBackground />
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-2">
         <ScrollReveal stagger={0.12}>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 text-sm font-medium text-muted backdrop-blur">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 label-mono text-muted backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             {t.hero.eyebrow}
           </p>
@@ -69,7 +69,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
               </span>
               <div>
                 <div className="text-xs font-semibold">Нов лийд</div>
-                <div className="text-xs text-muted">Уеб форма · преди 2 мин</div>
+                <div className="font-mono text-xs text-muted">Уеб форма · преди 2 мин</div>
               </div>
             </div>
           </ParallaxFloat>
@@ -86,7 +86,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           <TiltCard>
             <AnimatedCard className="relative edge-light rounded-2xl border border-border bg-surface/90 p-6 shadow-accent backdrop-blur">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-muted">
+                <span className="font-mono text-xs font-medium text-muted">
                   {brand} · dashboard
                 </span>
                 <div className="flex gap-1.5">
@@ -106,7 +106,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
                     className="flex items-center justify-between rounded-xl border border-border bg-background px-4 py-3"
                   >
                     <span className="text-sm font-medium">{row.label}</span>
-                    <span className="flex items-center gap-1.5 text-xs font-medium text-accent">
+                    <span className="flex items-center gap-1.5 font-mono text-xs font-medium text-accent">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                       {row.status}
                     </span>
