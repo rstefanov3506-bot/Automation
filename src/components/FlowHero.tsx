@@ -389,7 +389,7 @@ export default function FlowHero({ locale }: { locale: Locale }) {
         <i />
         {t.tags.result}
       </div>
-      <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-border bg-background/85 px-4 py-3 backdrop-blur sm:inset-x-auto sm:left-5 sm:bottom-5 sm:max-w-[70%]">
+      <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-border bg-background/95 px-4 py-3 sm:inset-x-auto sm:left-5 sm:bottom-5 sm:max-w-[70%]">
         <div className="label-mono text-accent">
           {caption.scenario + 1}/{t.scenarios.length} · {sc.name}
         </div>
