@@ -120,7 +120,9 @@ CSS custom properties, redefined under `.dark`:
 ## Brand assets
 
 - Logo (Path N draft): `brand/logo/` - SVG symbol/lockup (dark+light),
-  16px-grid favicon SVG, preview PNG; rebuild with
+  favicon SVG (full 3-node symbol on a rounded Nox Night tile - Rumen's
+  explicit choice on 2026-10-30 over the simplified N, despite the nodes
+  blurring at 16px; offered a hybrid, not chosen yet), preview PNG; rebuild with
   `node brand/logo/generate.mjs <outdir>` (needs opentype.js +
   @fontsource/onest in a scratch dir). Still a draft pending Rumen's sign-off
   (open question: drop the bottom-left node so it reads less like a note).

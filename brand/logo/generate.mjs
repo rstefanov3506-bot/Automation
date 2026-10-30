@@ -22,7 +22,7 @@ function symbol(t, { stroke = 2.5, node = 2.9, hollowStroke = 2 } = {}) {
     `<path d="${d}" fill="none" stroke="${t.line}" stroke-width="${stroke}" stroke-linecap="round" stroke-linejoin="round"/>`,
     `<circle cx="${P.x1}" cy="${P.bottom}" r="${node}" fill="${t.bg}" stroke="${t.line}" stroke-width="${hollowStroke}"/>`,
     `<circle cx="${mid.x}" cy="${mid.y}" r="${node}" fill="${t.bg}" stroke="${t.line}" stroke-width="${hollowStroke}"/>`,
-    `<circle cx="${P.x2}" cy="${P.top}" r="${node + 0.3}" fill="${t.accent}"/>`,
+    `<circle cx="${P.x2}" cy="${P.top}" r="${+(node + 0.3).toFixed(2)}" fill="${t.accent}"/>`,
   ].join("\n  ");
 }
 
@@ -34,17 +34,16 @@ for (const [name, t] of Object.entries(C)) {
   fs.writeFileSync(`${OUT}/noxlytics-symbol-${name}.svg`, svg("0 0 24 24", symbol(t), "Noxlytics"));
 }
 
-// 2. Favicon: 16-unit grid, tile background so it works on any tab color,
-// middle node dropped (illegible at 16px), heavier stroke.
+// 2. Favicon: the full symbol (all three nodes) on a rounded Nox Night tile,
+// as Rumen chose - same look as the apple icon. Scaled to 80% around the
+// centre so the nodes keep clear of the tile edge.
 {
   const t = C.dark;
-  const f = { x1: 4.5, x2: 11.5, top: 4, bottom: 12 };
   const body = [
-    `<rect width="16" height="16" rx="3.5" fill="${t.bg}"/>`,
-    `<path d="M${f.x1} ${f.bottom}V${f.top}L${f.x2} ${f.bottom}V${f.top}" fill="none" stroke="${t.line}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
-    `<circle cx="${f.x2}" cy="${f.top}" r="2" fill="${t.accent}"/>`,
+    `<rect width="24" height="24" rx="5" fill="${t.bg}"/>`,
+    `<g transform="translate(12 12) scale(0.8) translate(-12 -12)">\n  ${symbol(t)}\n  </g>`,
   ].join("\n  ");
-  fs.writeFileSync(`${OUT}/noxlytics-favicon.svg`, svg("0 0 16 16", body, "Noxlytics"));
+  fs.writeFileSync(`${OUT}/noxlytics-favicon.svg`, svg("0 0 24 24", body, "Noxlytics"));
 }
 
 // 3. Lockup: symbol + "noxlytics" wordmark converted to outlines (Onest 600,
