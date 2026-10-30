@@ -231,6 +231,12 @@ CSS custom properties, redefined under `.dark`:
   imports first: many need `motion/react`, `ogl`, `three` or
   `@hugeicons/react` - prefer zero-dependency ones or port to GSAP, which
   we already ship. Nothing installed into the site yet.
+- **seo-audit** (`.agents/skills/seo-audit/`, symlinked into
+  `.claude/skills/`; from coreyhaines31/marketingskills via `npx skills add`,
+  tracked in `skills-lock.json`). Markdown only (SKILL.md + references incl.
+  local SEO / Google Business Profile, title tags, international SEO with a
+  Next.js hreflang caveat); reviewed 2026-10-30, no scripts. Overlaps the
+  session-level `marketing:seo-audit`; prefer this one inside the repo.
 - Considered but **not installed**: GSAP AI Skills (deferred, not
   requested again since).
 
