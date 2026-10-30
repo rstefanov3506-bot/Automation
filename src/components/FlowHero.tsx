@@ -374,7 +374,7 @@ export default function FlowHero({ locale }: { locale: Locale }) {
       ref={wrapRef}
       role="img"
       aria-label={t.ariaLabel}
-      className="flow-hero edge-light relative aspect-square w-full overflow-hidden rounded-3xl border border-border bg-surface/70 shadow-accent sm:aspect-[5/4] lg:aspect-square"
+      className="flow-hero edge-light relative aspect-square w-full overflow-hidden rounded-3xl border border-border bg-surface shadow-accent sm:aspect-[5/4] lg:aspect-square"
     >
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" aria-hidden="true" />
       <div ref={triggerRef} className="flow-tag" data-state="idle" aria-hidden="true">
