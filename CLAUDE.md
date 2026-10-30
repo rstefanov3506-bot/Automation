@@ -91,12 +91,23 @@ CSS custom properties, redefined under `.dark`:
   that should read as the "lifted focal point" (highlighted pricing
   tier, hero dashboard mock) — don't apply it everywhere, it's meant to
   be rare.
+- Font: **Onest Variable**, self-hosted via `@fontsource-variable/onest`
+  (imported in `layout.tsx`, first in `--font-sans`). Chosen for proper
+  Cyrillic; deliberately not Sofia Sans (cyberninjas' signature). Not
+  `next/font/google` - that fetches from Google at build time, which the
+  sandbox blocks.
+- `.edge-light` = 1px inset top highlight on cards (light/dark variants,
+  combined variant with `.shadow-accent`). Applied to automations/trust
+  cards, hero dashboard, goals panel, ROI card. Do not add it to elements
+  using Tailwind `ring-*` (both use box-shadow, they clobber each other).
 - Headings (`h1/h2/h3`) are `font-semibold` (600) sitewide, not
   `font-bold` — hierarchy comes from size. Price/stat *figures* (not
   headings) keep `font-bold` for emphasis.
 
 ## Site structure
 
+- Homepage order: Hero -> GoalsSection (intent tabs) -> Automations teaser
+  -> Trust -> RoiCalculator -> Pricing teaser -> Contact teaser.
 - `/`, `/automations`, `/pricing`, `/contact` (Bulgarian, primary) +
   `/en/*` mirrors. Content lives in `src/lib/content.ts` (bg/en objects,
   manually duplicated — not a keyed i18n system; fine for now, a future
@@ -141,6 +152,12 @@ CSS custom properties, redefined under `.dark`:
 
 ## History (chronological, most recent first)
 
+- Applied cyberninjas-derived *patterns* (not styling): `GoalsSection`
+  (4 goal tabs -> concrete automation flow -> pricing/contact CTAs, ARIA
+  tablist with arrow keys, CSS fade, no scroll-jacking) and `RoiCalculator`
+  (hours/week x hourly value x automatable share vs the highlighted tier's
+  build+monthly price parsed from content.ts; client-side only, honest
+  "estimate, not a promise" note). Plus Onest font and `.edge-light`.
 - Manually extracted cyberninjas.ai (direct BG competitor) design language
   via Claude-in-Chrome into `design-references/cyberninjas.md`. Reference
   only: its palette/Sofia Sans are deliberately NOT adopted (too close to a

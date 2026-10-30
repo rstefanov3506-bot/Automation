@@ -13,7 +13,7 @@ export default function TrustSection({ locale }: { locale: Locale }) {
 
       <ScrollReveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
         {t.steps.map((step) => (
-          <div key={step.title} className="rounded-2xl border border-border bg-surface p-6">
+          <div key={step.title} className="edge-light rounded-2xl border border-border bg-surface p-6">
             <h3 className="text-sm font-semibold text-accent">{step.title}</h3>
             <p className="mt-2 text-sm text-muted">{step.desc}</p>
           </div>

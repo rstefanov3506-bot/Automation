@@ -27,7 +27,7 @@ export default function AutomationsSection({
         {items.map((item) => (
           <AnimatedCard
             key={item.name}
-            className="rounded-2xl border border-border bg-surface p-6"
+            className="edge-light rounded-2xl border border-border bg-surface p-6"
           >
             <h3 className="text-base font-semibold">{item.name}</h3>
             <p className="mt-2 text-sm text-muted">{item.desc}</p>

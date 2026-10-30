@@ -84,7 +84,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           </ParallaxFloat>
 
           <TiltCard>
-            <AnimatedCard className="relative rounded-2xl border border-border bg-surface/90 p-6 shadow-accent backdrop-blur">
+            <AnimatedCard className="relative edge-light rounded-2xl border border-border bg-surface/90 p-6 shadow-accent backdrop-blur">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-muted">
                   {brand} · dashboard

@@ -35,7 +35,7 @@
   --color-accent: var(--accent);
   --color-accent-contrast: var(--accent-contrast);
   --color-muted: var(--muted);
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+  --font-sans: "Onest Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -98,6 +98,64 @@ h3 {
 /* The drone replaces the system cursor on devices with a real mouse.
    Set once MouseDrone confirms hover+fine-pointer support, so touch
    devices and reduced-motion keep their normal cursor. */
+/* Thin light edge along the top of a card - a 1px inset highlight that
+   makes surfaces read as slightly raised. Paired with the existing border,
+   no extra shadow. Light mode uses white, dark mode a faint white. */
+.edge-light {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+.dark .edge-light {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+}
+
+.shadow-accent.edge-light {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9),
+    0 20px 60px -15px rgba(var(--accent-rgb), 0.25),
+    0 4px 16px -4px rgba(var(--accent-rgb), 0.15);
+}
+
+.dark .shadow-accent.edge-light {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
+    0 20px 60px -15px rgba(var(--accent-rgb), 0.25),
+    0 4px 16px -4px rgba(var(--accent-rgb), 0.15);
+}
+
+/* Goal tabs: short fade when the panel content switches. */
+.goal-panel {
+  animation: goal-panel-in 0.35s ease both;
+}
+
+@keyframes goal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .goal-panel {
+    animation: none;
+  }
+}
+
+/* ROI calculator sliders use the brand accent instead of browser blue. */
+.roi-range {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* Keep in-page anchor jumps clear of the sticky header. */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 html.drone-cursor,
 html.drone-cursor * {
   cursor: none !important;
