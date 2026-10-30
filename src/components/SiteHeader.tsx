@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import MobileNav from "./MobileNav";
+import LogoMark from "./LogoMark";
 import { content, brand, type Locale } from "@/lib/content";
 
 export default function SiteHeader({
@@ -18,8 +19,13 @@ export default function SiteHeader({
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href={home} className="text-lg font-semibold tracking-tight">
-          {brand}
+        <Link
+          href={home}
+          aria-label={brand}
+          className="flex items-center gap-2 text-lg font-semibold tracking-tight"
+        >
+          <LogoMark className="h-7 w-7" />
+          <span className="lowercase">{brand}</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-muted md:flex">
           {t.nav.links.map((l) => (

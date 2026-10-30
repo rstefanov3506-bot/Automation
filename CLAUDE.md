@@ -124,6 +124,11 @@ CSS custom properties, redefined under `.dark`:
   `node brand/logo/generate.mjs <outdir>` (needs opentype.js +
   @fontsource/onest in a scratch dir). Still a draft pending Rumen's sign-off
   (open question: drop the bottom-left node so it reads less like a note).
+- On-site logo: `src/components/LogoMark.tsx` - inline, theme-aware SVG
+  (line = currentColor, result node = `--accent`, hollow nodes filled with
+  `--background`) + lowercase `noxlytics` text in Onest, used in
+  `SiteHeader` (28px) and `SiteFooter` (20px). Keep its geometry in sync with
+  `brand/logo/generate.mjs` if the symbol changes.
 - Share/icons: `node brand/og/generate.mjs` (repo root) renders
   `src/app/opengraph-image.png`, `src/app/en/opengraph-image.png`,
   `apple-icon.png`, `favicon.ico` (hand-built ICO, 16/32/48) and copies
