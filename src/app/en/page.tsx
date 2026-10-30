@@ -13,14 +13,14 @@ import ContactSection from "@/components/ContactSection";
 export const metadata: Metadata = {
   title: "Noxlytics — AI automations for business",
   description:
-    "Noxlytics builds and runs AI automations — leads, chatbots, SEO, accounting integrations — with a dashboard that shows you what's happening.",
+    "Noxlytics builds and runs AI automations — SEO content, social media, inquiries and chatbots — with a dashboard that shows you what's happening.",
   openGraph: {
     type: "website",
     siteName: "Noxlytics",
     locale: "en_US",
     title: "Noxlytics — agents that work for you",
     description:
-      "AI automations for small businesses: leads, chatbots, SEO and accounting integrations, with a dashboard to keep control.",
+      "AI automations for small businesses: SEO content, social media, inquiries and chatbots, with a dashboard to keep control.",
   },
 };
 

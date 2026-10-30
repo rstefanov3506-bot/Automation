@@ -171,8 +171,7 @@ CSS custom properties, redefined under `.dark`:
   chips. Deliberately labelled "tools we connect" (NOT client logos - we have
   no clients yet, same honesty rule as testimonials) and rendered as our own
   name chips, no third-party logo artwork. Dot colors = AI (accent) /
-  automation (pop) / business tools (muted), with a legend. Includes Econt,
-  Speedy, Microinvest as local differentiators, plus social networks (pink dot).
+  automation (pop) / business tools (muted) / social (pink), with a legend.
   Brand logos (e.g. from simpleicons.org) were requested and declined: no
   third-party trademark logos in the site, name chips only.
 - Homepage order: Hero -> IntegrationsMarquee -> GoalsSection (intent tabs) -> Automations teaser
@@ -181,7 +180,16 @@ CSS custom properties, redefined under `.dark`:
   `/en/*` mirrors. Content lives in `src/lib/content.ts` (bg/en objects,
   manually duplicated — not a keyed i18n system; fine for now, a future
   maintenance risk if copy drifts).
-- **Only the homepage is fully built.** `/automations`, `/pricing`,
+- **Service scope (Rumen, 2026-10-30):** NO Econt, Speedy, Microinvest or
+  CRM-system work - he hasn't built them and won't promise them. Leads =
+  simple n8n flows (form -> sheet -> Viber alert -> follow-up email). Removed
+  from all copy, goals tab 3 (now "content on autopilot"), hero flow scenario
+  2 (now "new article"), marquee and metadata. Don't reintroduce them.
+- Automations catalogue lives in `content.automations.items` (6 areas, each
+  `name/desc/list`). Homepage = teaser (3 examples per area + "see all"),
+  `/automations` + `/en/automations` = full lists + contact form (filled
+  2026-10-30 at Rumen's request).
+- `/pricing` and
   `/contact` are still `PageSkeleton` placeholders — **this is
   intentional**, Rumen explicitly deferred filling them in
   ("после ще ги пълним със съдържание"). Don't "fix" this unprompted;

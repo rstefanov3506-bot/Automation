@@ -15,7 +15,7 @@ export const content = {
       title: "Агенти, които работят",
       titleAccent: "вместо теб",
       subtitle:
-        "Изграждаме и поддържаме AI автоматизации — лийдове, чатботове, SEO, счетоводни интеграции — с контролен панел, от който виждаш какво се случва.",
+        "Изграждаме и поддържаме AI автоматизации — SEO съдържание, социални мрежи, запитвания и чатботове — с контролен панел, от който виждаш какво се случва.",
       ctaPrimary: "Виж пакетите",
       ctaSecondary: "Запитване",
       stats: [
@@ -29,8 +29,8 @@ export const content = {
       tags: { trigger: "Задействане", agent: "Агент", result: "Резултат" },
       done: "Готово, без ръчна работа",
       scenarios: [
-        { name: "Нов лийд от сайта", steps: ["Запитване от уеб формата", "Записва в CRM с източника", "Viber до теб до минута"] },
-        { name: "Нова поръчка", steps: ["Поръчка в онлайн магазина", "Товарителница в Econt", "Имейл с номер за проследяване"] },
+        { name: "Нов лийд от сайта", steps: ["Запитване от уеб формата", "Записва в таблица с източника", "Viber до теб до минута"] },
+        { name: "Нова статия", steps: ["Тема от плана за съдържание", "SEO статия със снимки", "Публикувана в блога и в мрежите"] },
         { name: "Понеделник 08:00", steps: ["Данни от магазина и рекламите", "Обобщение на седмицата", "Отчетът е изпратен"] },
       ],
     },
@@ -50,7 +50,7 @@ export const content = {
           result: "Виждаш всяко запитване веднага, а клиентът получава отговор дори когато си зает.",
           steps: [
             "Запитване от сайта, Facebook или Instagram",
-            "Записва се в CRM заедно с източника",
+            "Записва се в таблица заедно с източника",
             "Известие до теб във Viber до минута",
             "Автоматичен follow-up имейл, ако няма отговор",
           ],
@@ -67,14 +67,14 @@ export const content = {
           ],
         },
         {
-          label: "По-малко ръчна работа",
-          headline: "Поръчката сама стига до куриера и счетоводството",
-          result: "Без преписване между системи и без пропусната товарителница.",
+          label: "Съдържание на автопилот",
+          headline: "Блогът и мрежите се пълнят сами",
+          result: "Редовно съдържание за Google и социалните мрежи, без да пишеш всеки ден.",
           steps: [
-            "Нова поръчка в онлайн магазина",
-            "Товарителница в Econt или Speedy",
-            "Синхронизация с Microinvest",
-            "Имейл до клиента с номер за проследяване",
+            "Тема от месечния план за съдържание",
+            "SEO статия със снимки, публикувана в WordPress",
+            "Публикации за Facebook, Instagram и LinkedIn",
+            "Отчет за позициите в края на месеца",
           ],
         },
         {
@@ -82,7 +82,7 @@ export const content = {
           headline: "Цифрите идват при теб, не ти при тях",
           result: "Знаеш как върви бизнесът, без да отваряш пет различни системи.",
           steps: [
-            "Данни от магазина, рекламите и CRM",
+            "Данни от магазина, рекламите и запитванията",
             "Обобщение всеки понеделник сутрин",
             "Изпращане по имейл или Viber",
             "Сигнал, ако нещо падне под нормалното",
@@ -109,31 +109,78 @@ export const content = {
     },
     automations: {
       title: "Какво автоматизираме",
-      subtitle: "Шест категории автоматизации, които покриват най-честите тесни места в бизнеса.",
+      subtitle: "Шест направления с конкретни автоматизации. Започваме с това, което ти отнема най-много време.",
+      seeAll: "Виж всички автоматизации",
       items: [
         {
-          name: "Лийдове / CRM",
-          desc: "Захващане на запитвания, автоматично разпределение, follow-up имейли и SMS.",
-        },
-        {
-          name: "AI асистенти / чатботове",
-          desc: "Чатбот на сайта, WhatsApp/Viber бот, вътрешен Q&A асистент.",
-        },
-        {
-          name: "SEO / съдържание",
-          desc: "Автоматична генерация на статии, вътрешно линкуване, отчети за позиции.",
-        },
-        {
-          name: "Счетоводство / логистика",
-          desc: "Econt/Speedy товарителници, Microinvest синхронизация.",
+          name: "Съдържание и SEO",
+          desc: "Статии и съдържание, които работят за позициите в Google.",
+          list: [
+            "SEO статии за блога: тема, ключови думи, текст, снимки, публикуване в WordPress",
+            "Обновяване на стари статии, които губят позиции",
+            "Автоматично вътрешно линкуване между статиите",
+            "Мета заглавия и описания за всички страници",
+            "Продуктови описания за WooCommerce",
+            "Превод на съдържание на други езици",
+            "Месечен отчет за позициите в Google",
+          ],
         },
         {
           name: "Социални мрежи",
-          desc: "Планиране и публикуване на съдържание в социалните канали.",
+          desc: "Редовни публикации, без да мислиш всеки ден какво да пуснеш.",
+          list: [
+            "Публикации за Facebook, Instagram и LinkedIn от всяка нова статия",
+            "Месечен календар с планирани публикации",
+            "Визии към публикациите",
+            "Кратки видеа и reels от статия или продукт",
+            "Отговори на коментари и съобщения с твое одобрение",
+            "Известие, когато някой спомене бранда ти",
+          ],
         },
         {
-          name: "Отчети / нотификации",
-          desc: "Периодични обобщения за бизнеса — имейл, Slack или Viber.",
+          name: "Запитвания и лийдове",
+          desc: "Нито едно запитване не се губи и не чака.",
+          list: [
+            "Захващане на запитвания от сайта и Facebook Lead Ads",
+            "Записване в таблица заедно с източника",
+            "Известие до теб във Viber до минута",
+            "Follow-up имейл, ако клиентът не отговори",
+            "Записване на срещи директно в календара",
+          ],
+        },
+        {
+          name: "AI асистенти и чатботове",
+          desc: "Отговорите на честите въпроси спират да зависят от теб.",
+          list: [
+            "Чатбот на сайта, който отговаря от твоите цени и ЧЗВ",
+            "Бот за Viber, WhatsApp и Messenger",
+            "Вътрешен асистент, който отговаря по фирмените документи",
+            "Приемане на резервации и часове",
+            "Транскрипция и резюме на срещи и аудио",
+          ],
+        },
+        {
+          name: "Онлайн магазин",
+          desc: "Поръчките и клиентите се движат без ръчна намеса.",
+          list: [
+            "Известие до теб при нова поръчка",
+            "Имейл до клиента при промяна на статуса",
+            "Сигнал при изчерпване на наличност",
+            "Напомняне за изоставена количка",
+            "Молба за отзив след доставка",
+          ],
+        },
+        {
+          name: "Отчети и администрация",
+          desc: "Цифрите и рутинните задачи идват подредени при теб.",
+          list: [
+            "Седмичен отчет за продажби и реклами",
+            "Сигнал, ако рекламите харчат без резултат",
+            "Разчитане на фактури от имейл и въвеждане в таблица",
+            "Сортиране на входящата поща по приоритет",
+            "Протокол и задачи от онлайн срещи",
+            "Напомняне за неплатени фактури",
+          ],
         },
       ],
     },
@@ -147,7 +194,7 @@ export const content = {
         },
         {
           title: "2. Изграждане",
-          desc: "Свързваме инструментите, които вече ползваш (Econt, Microinvest, WhatsApp/Viber и др.) с automation-а.",
+          desc: "Свързваме инструментите, които вече ползваш (WordPress, Gmail, Viber, WhatsApp и др.) с автоматизацията.",
         },
         {
           title: "3. Поддръжка",
@@ -209,7 +256,7 @@ export const content = {
           badge: undefined as string | undefined,
         },
       ],
-      addonNote: "Custom интеграции (напр. Microinvest) — add-on от 399 €.",
+      addonNote: "Интеграции със специфични системи — add-on от 399 €, след проверка на достъпа.",
     },
     contact: {
       title: "Готов за автоматизация?",
@@ -255,7 +302,7 @@ export const content = {
       title: "Agents that work",
       titleAccent: "for you",
       subtitle:
-        "We build and run AI automations — leads, chatbots, SEO, accounting integrations — with a dashboard that shows you what's happening.",
+        "We build and run AI automations — SEO content, social media, inquiries and chatbots — with a dashboard that shows you what's happening.",
       ctaPrimary: "See pricing",
       ctaSecondary: "Get in touch",
       stats: [
@@ -269,8 +316,8 @@ export const content = {
       tags: { trigger: "Trigger", agent: "Agent", result: "Result" },
       done: "Done, no manual work",
       scenarios: [
-        { name: "New lead from the site", steps: ["Inquiry from the web form", "Logged in the CRM with its source", "Viber alert to you within a minute"] },
-        { name: "New order", steps: ["Order in the online store", "Shipping label in Econt", "Email with a tracking number"] },
+        { name: "New lead from the site", steps: ["Inquiry from the web form", "Logged in a sheet with its source", "Viber alert to you within a minute"] },
+        { name: "New article", steps: ["Topic from the content plan", "SEO article with images", "Published on the blog and socials"] },
         { name: "Monday 08:00", steps: ["Data from the store and ads", "Weekly summary", "Report delivered"] },
       ],
     },
@@ -290,7 +337,7 @@ export const content = {
           result: "You see every inquiry instantly, and the client gets a reply even when you're busy.",
           steps: [
             "Inquiry from your site, Facebook or Instagram",
-            "Logged in the CRM with its source",
+            "Logged in a sheet with its source",
             "Viber alert to you within a minute",
             "Automatic follow-up email if there's no reply",
           ],
@@ -307,14 +354,14 @@ export const content = {
           ],
         },
         {
-          label: "Less manual work",
-          headline: "Orders reach the courier and accounting on their own",
-          result: "No retyping between systems and no missed shipping labels.",
+          label: "Content on autopilot",
+          headline: "Your blog and socials fill themselves",
+          result: "Regular content for Google and social media without writing every day.",
           steps: [
-            "New order in your online store",
-            "Shipping label in Econt or Speedy",
-            "Sync with Microinvest",
-            "Email to the client with a tracking number",
+            "Topic from the monthly content plan",
+            "SEO article with images, published to WordPress",
+            "Posts for Facebook, Instagram and LinkedIn",
+            "Rankings report at the end of the month",
           ],
         },
         {
@@ -322,7 +369,7 @@ export const content = {
           headline: "The numbers come to you, not the other way round",
           result: "You know how the business is doing without opening five systems.",
           steps: [
-            "Data from your store, ads and CRM",
+            "Data from your store, ads and inquiries",
             "A summary every Monday morning",
             "Delivered by email or Viber",
             "An alert if something drops below normal",
@@ -349,31 +396,78 @@ export const content = {
     },
     automations: {
       title: "What we automate",
-      subtitle: "Six categories of automation covering the most common bottlenecks in a growing business.",
+      subtitle: "Six areas with concrete automations. We start with whatever takes most of your time.",
+      seeAll: "See all automations",
       items: [
         {
-          name: "Leads / CRM",
-          desc: "Inquiry capture, automatic routing, follow-up emails and SMS.",
-        },
-        {
-          name: "AI assistants / chatbots",
-          desc: "Website chatbot, WhatsApp/Viber bot, internal Q&A assistant.",
-        },
-        {
-          name: "SEO / content",
-          desc: "Automated article generation, internal linking, ranking reports.",
-        },
-        {
-          name: "Accounting / logistics",
-          desc: "Econt/Speedy waybills, Microinvest sync.",
+          name: "Content & SEO",
+          desc: "Articles and content that work for your Google rankings.",
+          list: [
+            "Blog SEO articles: topic, keywords, text, images, published to WordPress",
+            "Refreshing old articles that are losing rankings",
+            "Automatic internal linking between articles",
+            "Meta titles and descriptions for every page",
+            "Product descriptions for WooCommerce",
+            "Translating content into other languages",
+            "Monthly Google rankings report",
+          ],
         },
         {
           name: "Social media",
-          desc: "Scheduling and publishing content across social channels.",
+          desc: "Regular posts without deciding every day what to publish.",
+          list: [
+            "Facebook, Instagram and LinkedIn posts from every new article",
+            "Monthly calendar of scheduled posts",
+            "Visuals for the posts",
+            "Short videos and reels from an article or product",
+            "Replies to comments and messages, with your approval",
+            "An alert when someone mentions your brand",
+          ],
         },
         {
-          name: "Reports / notifications",
-          desc: "Periodic business summaries — email, Slack or Viber.",
+          name: "Inquiries & leads",
+          desc: "No inquiry gets lost or left waiting.",
+          list: [
+            "Capturing inquiries from your site and Facebook Lead Ads",
+            "Logging them in a sheet with their source",
+            "A Viber alert to you within a minute",
+            "A follow-up email if the client doesn't reply",
+            "Booking meetings straight into your calendar",
+          ],
+        },
+        {
+          name: "AI assistants & chatbots",
+          desc: "Answers to common questions stop depending on you.",
+          list: [
+            "A site chatbot that answers from your prices and FAQ",
+            "A bot for Viber, WhatsApp and Messenger",
+            "An internal assistant that answers from company documents",
+            "Taking reservations and appointments",
+            "Transcripts and summaries of meetings and audio",
+          ],
+        },
+        {
+          name: "Online store",
+          desc: "Orders and customers move without manual work.",
+          list: [
+            "An alert to you on every new order",
+            "An email to the customer when the order status changes",
+            "An alert when stock runs out",
+            "Abandoned-cart reminders",
+            "A review request after delivery",
+          ],
+        },
+        {
+          name: "Reports & admin",
+          desc: "Numbers and routine tasks arrive sorted.",
+          list: [
+            "Weekly sales and ads report",
+            "An alert when ads spend without results",
+            "Reading invoices from email into a sheet",
+            "Sorting the inbox by priority",
+            "Minutes and tasks from online meetings",
+            "Reminders for unpaid invoices",
+          ],
         },
       ],
     },
@@ -387,7 +481,7 @@ export const content = {
         },
         {
           title: "2. Build",
-          desc: "We connect the tools you already use (Econt, Microinvest, WhatsApp/Viber, etc.) to the automation.",
+          desc: "We connect the tools you already use (WordPress, Gmail, Viber, WhatsApp, etc.) to the automation.",
         },
         {
           title: "3. Support",
@@ -449,7 +543,7 @@ export const content = {
           badge: undefined as string | undefined,
         },
       ],
-      addonNote: "Custom integrations (e.g. Microinvest) — add-on from €399.",
+      addonNote: "Integrations with specific systems — add-on from €399, after checking access.",
     },
     contact: {
       title: "Ready to automate?",
