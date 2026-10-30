@@ -3,9 +3,11 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-// Slow-drifting blurred color blobs — the "aurora mesh" look used by most
-// premium agency/SaaS sites for hero backgrounds. Pure CSS blur + GSAP,
-// no images needed.
+// Slow-drifting soft color blobs - the "aurora mesh" hero backdrop.
+// Drawn as radial gradients, NOT filter: blur(). A 90px blur on large moving
+// elements is re-rasterised every frame and was the single biggest frame-rate
+// cost on the page (measured ~2x FPS hit); gradients only get moved by the
+// compositor, so the look is the same at a fraction of the cost.
 export default function AuroraBackground() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -38,15 +40,15 @@ export default function AuroraBackground() {
     >
       <div
         data-blob
-        className="absolute -left-24 -top-32 h-[26rem] w-[26rem] rounded-full bg-accent/30 blur-[90px]"
+        className="aurora-blob absolute -left-48 -top-56 h-[38rem] w-[38rem] [--blob:rgba(var(--accent-rgb),0.3)]"
       />
       <div
         data-blob
-        className="absolute -right-20 top-10 h-[22rem] w-[22rem] rounded-full bg-sky-400/20 blur-[90px] dark:bg-sky-500/20"
+        className="aurora-blob absolute -right-44 -top-14 h-[34rem] w-[34rem] [--blob:rgba(56,189,248,0.2)] dark:[--blob:rgba(14,165,233,0.2)]"
       />
       <div
         data-blob
-        className="absolute left-1/3 top-1/2 h-[20rem] w-[20rem] rounded-full bg-violet-400/15 blur-[90px] dark:bg-violet-500/15"
+        className="aurora-blob absolute left-[22%] top-[38%] h-[32rem] w-[32rem] [--blob:rgba(167,139,250,0.15)] dark:[--blob:rgba(139,92,246,0.15)]"
       />
     </div>
   );

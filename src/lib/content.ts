@@ -24,6 +24,16 @@ export const content = {
         { value: "24/7", label: "работещи агенти" },
       ],
     },
+    flow: {
+      ariaLabel: "Анимация: заявка преминава през AI агент и завършва с резултат",
+      tags: { trigger: "Задействане", agent: "Агент", result: "Резултат" },
+      done: "Готово, без ръчна работа",
+      scenarios: [
+        { name: "Нов лийд от сайта", steps: ["Запитване от уеб формата", "Записва в CRM с източника", "Viber до теб до минута"] },
+        { name: "Нова поръчка", steps: ["Поръчка в онлайн магазина", "Товарителница в Econt", "Имейл с номер за проследяване"] },
+        { name: "Понеделник 08:00", steps: ["Данни от магазина и рекламите", "Обобщение на седмицата", "Отчетът е изпратен"] },
+      ],
+    },
     goals: {
       eyebrow: "Започни от целта",
       title: "Какво искаш да постигнеш?",
@@ -247,6 +257,16 @@ export const content = {
         { value: "6+", label: "automation types" },
         { value: "<24h", label: "inquiry response" },
         { value: "24/7", label: "agents running" },
+      ],
+    },
+    flow: {
+      ariaLabel: "Animation: a request passes through an AI agent and ends in a result",
+      tags: { trigger: "Trigger", agent: "Agent", result: "Result" },
+      done: "Done, no manual work",
+      scenarios: [
+        { name: "New lead from the site", steps: ["Inquiry from the web form", "Logged in the CRM with its source", "Viber alert to you within a minute"] },
+        { name: "New order", steps: ["Order in the online store", "Shipping label in Econt", "Email with a tracking number"] },
+        { name: "Monday 08:00", steps: ["Data from the store and ads", "Weekly summary", "Report delivered"] },
       ],
     },
     goals: {

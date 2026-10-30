@@ -139,6 +139,53 @@ h3 {
   text-transform: uppercase;
 }
 
+/* Aurora blob: soft radial gradient instead of filter blur (see
+   AuroraBackground). Color comes from the --blob custom property. */
+.aurora-blob {
+  border-radius: 999px;
+  background: radial-gradient(closest-side, var(--blob), transparent);
+  will-change: transform;
+}
+
+/* Hero flow (FlowHero): node labels positioned by the canvas layout. */
+.flow-tag {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--background) 85%, transparent);
+  border: 1px solid var(--border);
+  transition: color 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.flow-tag i {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.flow-tag[data-state="on"] {
+  color: var(--foreground);
+  border-color: rgba(var(--accent-rgb), 0.55);
+}
+
+.flow-tag[data-state="done"] {
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
 /* Goal tabs: short fade when the panel content switches. */
 .goal-panel {
   animation: goal-panel-in 0.35s ease both;

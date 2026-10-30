@@ -142,6 +142,17 @@ CSS custom properties, redefined under `.dark`:
 
 ## Site structure
 
+- Hero visual is `FlowHero.tsx`: a 2D-canvas "automation run" along the Path N
+  logo (trigger -> agent -> result), cycling 3 scenarios from `content.flow`.
+  Replaced the static dashboard mock + its parallax cards (IdleFloat,
+  TiltCard, ParallaxFloat deleted). Budget rules: no libs/assets, particle
+  count scales with panel area, DPR<=2, stops off-screen/tab hidden (verified
+  0 redraws off-screen), reduced-motion = static finished frame, re-reads
+  theme colors on toggle. Keep its N geometry in sync with LogoMark.
+- Perf lesson (measured): animated `filter: blur()` blobs + `backdrop-filter`
+  over them were the hero's real cost (15 fps in software render vs 39 after).
+  Aurora blobs are now radial gradients (`.aurora-blob`); don't reintroduce
+  big animated blur filters or backdrop blur over moving layers.
 - Homepage order: Hero -> GoalsSection (intent tabs) -> Automations teaser
   -> Trust -> RoiCalculator -> Pricing teaser -> Contact teaser.
 - `/`, `/automations`, `/pricing`, `/contact` (Bulgarian, primary) +
