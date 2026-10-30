@@ -81,12 +81,17 @@ CSS custom properties, redefined under `.dark`:
   `#0a0d12`, `--surface` `#141922` (blue-tinted night, deliberately not
   cyberninjas' green-black). Contrast checked: text 17.8:1, muted 7.8:1,
   accent 10.1:1 on background. Light mode unchanged.
-- `--accent` is WCAG-AA-passing emerald (`#047857` light / `#34d399`
-  dark) — computed via a one-off Node contrast-ratio script, don't
-  revert to a lighter/brighter green without re-checking contrast.
+- **Palette = "Nox Sunrise"** (chosen by Rumen 2026-10-30, replacing the
+  emerald look he found too dull): `--accent` orange `#c2410c` light /
+  `#ff8a4c` dark (`--accent-contrast` `#fff` / `#1a0b02`); aurora blobs
+  orange + pink `rgba(236,72,153)` + violet `rgba(139,92,246)`. All AA:
+  dark accent 8.3:1 on bg, ink on accent button 8.2:1, light accent 5.0:1 on
+  paper, white on light accent 5.2:1. Re-check contrast before any change.
 - `--muted` is the foreground ink at reduced opacity
   (`rgba(fg, 0.68)` light / `0.65` dark), **not** a separate gray hex —
   jeton.com-inspired single-ink pattern, same contrast as before (~7:1).
+- Hero h1 is plain solid text (the old ScrollFillHeading outline-until-scroll
+  effect was deleted: it made the key line hard to read).
 - `.gradient-text` is a **solid** accent color, not an actual gradient
   (deliberate — gradient-clip text reads as generic AI-template
   polish). Misleading class name, intentionally kept.
@@ -95,16 +100,19 @@ CSS custom properties, redefined under `.dark`:
   that should read as the "lifted focal point" (highlighted pricing
   tier, hero dashboard mock) — don't apply it everywhere, it's meant to
   be rare.
-- Font: **Onest Variable**, self-hosted via `@fontsource-variable/onest`
+- Headings h1-h3: **Rubik Variable** via `--font-display`
+  (`@fontsource-variable/rubik`), warmer/rounder, normal Bulgarian letterforms.
+  Unbounded was tried and rejected - with lang="bg" it renders Bulgarian
+  cursive-style forms and the hero line became unreadable.
+- Body font: **Onest Variable**, self-hosted via `@fontsource-variable/onest`
   (imported in `layout.tsx`, first in `--font-sans`). Chosen for proper
   Cyrillic; deliberately not Sofia Sans (cyberninjas' signature). Not
   `next/font/google` - that fetches from Google at build time, which the
   sandbox blocks.
-- `--ember` `#f5b544` / `--ember-contrast` `#0a0d12` (same in both themes,
-  Tailwind `bg-ember text-ember-contrast`): the brand's rare warm accent.
-  Currently used ONLY on the pricing "most popular" badge. Fill only, never
-  as text on light backgrounds (fails contrast); keep it to one element
-  per screen.
+- `--pop` `#a78bfa` / `--pop-contrast` `#1e1033` (both themes, Tailwind
+  `bg-pop text-pop-contrast`, 6.6:1): rare secondary accent, replaced the
+  amber `--ember` once orange became the main accent. Used ONLY on the pricing
+  "most popular" badge. Fill only, never as text on light (2.6:1).
 - Mono: **JetBrains Mono Variable** (`@fontsource-variable/jetbrains-mono`,
   `--font-mono`). Functional only: `.label-mono` (uppercase 12px 500
   +0.08em) for eyebrows, plus step numbers (01-04), dashboard title,

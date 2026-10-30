@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/onest";
 import "@fontsource-variable/jetbrains-mono";
+import "@fontsource-variable/rubik";
 import "./globals.css";
 import MouseDrone from "@/components/MouseDrone";
 import SiteBackground from "@/components/SiteBackground";

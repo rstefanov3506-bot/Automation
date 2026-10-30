@@ -34,6 +34,8 @@ const copy = {
 };
 
 const fonts = `
+@font-face{font-family:Head;font-weight:300 900;src:url(${nm("@fontsource-variable/rubik/files/rubik-cyrillic-wght-normal.woff2")}) format("woff2");unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Head;font-weight:300 900;src:url(${nm("@fontsource-variable/rubik/files/rubik-latin-wght-normal.woff2")}) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2192}
 @font-face{font-family:Onest;font-weight:100 900;src:url(${nm("@fontsource-variable/onest/files/onest-cyrillic-wght-normal.woff2")}) format("woff2");unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:Onest;font-weight:100 900;src:url(${nm("@fontsource-variable/onest/files/onest-latin-wght-normal.woff2")}) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2192}
 @font-face{font-family:Mono;font-weight:100 800;src:url(${nm("@fontsource-variable/jetbrains-mono/files/jetbrains-mono-cyrillic-wght-normal.woff2")}) format("woff2");unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
@@ -47,17 +49,17 @@ function ogHtml(c) {
   return `<!doctype html><html><head><meta charset="utf-8"><style>${fonts}
 *{box-sizing:border-box;margin:0}
 body{width:1200px;height:630px;background:#0A0D12;color:#F2F4F7;font-family:Onest;position:relative;overflow:hidden}
-.glow{position:absolute;width:760px;height:760px;left:-260px;top:-360px;border-radius:50%;background:radial-gradient(closest-side,rgba(52,211,153,.22),transparent)}
-.glow2{position:absolute;width:620px;height:620px;right:-160px;bottom:-320px;border-radius:50%;background:radial-gradient(closest-side,rgba(56,189,248,.10),transparent)}
+.glow{position:absolute;width:760px;height:760px;left:-260px;top:-360px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,138,76,.22),transparent)}
+.glow2{position:absolute;width:620px;height:620px;right:-160px;bottom:-320px;border-radius:50%;background:radial-gradient(closest-side,rgba(139,92,246,.18),transparent)}
 .grid{position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 0);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 30% 40%,#000,transparent)}
 .wrap{position:absolute;inset:0;padding:64px 72px;display:flex;flex-direction:column}
 .lockup svg{height:46px;width:auto;display:block}
-.label{margin-top:auto;font-family:Mono;font-size:20px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#34D399}
-h1{margin-top:18px;font-size:84px;line-height:1.02;font-weight:600;letter-spacing:-.03em;max-width:720px}
-h1 em{font-style:normal;color:#34D399;white-space:nowrap}
+.label{margin-top:auto;font-family:Mono;font-size:20px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#FF8A4C}
+h1{margin-top:18px;font-family:Head;font-size:84px;line-height:1.02;font-weight:600;letter-spacing:-.03em;max-width:720px}
+h1 em{font-style:normal;color:#FF8A4C;white-space:nowrap}
 .flow{margin-top:40px;display:flex;align-items:center;gap:14px;font-family:Mono;font-size:20px;font-weight:500}
 .chip{padding:10px 18px;border-radius:999px;border:1.5px solid rgba(242,244,247,.16);color:rgba(242,244,247,.78);background:rgba(20,25,34,.8)}
-.chip.on{border-color:#34D399;color:#052E22;background:#34D399}
+.chip.on{border-color:#FF8A4C;color:#1A0B02;background:#FF8A4C}
 .arrow{color:rgba(242,244,247,.4)}
 .mark{position:absolute;right:84px;top:170px;width:250px;height:250px}
 .mark svg{width:100%;height:100%}
@@ -88,7 +90,7 @@ try {
     fs.writeFileSync(file, ogHtml(c));
     await page.goto("file://" + file, { waitUntil: "load" });
     await page.evaluate(() => document.fonts.ready);
-    const ok = await page.evaluate(() => document.fonts.check('600 84px Onest') && document.fonts.check('500 20px Mono'));
+    const ok = await page.evaluate(() => document.fonts.check('600 84px Head') && document.fonts.check('500 20px Mono'));
     if (!ok) throw new Error("fonts did not load for " + c.out);
     await page.screenshot({ path: path.join(root, c.out) });
     await page.close();

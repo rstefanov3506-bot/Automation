@@ -40,15 +40,15 @@ export default function AuroraBackground() {
     >
       <div
         data-blob
-        className="aurora-blob absolute -left-48 -top-56 h-[38rem] w-[38rem] [--blob:rgba(var(--accent-rgb),0.3)]"
+        className="aurora-blob absolute -left-48 -top-56 h-[38rem] w-[38rem] [--blob:rgba(var(--accent-rgb),0.32)]"
       />
       <div
         data-blob
-        className="aurora-blob absolute -right-44 -top-14 h-[34rem] w-[34rem] [--blob:rgba(56,189,248,0.2)] dark:[--blob:rgba(14,165,233,0.2)]"
+        className="aurora-blob absolute -right-44 -top-14 h-[34rem] w-[34rem] [--blob:rgba(236,72,153,0.18)] dark:[--blob:rgba(236,72,153,0.24)]"
       />
       <div
         data-blob
-        className="aurora-blob absolute left-[22%] top-[38%] h-[32rem] w-[32rem] [--blob:rgba(167,139,250,0.15)] dark:[--blob:rgba(139,92,246,0.15)]"
+        className="aurora-blob absolute left-[22%] top-[38%] h-[32rem] w-[32rem] [--blob:rgba(167,139,250,0.22)] dark:[--blob:rgba(139,92,246,0.3)]"
       />
     </div>
   );

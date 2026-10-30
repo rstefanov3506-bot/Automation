@@ -1,7 +1,6 @@
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import AuroraBackground from "./AuroraBackground";
-import ScrollFillHeading from "./ScrollFillHeading";
 import FlowHero from "./FlowHero";
 import { content, type Locale } from "@/lib/content";
 
@@ -21,11 +20,11 @@ export default function HeroSection({ locale }: { locale: Locale }) {
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             {t.hero.eyebrow}
           </p>
-          <ScrollFillHeading
-            title={t.hero.title}
-            accent={t.hero.titleAccent}
-            className="max-w-xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
-          />
+          {/* Solid from the first paint: the old outline-until-scroll effect made
+              the most important line on the page hard to read. */}
+          <h1 className="max-w-xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            {t.hero.title} <span className="gradient-text">{t.hero.titleAccent}</span>
+          </h1>
           <p className="mt-6 max-w-md text-lg text-muted">{t.hero.subtitle}</p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link

@@ -8,8 +8,8 @@ const OUT = process.argv[2];
 fs.mkdirSync(OUT, { recursive: true });
 
 const C = {
-  dark: { bg: "#0A0D12", line: "#F2F4F7", accent: "#34D399" },
-  light: { bg: "#FAFAF9", line: "#0A0A0A", accent: "#047857" },
+  dark: { bg: "#0A0D12", line: "#F2F4F7", accent: "#FF8A4C" },
+  light: { bg: "#FAFAF9", line: "#0A0A0A", accent: "#C2410C" },
 };
 
 // 24-unit grid. Verticals at x=6 and x=18, span y 5..19 -> diagonal ~49deg.

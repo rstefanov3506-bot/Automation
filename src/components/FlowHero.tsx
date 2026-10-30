@@ -40,7 +40,7 @@ function readColors(): Colors {
   const v = (name: string, fallback: string) => s.getPropertyValue(name).trim() || fallback;
   return {
     ink: v("--foreground", "#f5f5f4"),
-    accent: v("--accent", "#34d399"),
+    accent: v("--accent", "#ff8a4c"),
     bg: v("--background", "#0a0d12"),
     dark: document.documentElement.classList.contains("dark"),
   };
