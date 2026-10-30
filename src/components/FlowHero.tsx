@@ -197,9 +197,16 @@ export default function FlowHero({ locale }: { locale: Locale }) {
       for (const d of dust) {
         if (!reduce) {
           d.y -= d.v;
-          if (d.y < -2) { d.y = H + 2; d.x = Math.random() * W; }
+          // Respawn at a random depth below the panel, not all on one line:
+          // every speck re-entering at exactly H+2 formed a visible row of
+          // white dots along the bottom edge.
+          if (d.y < -4) { d.y = H + 4 + Math.random() * H * 0.25; d.x = Math.random() * W; }
         }
-        ctx.globalAlpha = d.a * (colors.dark ? 1 : 0.6);
+        // Fade in over the bottom 22% and out over the top 12%, so nothing
+        // pops in or out at the edges.
+        const edge = Math.min(1, Math.max(0, (H - d.y) / (H * 0.22)), Math.max(0, d.y / (H * 0.12)));
+        if (edge <= 0) continue;
+        ctx.globalAlpha = d.a * edge * (colors.dark ? 1 : 0.6);
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
         ctx.fill();
@@ -377,6 +384,12 @@ export default function FlowHero({ locale }: { locale: Locale }) {
       className="flow-hero edge-light relative aspect-square w-full overflow-hidden rounded-3xl border border-border bg-surface shadow-accent sm:aspect-[5/4] lg:aspect-square"
     >
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" aria-hidden="true" />
+      {/* Soft fade into the panel colour along the bottom, under the caption,
+          so anything drifting near the edge dissolves instead of cutting off. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface via-surface/70 to-transparent"
+      />
       <div ref={triggerRef} className="flow-tag" data-state="idle" aria-hidden="true">
         <i />
         {t.tags.trigger}
