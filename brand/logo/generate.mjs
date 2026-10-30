@@ -46,6 +46,19 @@ for (const [name, t] of Object.entries(C)) {
   fs.writeFileSync(`${OUT}/noxlytics-favicon.svg`, svg("0 0 24 24", body, "Noxlytics"));
 }
 
+// 2b. Small favicon for the 16px ICO frame: simplified N, middle and trigger
+// nodes dropped (illegible at tab size), heavier stroke on a 16-unit grid.
+{
+  const t = C.dark;
+  const f = { x1: 4.5, x2: 11.5, top: 4, bottom: 12 };
+  const body = [
+    `<rect width="16" height="16" rx="3.5" fill="${t.bg}"/>`,
+    `<path d="M${f.x1} ${f.bottom}V${f.top}L${f.x2} ${f.bottom}V${f.top}" fill="none" stroke="${t.line}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
+    `<circle cx="${f.x2}" cy="${f.top}" r="2" fill="${t.accent}"/>`,
+  ].join("\n  ");
+  fs.writeFileSync(`${OUT}/noxlytics-favicon-16.svg`, svg("0 0 16 16", body, "Noxlytics"));
+}
+
 // 3. Lockup: symbol + "noxlytics" wordmark converted to outlines (Onest 600,
 // tracking -0.02em), so it renders identically without the font installed.
 const font = opentype.parse(

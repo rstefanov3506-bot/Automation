@@ -120,9 +120,9 @@ CSS custom properties, redefined under `.dark`:
 ## Brand assets
 
 - Logo (Path N draft): `brand/logo/` - SVG symbol/lockup (dark+light),
-  favicon SVG (full 3-node symbol on a rounded Nox Night tile - Rumen's
-  explicit choice on 2026-10-30 over the simplified N, despite the nodes
-  blurring at 16px; offered a hybrid, not chosen yet), preview PNG; rebuild with
+  favicon SVGs: `noxlytics-favicon.svg` (full 3-node symbol on a rounded
+  Nox Night tile, Rumen's choice) and `noxlytics-favicon-16.svg` (simplified N
+  for the 16px frame only - hybrid agreed 2026-10-30), preview PNG; rebuild with
   `node brand/logo/generate.mjs <outdir>` (needs opentype.js +
   @fontsource/onest in a scratch dir). Still a draft pending Rumen's sign-off
   (open question: drop the bottom-left node so it reads less like a note).
@@ -133,8 +133,10 @@ CSS custom properties, redefined under `.dark`:
   `brand/logo/generate.mjs` if the symbol changes.
 - Share/icons: `node brand/og/generate.mjs` (repo root) renders
   `src/app/opengraph-image.png`, `src/app/en/opengraph-image.png`,
-  `apple-icon.png`, `favicon.ico` (hand-built ICO, 16/32/48) and copies
-  `icon.svg` from the logo SVGs with the site fonts. Re-run after any logo
+  `apple-icon.png` and a hybrid `favicon.ico` (hand-built: 16px frame =
+  simplified N, 32/48px = full symbol). Deliberately NO `src/app/icon.svg`:
+  browsers prefer an SVG icon and would scale the full symbol to 16px,
+  defeating the hybrid. Re-run after any logo
   change. Root layout sets `metadataBase` from `NEXT_PUBLIC_SITE_URL`, falling
   back to Vercel's production URL - set that env var when the domain is live.
 
