@@ -149,6 +149,19 @@ CSS custom properties, redefined under `.dark`:
   tile/simplified-16px favicon. Re-run after any logo change. Root layout sets `metadataBase` from `NEXT_PUBLIC_SITE_URL`, falling
   back to Vercel's production URL - set that env var when the domain is live.
 
+## SEO / indexing
+
+- `src/lib/site.ts`: `siteUrl` (NEXT_PUBLIC_SITE_URL, else Vercel prod URL)
+  and **`allowIndexing` = the single go-live switch**
+  (`NEXT_PUBLIC_ALLOW_INDEXING=true` in Vercel). Default false (Rumen,
+  2026-10-30: keep out of Google for now) -> sitewide meta noindex,nofollow
+  (root layout) AND `robots.txt` Disallow: /. Both flip together.
+- Every page declares canonical + hreflang (bg root / en under /en,
+  x-default = bg) via `alternates()`. `sitemap.xml` lists only pages with real
+  content (/, /automations + en mirrors) with hreflang incl. self.
+- `/pricing` and `/contact` (bg+en) carry `noindexRobots` permanently until
+  they get real content; add them to `sitemap.ts` PAGES when filled.
+
 ## Site structure
 
 - Hero visual is `FlowHero.tsx`: a 2D-canvas "automation run" along the Path N

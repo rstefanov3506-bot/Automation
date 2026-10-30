@@ -6,13 +6,7 @@ import "./globals.css";
 import MouseDrone from "@/components/MouseDrone";
 import SiteBackground from "@/components/SiteBackground";
 
-// Absolute base for share-image URLs. Set NEXT_PUBLIC_SITE_URL once the
-// custom domain is live; until then Vercel's production URL is used.
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000");
+import { siteUrl, allowIndexing } from "@/lib/site";
 
 // Root routes are the Bulgarian site; /en overrides these in its page.
 export const metadata: Metadata = {
@@ -29,6 +23,10 @@ export const metadata: Metadata = {
       "AI автоматизации за малкия бизнес: SEO съдържание, социални мрежи, запитвания и чатботове, с табло за контрол.",
   },
   twitter: { card: "summary_large_image" },
+  // Sitewide noindex until NEXT_PUBLIC_ALLOW_INDEXING=true (see lib/site.ts).
+  robots: allowIndexing
+    ? undefined
+    : { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
 // Runs before paint so the right theme class is set with no flash.

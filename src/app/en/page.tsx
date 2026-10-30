@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
+import { alternates } from "@/lib/site";
 import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/HeroSection";
 import AutomationsSection from "@/components/AutomationsSection";
@@ -11,6 +12,7 @@ import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 
 export const metadata: Metadata = {
+  alternates: alternates("/", "en"),
   title: "Noxlytics — AI automations for business",
   description:
     "Noxlytics builds and runs AI automations — SEO content, social media, inquiries and chatbots — with a dashboard that shows you what's happening.",
