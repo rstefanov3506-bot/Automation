@@ -29,16 +29,29 @@ export default function HeroParticles({ className = "" }: { className?: string }
     type Particle = { x: number; y: number; vx: number; vy: number };
     let particles: Particle[] = [];
 
-    const accent = getComputedStyle(document.documentElement)
-      .getPropertyValue("--accent")
-      .trim() || "#10b981";
+    // Theme-aware: re-read the accent and how strong to draw whenever the
+    // theme toggles. Light mode needs much higher alpha - at the old shared
+    // values the field was effectively invisible on the pale background.
+    let accent = "#10b981";
+    let dotA = 0.5;
+    let lineA = 0.18;
 
     const hexToRgb = (hex: string) => {
       const m = hex.replace("#", "");
       const bigint = parseInt(m.length === 3 ? m.split("").map((c) => c + c).join("") : m, 16);
       return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
     };
-    const [ar, ag, ab] = hexToRgb(accent);
+    let [ar, ag, ab] = hexToRgb(accent);
+    const readTheme = () => {
+      accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#10b981";
+      [ar, ag, ab] = hexToRgb(accent);
+      const dark = document.documentElement.classList.contains("dark");
+      dotA = dark ? 0.55 : 0.75;
+      lineA = dark ? 0.22 : 0.32;
+    };
+    readTheme();
+    const themeObserver = new MutationObserver(readTheme);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
 
     const resize = () => {
       const parent = canvas.parentElement;
@@ -51,7 +64,7 @@ export default function HeroParticles({ className = "" }: { className?: string }
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const count = Math.min(60, Math.round((width * height) / 18000));
+      const count = Math.min(80, Math.round((width * height) / 15000));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -77,8 +90,8 @@ export default function HeroParticles({ className = "" }: { className?: string }
       for (let i = 0; i < particles.length; i++) {
         const a = particles[i];
         ctx.beginPath();
-        ctx.arc(a.x, a.y, 1.6, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${ar}, ${ag}, ${ab}, 0.55)`;
+        ctx.arc(a.x, a.y, 1.9, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ar}, ${ag}, ${ab}, ${dotA})`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -90,7 +103,7 @@ export default function HeroParticles({ className = "" }: { className?: string }
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(${ar}, ${ag}, ${ab}, ${0.18 * (1 - dist / linkDist)})`;
+            ctx.strokeStyle = `rgba(${ar}, ${ag}, ${ab}, ${lineA * (1 - dist / linkDist)})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -117,6 +130,7 @@ export default function HeroParticles({ className = "" }: { className?: string }
       running = false;
       cancelAnimationFrame(raf);
       ro.disconnect();
+      themeObserver.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);

@@ -133,11 +133,12 @@ CSS custom properties, redefined under `.dark`:
   `brand/logo/generate.mjs` if the symbol changes.
 - Share/icons: `node brand/og/generate.mjs` (repo root) renders
   `src/app/opengraph-image.png`, `src/app/en/opengraph-image.png`,
-  `apple-icon.png` and a hybrid `favicon.ico` (hand-built: 16px frame =
-  simplified N, 32/48px = full symbol). Deliberately NO `src/app/icon.svg`:
-  browsers prefer an SVG icon and would scale the full symbol to 16px,
-  defeating the hybrid. Re-run after any logo
-  change. Root layout sets `metadataBase` from `NEXT_PUBLIC_SITE_URL`, falling
+  `apple-icon.png` (opaque tile, iOS needs it), `src/app/icon.svg` = copy of
+  `brand/logo/noxlytics-favicon-adaptive.svg` (TRANSPARENT, Rumen's request
+  2026-10-30; follows the browser theme via prefers-color-scheme inside the
+  SVG, hollow nodes cut with a mask) and `favicon.ico` = transparent raster
+  fallback in light-theme colors. This supersedes the earlier hybrid
+  tile/simplified-16px favicon. Re-run after any logo change. Root layout sets `metadataBase` from `NEXT_PUBLIC_SITE_URL`, falling
   back to Vercel's production URL - set that env var when the domain is live.
 
 ## Site structure
@@ -153,6 +154,9 @@ CSS custom properties, redefined under `.dark`:
   over them were the hero's real cost (15 fps in software render vs 39 after).
   Aurora blobs are now radial gradients (`.aurora-blob`); don't reintroduce
   big animated blur filters or backdrop blur over moving layers.
+- Hero is `min-h-[88svh]` (was full screen), columns 1.1fr/0.9fr, flow panel
+  capped at 420px. Background particle field (`HeroParticles`) is theme-aware:
+  stronger alpha in light mode (was invisible there), re-reads on toggle.
 - Homepage order: Hero -> GoalsSection (intent tabs) -> Automations teaser
   -> Trust -> RoiCalculator -> Pricing teaser -> Contact teaser.
 - `/`, `/automations`, `/pricing`, `/contact` (Bulgarian, primary) +

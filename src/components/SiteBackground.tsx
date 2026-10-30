@@ -15,7 +15,7 @@ export default function SiteBackground() {
 
   return (
     <div className="fixed inset-0 z-0">
-      <HeroParticles className="h-full w-full opacity-40" />
+      <HeroParticles className="h-full w-full opacity-70 dark:opacity-60" />
     </div>
   );
 }

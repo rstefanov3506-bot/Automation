@@ -107,7 +107,9 @@ try {
   // Hybrid favicon.ico: the 16px frame (browser tab at 1x) is the simplified
   // N - the full symbol's nodes blur at that size; 32/48px frames carry the
   // full three-node symbol. Browsers pick the frame by size.
-  const favFor = (s) => logo(s === 16 ? "noxlytics-favicon-16.svg" : "noxlytics-favicon.svg");
+  // Transparent raster fallback, drawn in light-theme colors.
+  const adaptive = logo("noxlytics-favicon-adaptive.svg").replace(/@media[\s\S]*?\}\s*\}/, "");
+  const favFor = () => adaptive;
   for (const s of [16, 32, 48]) {
     const fav = favFor(s);
     const page = await browser.newPage({ viewport: { width: s, height: s } });
@@ -145,8 +147,9 @@ function buildIco(pngs) {
 }
 const ico = buildIco([16, 32, 48].map((size) => ({ size, data: fs.readFileSync(path.join(tmp, `f${size}.png`)) })));
 fs.writeFileSync(path.join(root, "src/app/favicon.ico"), ico);
-// No icon.svg on purpose: browsers prefer an SVG icon over the ICO and would
-// scale the full symbol down to 16px, defeating the hybrid.
-fs.rmSync(path.join(root, "src/app/icon.svg"), { force: true });
+// icon.svg: transparent, follows the browser theme (prefers-color-scheme
+// inside the SVG). Modern browsers use it for the tab; favicon.ico stays as
+// the fallback for the rest.
+fs.copyFileSync(path.join(root, "brand/logo/noxlytics-favicon-adaptive.svg"), path.join(root, "src/app/icon.svg"));
 fs.rmSync(tmp, { recursive: true, force: true });
-console.log("wrote src/app/favicon.ico (16 simplified, 32/48 full)");
+console.log("wrote src/app/favicon.ico (transparent fallback) + src/app/icon.svg (adaptive)");

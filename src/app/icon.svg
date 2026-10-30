@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Noxlytics">
+  <title>Noxlytics</title>
+  <!-- Transparent favicon that follows the browser theme: dark ink + deep
+       emerald on light tabs, light ink + bright emerald on dark tabs.
+       Hollow nodes are cut out of the line with a mask, so nothing paints a
+       background behind them. Stroke is a touch heavier than the logo
+       (2.8 vs 2.5) because this is mostly drawn at 16-32px. -->
+  <style>
+    .ink { stroke: #0a0a0a; }
+    .dot { fill: #047857; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #f2f4f7; }
+      .dot { fill: #34d399; }
+    }
+  </style>
+  <defs>
+    <mask id="holes" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+      <rect width="24" height="24" fill="#fff"/>
+      <circle cx="4.8" cy="20" r="1.75" fill="#000"/>
+      <circle cx="12" cy="12" r="1.75" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#holes)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="ink" d="M4.8 20V4.4L19.2 20V4.4" stroke-width="2.8"/>
+    <circle class="ink" cx="4.8" cy="20" r="2.75" stroke-width="2"/>
+    <circle class="ink" cx="12" cy="12" r="2.75" stroke-width="2"/>
+  </g>
+  <circle class="dot" cx="19.2" cy="4.4" r="3.4"/>
+</svg>

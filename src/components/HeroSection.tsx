@@ -11,11 +11,11 @@ export default function HeroSection({ locale }: { locale: Locale }) {
   const contactHref = locale === "bg" ? "/contact" : "/en/contact";
 
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden">
+    <section className="relative flex min-h-[88svh] flex-col justify-center overflow-hidden">
       <div className="bg-noise pointer-events-none absolute inset-0 z-[1] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
       <AuroraBackground />
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr]">
         <ScrollReveal stagger={0.12}>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 label-mono text-muted backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -57,7 +57,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
         {/* Live automation run along the Path N logo - replaces the static
             dashboard mock (and its two parallax cards) so the hero carries
             one moving story instead of several decorative layers. */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+        <div className="relative mx-auto w-full max-w-sm lg:mr-0 lg:max-w-[420px]">
           <FlowHero locale={locale} />
         </div>
       </div>
