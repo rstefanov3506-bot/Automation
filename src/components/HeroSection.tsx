@@ -15,7 +15,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
 
   return (
     <section className="relative flex min-h-screen flex-col justify-center overflow-hidden">
-      <div className="bg-noise pointer-events-none absolute inset-0 z-[1]" />
+      <div className="bg-noise pointer-events-none absolute inset-0 z-[1] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
       <AuroraBackground />
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-2">

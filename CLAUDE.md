@@ -77,6 +77,10 @@ CSS custom properties, redefined under `.dark`:
 `--background / --foreground / --surface / --border / --accent /
 --accent-rgb / --accent-contrast / --muted`.
 
+- Dark mode base is **Nox Night** from the brand guidelines: `--background`
+  `#0a0d12`, `--surface` `#141922` (blue-tinted night, deliberately not
+  cyberninjas' green-black). Contrast checked: text 17.8:1, muted 7.8:1,
+  accent 10.1:1 on background. Light mode unchanged.
 - `--accent` is WCAG-AA-passing emerald (`#047857` light / `#34d399`
   dark) — computed via a one-off Node contrast-ratio script, don't
   revert to a lighter/brighter green without re-checking contrast.
