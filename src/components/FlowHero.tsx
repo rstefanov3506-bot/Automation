@@ -100,10 +100,14 @@ export default function FlowHero({ locale }: { locale: Locale }) {
 
     const layout = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = wrap.clientWidth;
-      H = wrap.clientHeight;
-      canvas.width = Math.round(W * dpr);
-      canvas.height = Math.round(H * dpr);
+      // Use the real (fractional) box size. clientWidth/Height round down, so
+      // the last column/row of the bitmap was never cleared and every speck
+      // passing there piled up into a white line on the right/bottom edge.
+      const box = wrap.getBoundingClientRect();
+      W = box.width;
+      H = box.height;
+      canvas.width = Math.ceil(W * dpr);
+      canvas.height = Math.ceil(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       s = Math.min(W * 0.78, H * 0.74) / 24;
@@ -189,7 +193,12 @@ export default function FlowHero({ locale }: { locale: Locale }) {
       const agentOn = ph === "work" || ph === "toResult" || ph === "done";
       const done = ph === "done" || ph === "fade";
 
-      ctx.clearRect(0, 0, W, H);
+      // Clear the whole bitmap in device pixels, independent of the layout
+      // transform, so no edge pixels can ever be left uncleared.
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.restore();
       ctx.globalCompositeOperation = "source-over";
 
       // Night dust drifting up.
