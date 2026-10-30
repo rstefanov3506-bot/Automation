@@ -8,8 +8,12 @@
   --surface: #ffffff;
   --border: rgba(10, 10, 10, 0.08);
   --accent: #047857;
+  --accent-rgb: 4, 120, 87;
   --accent-contrast: #ffffff;
-  --muted: #57534e;
+  /* Muted text is the foreground ink at reduced opacity rather than a
+     separate gray - one ink carries both roles instead of two unrelated
+     neutrals, same contrast level as the old #57534e (~7:1). */
+  --muted: rgba(10, 10, 10, 0.68);
 }
 
 .dark {
@@ -18,8 +22,9 @@
   --surface: #151517;
   --border: rgba(255, 255, 255, 0.08);
   --accent: #34d399;
+  --accent-rgb: 52, 211, 153;
   --accent-contrast: #052e22;
-  --muted: #a8a29e;
+  --muted: rgba(245, 245, 244, 0.65);
 }
 
 @theme inline {
@@ -79,6 +84,15 @@ h3 {
    decorative AI-template polish rather than meaning. */
 .gradient-text {
   color: var(--accent);
+}
+
+/* A soft, brand-tinted shadow instead of a neutral one, for elements that
+   should read as the "lifted" focal point (highlighted pricing tier, the
+   hero dashboard mock) - low-opacity layered glow, not a flat color fill. */
+.shadow-accent {
+  box-shadow:
+    0 20px 60px -15px rgba(var(--accent-rgb), 0.25),
+    0 4px 16px -4px rgba(var(--accent-rgb), 0.15);
 }
 
 /* The drone replaces the system cursor on devices with a real mouse.

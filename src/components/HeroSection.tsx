@@ -27,7 +27,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           <ScrollFillHeading
             title={t.hero.title}
             accent={t.hero.titleAccent}
-            className="max-w-xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
+            className="max-w-xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
           />
           <p className="mt-6 max-w-md text-lg text-muted">{t.hero.subtitle}</p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -84,7 +84,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           </ParallaxFloat>
 
           <TiltCard>
-            <AnimatedCard className="relative rounded-2xl border border-border bg-surface/90 p-6 shadow-2xl backdrop-blur">
+            <AnimatedCard className="relative rounded-2xl border border-border bg-surface/90 p-6 shadow-accent backdrop-blur">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-muted">
                   {brand} · dashboard

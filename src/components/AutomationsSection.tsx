@@ -18,7 +18,7 @@ export default function AutomationsSection({
       className={`mx-auto w-full max-w-6xl px-6 ${teaser ? "py-20" : "py-24"}`}
     >
       <div className="text-center">
-        <h2 className="text-3xl font-bold tracking-tight">{t.automations.title}</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">{t.automations.title}</h2>
         {!teaser && (
           <p className="mx-auto mt-3 max-w-xl text-muted">{t.automations.subtitle}</p>
         )}

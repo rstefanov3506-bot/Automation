@@ -7,7 +7,7 @@ export default function TrustSection({ locale }: { locale: Locale }) {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-20">
       <div className="text-center">
-        <h2 className="text-3xl font-bold tracking-tight">{t.title}</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">{t.title}</h2>
         <p className="mx-auto mt-3 max-w-xl text-muted">{t.subtitle}</p>
       </div>
 

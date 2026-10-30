@@ -22,7 +22,7 @@ export default function PricingSection({
     >
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight">{t.pricing.title}</h2>
+          <h2 className="text-3xl font-semibold tracking-tight">{t.pricing.title}</h2>
           <p className="mt-3 text-muted">{t.pricing.subtitle}</p>
         </div>
         <ScrollReveal
@@ -35,7 +35,7 @@ export default function PricingSection({
               key={tier.name}
               className={`flex flex-col rounded-2xl border p-8 transition hover:-translate-y-1 ${
                 tier.highlighted
-                  ? "border-accent bg-background shadow-[0_20px_60px_-15px_var(--accent)] ring-1 ring-accent md:scale-105"
+                  ? "border-accent bg-background shadow-accent ring-1 ring-accent md:scale-105"
                   : "border-border bg-background hover:border-accent/50"
               }`}
             >

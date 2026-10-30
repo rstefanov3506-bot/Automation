@@ -86,7 +86,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           onChange={(e) => setName(e.target.value)}
           placeholder={t.namePlaceholder}
           aria-invalid={Boolean(errors.name)}
-          className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-accent"
+          className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-accent"
         />
         {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
       </div>
@@ -102,7 +102,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t.emailPlaceholder}
           aria-invalid={Boolean(errors.email)}
-          className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-accent"
+          className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-accent"
         />
         {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
       </div>
@@ -118,7 +118,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           placeholder={t.messagePlaceholder}
           rows={4}
           aria-invalid={Boolean(errors.message)}
-          className="mt-1.5 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-accent"
+          className="mt-1.5 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-accent"
         />
         {errors.message && (
           <p className="mt-1 text-xs text-red-500">{errors.message}</p>
