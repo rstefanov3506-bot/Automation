@@ -34,6 +34,11 @@ export const content = {
         { name: "Понеделник 08:00", steps: ["Данни от магазина и рекламите", "Обобщение на седмицата", "Отчетът е изпратен"] },
       ],
     },
+    integrations: {
+      eyebrow: "Интеграции",
+      title: "Свързваме инструментите, които вече ползваш",
+      legend: { ai: "AI модели", auto: "Автоматизация и данни", biz: "Бизнес инструменти" },
+    },
     goals: {
       eyebrow: "Започни от целта",
       title: "Какво искаш да постигнеш?",
@@ -268,6 +273,11 @@ export const content = {
         { name: "New order", steps: ["Order in the online store", "Shipping label in Econt", "Email with a tracking number"] },
         { name: "Monday 08:00", steps: ["Data from the store and ads", "Weekly summary", "Report delivered"] },
       ],
+    },
+    integrations: {
+      eyebrow: "Integrations",
+      title: "We connect the tools you already use",
+      legend: { ai: "AI models", auto: "Automation & data", biz: "Business tools" },
     },
     goals: {
       eyebrow: "Start from the goal",

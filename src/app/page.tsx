@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import AutomationsSection from "@/components/AutomationsSection";
 import TrustSection from "@/components/TrustSection";
 import GoalsSection from "@/components/GoalsSection";
+import IntegrationsMarquee from "@/components/IntegrationsMarquee";
 import RoiCalculator from "@/components/RoiCalculator";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
@@ -13,6 +14,7 @@ export default function Page() {
     <div className="flex min-h-screen flex-col text-foreground">
       <SiteHeader locale="bg" altHref="/en" />
       <HeroSection locale="bg" />
+      <IntegrationsMarquee locale="bg" />
       <GoalsSection locale="bg" />
       <AutomationsSection locale="bg" teaser />
       <TrustSection locale="bg" />

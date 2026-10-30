@@ -165,7 +165,15 @@ CSS custom properties, redefined under `.dark`:
 - Hero is `min-h-[88svh]` (was full screen), columns 1.1fr/0.9fr, flow panel
   capped at 420px. Background particle field (`HeroParticles`) is theme-aware:
   stronger alpha in light mode (was invisible there), re-reads on toggle.
-- Homepage order: Hero -> GoalsSection (intent tabs) -> Automations teaser
+- `IntegrationsMarquee` (right under the hero): two pure-CSS infinite rows in
+  opposite directions (track holds the list twice, slides -50%; verified
+  seamless), hover pauses, edge fade mask, reduced-motion = static wrapped
+  chips. Deliberately labelled "tools we connect" (NOT client logos - we have
+  no clients yet, same honesty rule as testimonials) and rendered as our own
+  name chips, no third-party logo artwork. Dot colors = AI (accent) /
+  automation (pop) / business tools (muted), with a legend. Includes Econt,
+  Speedy, Microinvest as local differentiators.
+- Homepage order: Hero -> IntegrationsMarquee -> GoalsSection (intent tabs) -> Automations teaser
   -> Trust -> RoiCalculator -> Pricing teaser -> Contact teaser.
 - `/`, `/automations`, `/pricing`, `/contact` (Bulgarian, primary) +
   `/en/*` mirrors. Content lives in `src/lib/content.ts` (bg/en objects,

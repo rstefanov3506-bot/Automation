@@ -150,6 +150,66 @@ h3 {
   will-change: transform;
 }
 
+/* Integrations marquee: each track holds the list twice and slides by -50%
+   for a seamless loop. Only transform animates (compositor-only). Each group
+   carries its own trailing gap as padding so the -50% point lines up. */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 50s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+  list-style: none;
+  margin: 0;
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    animation: none;
+    width: auto;
+    justify-content: center;
+  }
+  .marquee-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1.5rem;
+  }
+  .marquee-dupe {
+    display: none;
+  }
+}
+
 /* Hero flow (FlowHero): node labels positioned by the canvas layout. */
 .flow-tag {
   position: absolute;
