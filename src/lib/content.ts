@@ -54,6 +54,38 @@ export const content = {
         },
       ],
     },
+    trust: {
+      title: "Как работим",
+      subtitle: "Без изненади — ясен процес и ясни условия от първия разговор.",
+      steps: [
+        {
+          title: "1. Безплатен разговор",
+          desc: "Казваш какво отнема време в бизнеса ти — отговаряме до 1 работен ден с конкретно предложение.",
+        },
+        {
+          title: "2. Изграждане",
+          desc: "Свързваме инструментите, които вече ползваш (Econt, Microinvest, WhatsApp/Viber и др.) с automation-а.",
+        },
+        {
+          title: "3. Поддръжка",
+          desc: "Следим, че работи — месечната такса включва поддръжка и корекции, не само достъп.",
+        },
+      ],
+      badges: [
+        {
+          title: "Ясна цена",
+          desc: "Еднократна build такса + фиксирана месечна — без скрити добавки извън изрично описаните.",
+        },
+        {
+          title: "GDPR",
+          desc: "Данните, през които минава автоматизацията, се обработват по изискванията на GDPR.",
+        },
+        {
+          title: "Отговор до 1 ден",
+          desc: "На всяко запитване отговаряме в рамките на 1 работен ден.",
+        },
+      ],
+    },
     pricing: {
       title: "Пакети",
       subtitle: "Build такса еднократно + месечна поддръжка.",
@@ -176,6 +208,38 @@ export const content = {
         {
           name: "Reports / notifications",
           desc: "Periodic business summaries — email, Slack or Viber.",
+        },
+      ],
+    },
+    trust: {
+      title: "How we work",
+      subtitle: "No surprises — a clear process and clear terms from the first conversation.",
+      steps: [
+        {
+          title: "1. Free conversation",
+          desc: "Tell us what's eating time in your business — we reply within 1 business day with a concrete proposal.",
+        },
+        {
+          title: "2. Build",
+          desc: "We connect the tools you already use (Econt, Microinvest, WhatsApp/Viber, etc.) to the automation.",
+        },
+        {
+          title: "3. Support",
+          desc: "We keep it running — the monthly fee includes support and fixes, not just access.",
+        },
+      ],
+      badges: [
+        {
+          title: "Clear pricing",
+          desc: "One-time build fee + a fixed monthly fee — no hidden extras beyond what's explicitly listed.",
+        },
+        {
+          title: "GDPR",
+          desc: "Any data the automation touches is handled per GDPR requirements.",
+        },
+        {
+          title: "Reply within 1 day",
+          desc: "Every inquiry gets a reply within 1 business day.",
         },
       ],
     },
