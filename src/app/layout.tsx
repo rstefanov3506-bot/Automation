@@ -5,10 +5,29 @@ import "./globals.css";
 import MouseDrone from "@/components/MouseDrone";
 import SiteBackground from "@/components/SiteBackground";
 
+// Absolute base for share-image URLs. Set NEXT_PUBLIC_SITE_URL once the
+// custom domain is live; until then Vercel's production URL is used.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
+// Root routes are the Bulgarian site; /en overrides these in its page.
 export const metadata: Metadata = {
-  title: "Noxlytics — AI automations for business",
+  metadataBase: new URL(siteUrl),
+  title: "Noxlytics — AI автоматизации за бизнеса",
   description:
-    "Noxlytics builds and runs AI automations — leads, chatbots, SEO, accounting integrations — with a dashboard that shows you what's happening.",
+    "Изграждаме и поддържаме AI автоматизации — лийдове, чатботове, SEO, счетоводни интеграции — с табло, в което виждаш какво се случва.",
+  openGraph: {
+    type: "website",
+    siteName: "Noxlytics",
+    locale: "bg_BG",
+    title: "Noxlytics — агенти, които работят вместо теб",
+    description:
+      "AI автоматизации за малкия бизнес: лийдове, чатботове, SEO и счетоводни интеграции, с табло за контрол.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 // Runs before paint so the right theme class is set with no flash.

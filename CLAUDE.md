@@ -117,6 +117,20 @@ CSS custom properties, redefined under `.dark`:
   `font-bold` — hierarchy comes from size. Price/stat *figures* (not
   headings) keep `font-bold` for emphasis.
 
+## Brand assets
+
+- Logo (Path N draft): `brand/logo/` - SVG symbol/lockup (dark+light),
+  16px-grid favicon SVG, preview PNG; rebuild with
+  `node brand/logo/generate.mjs <outdir>` (needs opentype.js +
+  @fontsource/onest in a scratch dir). Still a draft pending Rumen's sign-off
+  (open question: drop the bottom-left node so it reads less like a note).
+- Share/icons: `node brand/og/generate.mjs` (repo root) renders
+  `src/app/opengraph-image.png`, `src/app/en/opengraph-image.png`,
+  `apple-icon.png`, `favicon.ico` (hand-built ICO, 16/32/48) and copies
+  `icon.svg` from the logo SVGs with the site fonts. Re-run after any logo
+  change. Root layout sets `metadataBase` from `NEXT_PUBLIC_SITE_URL`, falling
+  back to Vercel's production URL - set that env var when the domain is live.
+
 ## Site structure
 
 - Homepage order: Hero -> GoalsSection (intent tabs) -> Automations teaser
