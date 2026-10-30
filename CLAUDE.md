@@ -140,13 +140,20 @@ CSS custom properties, redefined under `.dark`:
   computed-style sampling instead of the automated `npx designlang`
   pipeline. Already used once against jeton.com; patterns from that run
   are now partially applied to the site (see History).
-- **react-bits MCP** (`.mcp.json`, `reactbits-dev-mcp-server`, free/MIT,
-  no API key) — exposes `list_components` / `get_component` /
-  `search_components` / `get_component_demo` / `list_categories` for
-  135+ animated React components from reactbits.dev. **Configured but
-  not yet connected** — MCP servers only connect at session start, so
-  this activates on the *next* fresh session in this repo, not
-  mid-conversation. Not yet used to install anything.
+- **react-bits** (`.mcp.json`, `reactbits-dev-mcp-server`, MIT + Commons
+  Clause: free to use inside our sites, not to resell the components
+  themselves). Tested 2026-10-30: the MCP server starts and its catalogue
+  tools work (`list_categories`, `list_components`, `search_components`),
+  but `get_component` fails - it pulls code via the unauthenticated GitHub
+  API, which is rate-limited from this sandbox's shared IP, and its
+  reactbits.dev scraper fallback is blocked by egress. It accepts
+  `GITHUB_TOKEN` / `GITHUB_PERSONAL_ACCESS_TOKEN` env if ever needed.
+  **Working path, no token:** shallow `git clone
+  https://github.com/DavidHDev/react-bits` into scratchpad and copy from
+  `src/ts-tailwind/<Category>/<Name>/<Name>.tsx`. Check each component's
+  imports first: many need `motion/react`, `ogl`, `three` or
+  `@hugeicons/react` - prefer zero-dependency ones or port to GSAP, which
+  we already ship. Nothing installed into the site yet.
 - Considered but **not installed**: GSAP AI Skills (deferred, not
   requested again since).
 
@@ -213,8 +220,8 @@ written to be self-explanatory) and `.impeccable/critique/*.md`.
   free Resend/Formspree key).
 - Filling in `/automations`, `/pricing`, `/contact` real content
   (explicitly deferred by Rumen).
-- Using the react-bits MCP to actually install any component (just
-  configured, nothing pulled in yet).
+- Using react-bits to actually add a component (verified working via git
+  clone; nothing added yet).
 - Re-running `/impeccable critique` to measure score improvement since
   17/32 (all 5 priority issues from that run are fixed, worth a fresh
   pass before picking the next thing).
