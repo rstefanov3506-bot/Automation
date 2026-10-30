@@ -141,6 +141,11 @@ CSS custom properties, redefined under `.dark`:
 
 ## History (chronological, most recent first)
 
+- Manually extracted cyberninjas.ai (direct BG competitor) design language
+  via Claude-in-Chrome into `design-references/cyberninjas.md`. Reference
+  only: its palette/Sofia Sans are deliberately NOT adopted (too close to a
+  competitor); only section patterns (intent tabs, ROI-style analyzer) are
+  candidates.
 - Added `reactbits` MCP server config (free, no signup).
 - Applied 3 jeton.com-derived design patterns: opacity-based `--muted`,
   `font-semibold` headings sitewide, `.shadow-accent` on the highlighted
