@@ -37,7 +37,7 @@ export const content = {
     integrations: {
       eyebrow: "Интеграции",
       title: "Свързваме инструментите, които вече ползваш",
-      legend: { ai: "AI модели", auto: "Автоматизация и данни", biz: "Бизнес инструменти" },
+      legend: { ai: "AI модели", auto: "Автоматизация и данни", biz: "Бизнес инструменти", social: "Социални мрежи" },
     },
     goals: {
       eyebrow: "Започни от целта",
@@ -277,7 +277,7 @@ export const content = {
     integrations: {
       eyebrow: "Integrations",
       title: "We connect the tools you already use",
-      legend: { ai: "AI models", auto: "Automation & data", biz: "Business tools" },
+      legend: { ai: "AI models", auto: "Automation & data", biz: "Business tools", social: "Social networks" },
     },
     goals: {
       eyebrow: "Start from the goal",

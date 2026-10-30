@@ -172,7 +172,9 @@ CSS custom properties, redefined under `.dark`:
   no clients yet, same honesty rule as testimonials) and rendered as our own
   name chips, no third-party logo artwork. Dot colors = AI (accent) /
   automation (pop) / business tools (muted), with a legend. Includes Econt,
-  Speedy, Microinvest as local differentiators.
+  Speedy, Microinvest as local differentiators, plus social networks (pink dot).
+  Brand logos (e.g. from simpleicons.org) were requested and declined: no
+  third-party trademark logos in the site, name chips only.
 - Homepage order: Hero -> IntegrationsMarquee -> GoalsSection (intent tabs) -> Automations teaser
   -> Trust -> RoiCalculator -> Pricing teaser -> Contact teaser.
 - `/`, `/automations`, `/pricing`, `/contact` (Bulgarian, primary) +

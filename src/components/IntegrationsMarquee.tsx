@@ -9,7 +9,7 @@ import { content, type Locale } from "@/lib/content";
 // seamless; only transform animates (compositor-only, no JS). Hover pauses,
 // edges fade out, and reduced-motion gets one static, wrapped row.
 
-type Tool = { name: string; kind: "ai" | "auto" | "biz" };
+type Tool = { name: string; kind: "ai" | "auto" | "biz" | "social" };
 
 const ROWS: Tool[][] = [
   [
@@ -27,6 +27,10 @@ const ROWS: Tool[][] = [
     { name: "Google Sheets", kind: "auto" },
     { name: "Whisper", kind: "ai" },
     { name: "Webhooks", kind: "auto" },
+    { name: "Facebook", kind: "social" },
+    { name: "Instagram", kind: "social" },
+    { name: "LinkedIn", kind: "social" },
+    { name: "TikTok", kind: "social" },
   ],
   [
     { name: "Econt", kind: "biz" },
@@ -45,6 +49,10 @@ const ROWS: Tool[][] = [
     { name: "Slack", kind: "biz" },
     { name: "Notion", kind: "biz" },
     { name: "Stripe", kind: "biz" },
+    { name: "YouTube", kind: "social" },
+    { name: "Google Business", kind: "social" },
+    { name: "X", kind: "social" },
+    { name: "Pinterest", kind: "social" },
   ],
 ];
 
@@ -52,6 +60,7 @@ const DOT: Record<Tool["kind"], string> = {
   ai: "bg-accent",
   auto: "bg-pop",
   biz: "bg-foreground/35",
+  social: "bg-pink-600 dark:bg-pink-400",
 };
 
 function Chip({ tool }: { tool: Tool }) {
@@ -98,13 +107,14 @@ export default function IntegrationsMarquee({ locale }: { locale: Locale }) {
       </div>
       <div className="mt-8 space-y-3">
         {/* Top row runs right-to-left, bottom row left-to-right. */}
-        <Row tools={ROWS[0]} seconds={46} />
-        <Row tools={ROWS[1]} seconds={54} reverse />
+        <Row tools={ROWS[0]} seconds={60} />
+        <Row tools={ROWS[1]} seconds={68} reverse />
       </div>
       <p className="mx-auto mt-6 flex max-w-6xl flex-wrap items-center justify-center gap-x-5 gap-y-2 px-6 text-xs text-muted">
         <span className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />{t.legend.ai}</span>
         <span className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-pop" aria-hidden="true" />{t.legend.auto}</span>
         <span className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-foreground/35" aria-hidden="true" />{t.legend.biz}</span>
+        <span className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-pink-600 dark:bg-pink-400" aria-hidden="true" />{t.legend.social}</span>
       </p>
     </section>
   );
