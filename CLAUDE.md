@@ -2,6 +2,12 @@
 
 Read this first, every session, before touching anything.
 
+Business-level status (n8n migration to the home i5, license decision,
+client-separation rules, next steps across chats) lives in the claude.ai
+Project "Webdesign" doc `claude/START-HERE.md` - read it via the Projects
+tool (`project_read`) at the start of a session, and update it when a step
+is done or a decision is made. This file stays about the site's code.
+
 ## What this is
 
 B2B AI-automation-agency marketing site ("Noxlytics") for Rumen Stefanov
