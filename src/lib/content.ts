@@ -207,8 +207,20 @@ export const content = {
           desc: "Еднократна build такса + фиксирана месечна — без скрити добавки извън изрично описаните.",
         },
         {
-          title: "GDPR",
-          desc: "Данните, през които минава автоматизацията, се обработват по изискванията на GDPR.",
+          title: "Отделни достъпи за всеки клиент",
+          desc: "Всяка автоматизация работи със собствени ключове и достъпи, които не се споделят с други клиенти.",
+        },
+        {
+          title: "Данните остават при теб",
+          desc: "Статиите, запитванията и таблиците стоят във твоите системи. При нас остава само техническа история до 14 дни, за да откриваме грешки.",
+        },
+        {
+          title: "GDPR и договор",
+          desc: "Подписваме договор за обработка на данни (DPA) и работим по изискванията на GDPR.",
+        },
+        {
+          title: "Собствена инсталация",
+          desc: "Ако държиш на изцяло отделна инсталация, изграждаме я на твой сървър.",
         },
         {
           title: "Отговор до 1 ден",
@@ -494,8 +506,20 @@ export const content = {
           desc: "One-time build fee + a fixed monthly fee — no hidden extras beyond what's explicitly listed.",
         },
         {
-          title: "GDPR",
-          desc: "Any data the automation touches is handled per GDPR requirements.",
+          title: "Separate access per client",
+          desc: "Each automation runs on its own keys and credentials, never shared with other clients.",
+        },
+        {
+          title: "Your data stays with you",
+          desc: "Articles, inquiries and spreadsheets live in your own systems. We keep only a technical run history for up to 14 days, to catch errors.",
+        },
+        {
+          title: "GDPR and a contract",
+          desc: "We sign a data processing agreement (DPA) and work to GDPR requirements.",
+        },
+        {
+          title: "Your own installation",
+          desc: "If you want a fully separate installation, we build it on your own server.",
         },
         {
           title: "Reply within 1 day",

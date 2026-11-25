@@ -20,7 +20,7 @@ export default function TrustSection({ locale }: { locale: Locale }) {
         ))}
       </ScrollReveal>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 border-t border-border pt-8 sm:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 border-t border-border pt-8 sm:grid-cols-3">
         {t.badges.map((badge) => (
           <div key={badge.title} className="text-center sm:text-left">
             <div className="text-sm font-semibold">{badge.title}</div>
