@@ -267,6 +267,20 @@ CSS custom properties, redefined under `.dark`:
 
 ## History (chronological, most recent first)
 
+- **Contact form is real now (2026-11-25):** `ContactForm` POSTs to
+  `src/app/api/contact/route.ts` -> honeypot (`website`) -> Cloudflare
+  Turnstile verify (`Turnstile.tsx`, explicit render, single-use token reset
+  after a failed submit) -> POST to the n8n webhook on Rumen's i5 via
+  Cloudflare Tunnel (`hooks.noxlytics.com`, only `^/webhook/` is routed).
+  n8n flow `NOX | Запитване от сайта`: Google Sheet + Telegram + auto-reply
+  from hello@noxlytics.com via Brevo SMTP. Env (Vercel, Production):
+  `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`,
+  `N8N_LEAD_WEBHOOK_URL`, `N8N_LEAD_WEBHOOK_SECRET` (header
+  `X-Noxlytics-Secret`). If n8n is down the route returns 502 and the form
+  shows the hello@ fallback. The auto-reply never echoes the visitor's
+  message (otherwise the form becomes a spam relay to arbitrary addresses).
+  The sandbox can't reach challenges.cloudflare.com, so Turnstile itself is
+  only testable on the live site.
 - Applied cyberninjas-derived *patterns* (not styling): `GoalsSection`
   (4 goal tabs -> concrete automation flow -> pricing/contact CTAs, ARIA
   tablist with arrow keys, CSS fade, no scroll-jacking) and `RoiCalculator`
@@ -324,8 +338,6 @@ written to be self-explanatory) and `.impeccable/critique/*.md`.
 
 ## Open / deferred items (don't start these unprompted)
 
-- Real backend email send for the contact form (needs Rumen to get a
-  free Resend/Formspree key).
 - Filling in `/automations`, `/pricing`, `/contact` real content
   (explicitly deferred by Rumen).
 - Using react-bits to actually add a component (verified working via git

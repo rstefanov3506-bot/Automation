@@ -284,9 +284,15 @@ export const content = {
         submitLabel: "Изпрати запитване",
         requiredError: "Моля, попълни това поле.",
         emailError: "Моля, въведи валиден имейл.",
-        successTitle: "Готово — отвори се имейл клиентът ти",
+        sendingLabel: "Изпращане...",
+        successTitle: "Запитването е изпратено",
         successBody:
-          "Съобщението е подготвено с данните ти. Ако не се отвори нищо, виж имейла по-долу.",
+          "Благодарим! Изпратихме ти потвърждение по имейл и ще отговорим до 1 работен ден.",
+        sendError:
+          "Не успяхме да изпратим запитването. Опитай пак или ни пиши директно на имейла по-долу.",
+        captchaError: "Моля, изчакай проверката срещу спам и опитай пак.",
+        consentNote:
+          "С изпращането се съгласяваш да използваме данните ти само за да отговорим на запитването.",
         fallbackLabel: "Или пиши директно на:",
         copyLabel: "Копирай",
         copiedLabel: "Копирано!",
@@ -583,9 +589,15 @@ export const content = {
         submitLabel: "Send inquiry",
         requiredError: "Please fill in this field.",
         emailError: "Please enter a valid email.",
-        successTitle: "Done — your email client should have opened",
+        sendingLabel: "Sending...",
+        successTitle: "Your inquiry has been sent",
         successBody:
-          "Your message was prepared with your details. If nothing opened, use the email below.",
+          "Thank you! We've emailed you a confirmation and will reply within 1 business day.",
+        sendError:
+          "We couldn't send your inquiry. Please try again or email us directly at the address below.",
+        captchaError: "Please wait for the spam check to finish and try again.",
+        consentNote:
+          "By sending this form you agree that we use your details only to reply to your inquiry.",
         fallbackLabel: "Or email us directly at:",
         copyLabel: "Copy",
         copiedLabel: "Copied!",

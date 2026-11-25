@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { content, type Locale } from "@/lib/content";
+import Turnstile from "./Turnstile";
+
+const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
 const EMAIL = "hello@noxlytics.com";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -14,8 +18,13 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Errors>({});
-  const [sent, setSent] = useState(false);
+  const [website, setWebsite] = useState(""); // honeypot
+  const [token, setToken] = useState("");
+  const [resetKey, setResetKey] = useState(0);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [formError, setFormError] = useState("");
   const [copied, setCopied] = useState(false);
+  const pathname = usePathname();
 
   const validate = (): Errors => {
     const next: Errors = {};
@@ -26,19 +35,44 @@ export default function ContactForm({ locale }: { locale: Locale }) {
     return next;
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const next = validate();
     setErrors(next);
+    setFormError("");
     if (Object.keys(next).length > 0) return;
+    if (!token) {
+      setFormError(t.captchaError);
+      return;
+    }
 
-    const subject = `${locale === "bg" ? "Запитване от" : "Inquiry from"} ${name.trim()}`;
-    const body = `${message.trim()}\n\n— ${name.trim()} (${email.trim()})`;
-    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setSent(true);
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+          locale,
+          page: pathname,
+          token,
+          website,
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+      if (res.ok && data.ok) {
+        setStatus("sent");
+        return;
+      }
+      setFormError(data.error === "captcha" ? t.captchaError : t.sendError);
+    } catch {
+      setFormError(t.sendError);
+    }
+    // A Turnstile token is single-use: get a fresh one for the next attempt.
+    setResetKey((k) => k + 1);
+    setStatus("error");
   };
 
   const copyEmail = async () => {
@@ -51,7 +85,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
     }
   };
 
-  if (sent) {
+  if (status === "sent") {
     return (
       <div
         role="status"
@@ -74,7 +108,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="mx-auto max-w-md text-left">
+    <form onSubmit={onSubmit} noValidate className="relative mx-auto max-w-md text-left">
       <div>
         <label htmlFor="contact-name" className="text-sm font-medium text-muted">
           {t.nameLabel}
@@ -125,11 +159,36 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         )}
       </div>
 
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="contact-website">Website</label>
+        <input
+          id="contact-website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+
+      {SITE_KEY && (
+        <Turnstile siteKey={SITE_KEY} language={locale} resetKey={resetKey} onToken={setToken} />
+      )}
+
+      {formError && (
+        <p role="alert" className="mt-4 text-sm text-red-500">
+          {formError}
+        </p>
+      )}
+
+      <p className="mt-4 text-xs text-muted">{t.consentNote}</p>
+
       <button
         type="submit"
-        className="mt-6 w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast transition hover:opacity-90"
+        disabled={status === "sending"}
+        className="mt-4 w-full rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast transition hover:opacity-90 disabled:cursor-wait disabled:opacity-60"
       >
-        {t.submitLabel}
+        {status === "sending" ? t.sendingLabel : t.submitLabel}
       </button>
 
       <div className="mt-4 flex items-center justify-center gap-2 text-sm">
