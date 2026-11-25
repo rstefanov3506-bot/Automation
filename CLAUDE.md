@@ -162,6 +162,12 @@ CSS custom properties, redefined under `.dark`:
   (`NEXT_PUBLIC_ALLOW_INDEXING=true` in Vercel). Default false (Rumen,
   2026-10-30: keep out of Google for now) -> sitewide meta noindex,nofollow
   (root layout) AND `robots.txt` Disallow: /. Both flip together.
+- **One domain, path-based languages (2026-11-25):** `noxlytics.com` serves
+  Bulgarian at `/` and English under `/en`. The old `src/proxy.ts` rewrote
+  every `.com` request to `/en` (a .com=EN/.bg=BG split), which made the
+  Bulgarian site unreachable on noxlytics.com and contradicted the canonical/
+  hreflang URLs - deleted. If `noxlytics.bg` is bought later, it 308-redirects
+  to `noxlytics.com` (Vercel domain redirect), no host-based rewrites.
 - Every page declares canonical + hreflang (bg root / en under /en,
   x-default = bg) via `alternates()`. `sitemap.xml` lists only pages with real
   content (/, /automations + en mirrors) with hreflang incl. self.
