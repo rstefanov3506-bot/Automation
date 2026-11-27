@@ -237,6 +237,8 @@ CSS custom properties, redefined under `.dark`:
   Viber only if the client pays for the bot). Removed
   from all copy, goals tab 3 (now "content on autopilot"), hero flow scenario
   2 (now "new article"), marquee and metadata. Don't reintroduce them.
+  Update 2026-11-27: CRM as a service is now a YES in principle, but only after
+  Noxlytics' own CRM has run for 2+ weeks - until then CRM stays OUT of site copy.
 - Automations catalogue lives in `content.automations.items` (6 areas, each
   `name/desc/list`). Homepage = teaser (3 examples per area + "see all"),
   `/automations` + `/en/automations` = full lists + contact form (filled
