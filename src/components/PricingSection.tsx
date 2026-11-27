@@ -71,8 +71,9 @@ export default function PricingSection({
             </div>
           ))}
         </ScrollReveal>
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm">{t.pricing.upgradeNote}</p>
         {!teaser && (
-          <p className="mt-8 text-center text-sm text-muted">{t.pricing.addonNote}</p>
+          <p className="mt-3 text-center text-sm text-muted">{t.pricing.addonNote}</p>
         )}
       </div>
     </section>

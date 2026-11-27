@@ -38,13 +38,13 @@ const OG = {
     locale: "bg_BG",
     title: "Noxlytics — агенти, които работят вместо теб",
     description:
-      "AI автоматизации за малкия бизнес: SEO съдържание, социални мрежи, запитвания и чатботове, с табло за контрол.",
+      "AI автоматизации за малкия бизнес: SEO съдържание, социални мрежи, запитвания и чатботове, с месечен отчет какво е свършено.",
   },
   en: {
     locale: "en_US",
     title: "Noxlytics — agents that work for you",
     description:
-      "AI automations for small businesses: SEO content, social media, inquiries and chatbots, with a dashboard to keep control.",
+      "AI automations for small businesses: SEO content, social media, inquiries and chatbots, with a monthly report of what was done.",
   },
 } as const;
 
@@ -78,8 +78,8 @@ export function rootMetadata(locale: "bg" | "en"): Metadata {
     metadataBase: new URL(siteUrl),
     title: bg ? "Noxlytics — AI автоматизации за бизнеса" : "Noxlytics — AI automations for business",
     description: bg
-      ? "Изграждаме и поддържаме AI автоматизации — SEO съдържание, социални мрежи, запитвания и чатботове — с табло, в което виждаш какво се случва."
-      : "Noxlytics builds and runs AI automations — SEO content, social media, inquiries and chatbots — with a dashboard that shows you what's happening.",
+      ? "Изграждаме и поддържаме AI автоматизации — SEO съдържание, социални мрежи, запитвания и чатботове — и всеки месец получаваш отчет какво е свършено."
+      : "Noxlytics builds and runs AI automations — SEO content, social media, inquiries and chatbots — and every month you get a report of what was done.",
     twitter: { card: "summary_large_image" },
     // Sitewide noindex until NEXT_PUBLIC_ALLOW_INDEXING=true.
     robots: allowIndexing

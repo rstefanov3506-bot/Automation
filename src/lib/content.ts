@@ -15,7 +15,7 @@ export const content = {
       title: "Агенти, които работят",
       titleAccent: "вместо теб",
       subtitle:
-        "Изграждаме и поддържаме AI автоматизации — SEO съдържание, социални мрежи, запитвания и чатботове — с контролен панел, от който виждаш какво се случва.",
+        "Изграждаме и поддържаме AI автоматизации — SEO съдържание, социални мрежи, запитвания и чатботове — и всеки месец получаваш отчет какво е свършено.",
       ctaPrimary: "Безплатен 30-минутен одит",
       ctaSecondary: "Виж пакетите",
       stats: [
@@ -63,7 +63,7 @@ export const content = {
             "Клиент пита на сайта, във WhatsApp или Viber",
             "Асистентът отговаря от твоите цени, срокове и ЧЗВ",
             "Сложните случаи прехвърля към теб",
-            "Всички разговори се виждат в таблото",
+            "Обобщение на разговорите в месечния отчет",
           ],
         },
         {
@@ -262,7 +262,7 @@ export const content = {
           name: "Starter",
           build: "199 €",
           monthly: "49 €/мес",
-          features: ["1 автоматизация", "Без табло", "Имейл отчети"],
+          features: ["1 автоматизация", "Поддръжка и корекции", "Месечен отчет"],
           cta: "Избери Starter",
           highlighted: false,
           badge: undefined as string | undefined,
@@ -272,9 +272,9 @@ export const content = {
           build: "499 €",
           monthly: "99 €/мес",
           features: [
-            "2–3 автоматизации",
+            "3 автоматизации",
             "+ 1 бонус автоматизация",
-            "Пълен достъп до табло",
+            "Месечен отчет",
           ],
           cta: "Избери Growth",
           highlighted: true,
@@ -285,7 +285,7 @@ export const content = {
           build: "999 €",
           monthly: "179 €/мес",
           features: [
-            "4+ автоматизации",
+            "5+ автоматизации",
             "Приоритетна поддръжка",
             "Custom интеграции (add-on)",
           ],
@@ -294,6 +294,8 @@ export const content = {
           badge: undefined as string | undefined,
         },
       ],
+      upgradeNote:
+        "Започни с по-малък пакет и надгради, когато видиш резултат: по всяко време можеш да минеш на по-голям пакет или да добавиш автоматизация към текущия.",
       addonNote: "Интеграции със специфични системи — add-on от 399 €, след проверка на достъпа.",
     },
     contact: {
@@ -348,7 +350,7 @@ export const content = {
       title: "Agents that work",
       titleAccent: "for you",
       subtitle:
-        "We build and run AI automations — SEO content, social media, inquiries and chatbots — with a dashboard that shows you what's happening.",
+        "We build and run AI automations — SEO content, social media, inquiries and chatbots — and every month you get a report of what was done.",
       ctaPrimary: "Free 30-minute audit",
       ctaSecondary: "See pricing",
       stats: [
@@ -396,7 +398,7 @@ export const content = {
             "A client asks on your site, WhatsApp or Viber",
             "The assistant answers from your prices, timelines and FAQ",
             "Complex cases are handed over to you",
-            "Every conversation is visible in the dashboard",
+            "A summary of conversations in the monthly report",
           ],
         },
         {
@@ -595,7 +597,7 @@ export const content = {
           name: "Starter",
           build: "€199",
           monthly: "€49/mo",
-          features: ["1 automation", "No dashboard", "Email reports"],
+          features: ["1 automation", "Support and fixes", "Monthly report"],
           cta: "Choose Starter",
           highlighted: false,
           badge: undefined as string | undefined,
@@ -605,9 +607,9 @@ export const content = {
           build: "€499",
           monthly: "€99/mo",
           features: [
-            "2–3 automations",
+            "3 automations",
             "+ 1 bonus automation",
-            "Full dashboard access",
+            "Monthly report",
           ],
           cta: "Choose Growth",
           highlighted: true,
@@ -618,7 +620,7 @@ export const content = {
           build: "€999",
           monthly: "€179/mo",
           features: [
-            "4+ automations",
+            "5+ automations",
             "Priority support",
             "Custom integrations (add-on)",
           ],
@@ -627,6 +629,8 @@ export const content = {
           badge: undefined as string | undefined,
         },
       ],
+      upgradeNote:
+        "Start small and grow when you see results: you can move to a bigger package or add an automation to your current one at any time.",
       addonNote: "Integrations with specific systems — add-on from €399, after checking access.",
     },
     contact: {
