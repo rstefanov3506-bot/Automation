@@ -10,7 +10,7 @@ export default function PricingSection({
   teaser?: boolean;
 }) {
   const t = content[locale];
-  const contactHref = locale === "bg" ? "/contact" : "/en/contact";
+  const contactHref = locale === "bg" ? "/#audit" : "/en#audit";
   const tiers = teaser
     ? t.pricing.tiers.filter((tier) => tier.highlighted)
     : t.pricing.tiers;

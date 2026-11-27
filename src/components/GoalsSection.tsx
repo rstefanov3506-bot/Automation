@@ -15,7 +15,7 @@ export default function GoalsSection({ locale }: { locale: Locale }) {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const baseId = useId();
   const pricingHref = "#pricing";
-  const contactHref = locale === "bg" ? "/contact" : "/en/contact";
+  const contactHref = locale === "bg" ? "/#audit" : "/en#audit";
   const tab = t.tabs[active];
 
   function onKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {

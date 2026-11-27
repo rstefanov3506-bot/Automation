@@ -13,7 +13,7 @@ const themeInitScript = `
 (function () {
   try {
     var stored = localStorage.getItem('theme');
-    var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var dark = stored ? stored === 'dark' : true; // dark by default (Rumen, 2026-11-27)
     document.documentElement.classList.toggle('dark', dark);
   } catch (e) {}
 })();
@@ -27,7 +27,7 @@ export default function RootShell({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={lang} className="h-full antialiased" suppressHydrationWarning>
+    <html lang={lang} className="dark h-full antialiased" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

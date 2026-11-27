@@ -213,8 +213,19 @@ CSS custom properties, redefined under `.dark`:
   automation (pop) / business tools (muted) / social (pink), with a legend.
   Brand logos (e.g. from simpleicons.org) were requested and declined: no
   third-party trademark logos in the site, name chips only.
-- Homepage order: Hero -> IntegrationsMarquee -> GoalsSection (intent tabs) -> Automations teaser
-  -> Trust -> RoiCalculator -> Pricing teaser -> Contact teaser.
+- Homepage order: Hero -> IntegrationsMarquee -> ProblemsSection (x before / check after
+  columns) -> ScrollWordsText statement -> GoalsSection (intent tabs) -> Automations teaser
+  -> Trust (4 steps: audit, build, training, support+monthly report) -> RoiCalculator
+  -> Pricing teaser -> Contact teaser (`id="audit"`).
+- **Main CTA = free 30-minute audit (2026-11-27, from the synkt.ai analysis):** header,
+  hero primary button, Goals/ROI/Pricing CTAs all point to `/#audit` (`/en#audit`), the
+  homepage form. `/contact` is still a skeleton, so nothing should link there except nav.
+- `ScrollWordsText`: synkt-style statement whose words brighten with scroll (GSAP scrub,
+  NOT pinned, reduced-motion = fully lit, full text in DOM).
+- **Dark theme is the default** (Rumen, 2026-11-27): `<html class="dark">` server-side +
+  theme script `stored ? stored === 'dark' : true`. The toggle still works and persists.
+- `public/llms.txt`: factual summary for AI search (services, process, prices, company,
+  privacy). Keep prices/process in sync with `content.ts`.
 - `/`, `/automations`, `/pricing`, `/contact` (Bulgarian, primary) +
   `/en/*` mirrors. Content lives in `src/lib/content.ts` (bg/en objects,
   manually duplicated — not a keyed i18n system; fine for now, a future

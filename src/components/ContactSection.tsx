@@ -12,7 +12,7 @@ export default function ContactSection({
 
   if (teaser) {
     return (
-      <section className="mx-auto w-full max-w-6xl px-6 py-20 text-center">
+      <section id="audit" className="mx-auto w-full max-w-6xl scroll-mt-24 px-6 py-20 text-center">
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           {t.cta.contactBanner}
         </h2>

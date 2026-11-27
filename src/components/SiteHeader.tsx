@@ -14,7 +14,7 @@ export default function SiteHeader({
   const t = content[locale];
   const altLocale = locale === "bg" ? "en" : "bg";
   const home = locale === "bg" ? "/" : "/en";
-  const contactHref = locale === "bg" ? "/contact" : "/en/contact";
+  const contactHref = locale === "bg" ? "/#audit" : "/en#audit";
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">

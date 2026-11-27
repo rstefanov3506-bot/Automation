@@ -19,7 +19,7 @@ function priceNumber(value: string): number {
 export default function RoiCalculator({ locale }: { locale: Locale }) {
   const all = content[locale];
   const t = all.roi;
-  const contactHref = locale === "bg" ? "/contact" : "/en/contact";
+  const contactHref = locale === "bg" ? "/#audit" : "/en#audit";
   const tier = all.pricing.tiers.find((x) => x.highlighted) ?? all.pricing.tiers[0];
   const build = priceNumber(tier.build);
   const monthly = priceNumber(tier.monthly);

@@ -10,6 +10,9 @@ import IntegrationsMarquee from "@/components/IntegrationsMarquee";
 import RoiCalculator from "@/components/RoiCalculator";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
+import ProblemsSection from "@/components/ProblemsSection";
+import ScrollWordsText from "@/components/ScrollWordsText";
+import { content } from "@/lib/content";
 
 export const metadata: Metadata = {
   ...pageMeta("/", "en"),
@@ -21,6 +24,8 @@ export default function Page() {
       <SiteHeader locale="en" altHref="/" />
       <HeroSection locale="en" />
       <IntegrationsMarquee locale="en" />
+      <ProblemsSection locale="en" />
+      <ScrollWordsText text={content.en.statement} />
       <GoalsSection locale="en" />
       <AutomationsSection locale="en" teaser />
       <TrustSection locale="en" />

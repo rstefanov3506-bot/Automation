@@ -8,7 +8,7 @@ export const content = {
         { label: "Пакети", href: "/pricing" },
         { label: "Контакти", href: "/contact" },
       ],
-      cta: "Запитване",
+      cta: "Безплатен одит",
     },
     hero: {
       eyebrow: "AI автоматизации за бизнеса",
@@ -16,8 +16,8 @@ export const content = {
       titleAccent: "вместо теб",
       subtitle:
         "Изграждаме и поддържаме AI автоматизации — SEO съдържание, социални мрежи, запитвания и чатботове — с контролен панел, от който виждаш какво се случва.",
-      ctaPrimary: "Виж пакетите",
-      ctaSecondary: "Запитване",
+      ctaPrimary: "Безплатен 30-минутен одит",
+      ctaSecondary: "Виж пакетите",
       stats: [
         { value: "6+", label: "вида автоматизации" },
         { value: "<24ч", label: "отговор на запитване" },
@@ -184,21 +184,47 @@ export const content = {
         },
       ],
     },
+    problems: {
+      eyebrow: "Познато ли ти е?",
+      title: "Рутината, която ти изяжда седмицата",
+      beforeTitle: "Ако в момента",
+      afterTitle: "С Noxlytics",
+      before: [
+        "Отговаряш на запитвания часове или дни по-късно",
+        "Запитванията са разпилени в пощата, Messenger и бележки",
+        "Пишеш статии за сайта, когато намериш време - тоест рядко",
+        "Преписваш едни и същи данни на няколко места",
+        "Губиш часове седмично в повтарящи се задачи",
+      ],
+      after: [
+        "Всяко запитване получава автоматичен отговор до минута, а ти - известие веднага",
+        "Всички запитвания са на едно място, в таблица, която виждаш и от телефона",
+        "SEO статиите излизат по график, а ти само одобряваш черновата",
+        "Данните се въвеждат веднъж и се прехвърлят сами",
+        "Рутината върви сама, а ти получаваш кратък месечен отчет",
+      ],
+    },
+    statement:
+      "Автоматизираме рутината, за да ти остане време за работата, която само ти можеш да свършиш.",
     trust: {
       title: "Как работим",
       subtitle: "Без изненади — ясен процес и ясни условия от първия разговор.",
       steps: [
         {
-          title: "1. Безплатен разговор",
-          desc: "Казваш какво отнема време в бизнеса ти — отговаряме до 1 работен ден с конкретно предложение.",
+          title: "1. Безплатен 30-минутен одит",
+          desc: "Разглеждаме как работи бизнесът ти и кои повтарящи се задачи си струва да се автоматизират. Получаваш конкретно предложение с цена, без ангажимент.",
         },
         {
           title: "2. Изграждане",
-          desc: "Свързваме инструментите, които вече ползваш (WordPress, Gmail, Viber, WhatsApp и др.) с автоматизацията.",
+          desc: "Свързваме инструментите, които вече ползваш (WordPress, Gmail, Google Sheets, Telegram и др.), и пускаме първа версия, която тестваш с реални данни.",
         },
         {
-          title: "3. Поддръжка",
-          desc: "Следим, че работи — месечната такса включва поддръжка и корекции, не само достъп.",
+          title: "3. Обучение",
+          desc: "Показваме на теб и екипа къде виждате резултатите, как одобрявате черновите и как ни пишете за промени.",
+        },
+        {
+          title: "4. Поддръжка и отчет",
+          desc: "Следим, че всичко работи, правим корекции и всеки месец ти пращаме кратък отчет. Месечната такса е за поддръжка, не за „достъп“.",
         },
       ],
       badges: [
@@ -272,7 +298,7 @@ export const content = {
     },
     contact: {
       title: "Готов за автоматизация?",
-      subtitle: "Пиши ни и ще се свържем до 1 работен ден.",
+      subtitle: "Опиши накратко бизнеса си и какво ти отнема най-много време. Ще ти пишем до 1 работен ден, за да уговорим разговор.",
       cta: "Изпрати запитване",
       form: {
         nameLabel: "Име",
@@ -280,8 +306,8 @@ export const content = {
         emailLabel: "Имейл",
         emailPlaceholder: "ти@компания.бг",
         messageLabel: "Съобщение",
-        messagePlaceholder: "С какво да помогнем?",
-        submitLabel: "Изпрати запитване",
+        messagePlaceholder: "Например: получаваме 20 запитвания седмично и отговаряме ръчно",
+        submitLabel: "Заяви безплатен одит",
         requiredError: "Моля, попълни това поле.",
         emailError: "Моля, въведи валиден имейл.",
         sendingLabel: "Изпращане...",
@@ -299,7 +325,7 @@ export const content = {
       },
     },
     cta: {
-      contactBanner: "Имаш въпрос или искаш оферта по мярка?",
+      contactBanner: "Запази безплатен 30-минутен одит",
       contactBannerCta: "Пиши ни",
     },
     footer: {
@@ -315,7 +341,7 @@ export const content = {
         { label: "Pricing", href: "/en/pricing" },
         { label: "Contact", href: "/en/contact" },
       ],
-      cta: "Get in touch",
+      cta: "Free audit",
     },
     hero: {
       eyebrow: "AI automations for business",
@@ -323,8 +349,8 @@ export const content = {
       titleAccent: "for you",
       subtitle:
         "We build and run AI automations — SEO content, social media, inquiries and chatbots — with a dashboard that shows you what's happening.",
-      ctaPrimary: "See pricing",
-      ctaSecondary: "Get in touch",
+      ctaPrimary: "Free 30-minute audit",
+      ctaSecondary: "See pricing",
       stats: [
         { value: "6+", label: "automation types" },
         { value: "<24h", label: "inquiry response" },
@@ -491,21 +517,47 @@ export const content = {
         },
       ],
     },
+    problems: {
+      eyebrow: "Sound familiar?",
+      title: "The routine that eats your week",
+      beforeTitle: "If right now you",
+      afterTitle: "With Noxlytics",
+      before: [
+        "Reply to inquiries hours or days later",
+        "Have inquiries scattered across email, Messenger and notes",
+        "Write blog posts when you find the time - so rarely",
+        "Copy the same data into several places",
+        "Lose hours every week to repetitive tasks",
+      ],
+      after: [
+        "Every inquiry gets an automatic reply within a minute, and you get an alert right away",
+        "All inquiries live in one place, in a sheet you can check from your phone",
+        "SEO articles go out on schedule - you just approve the draft",
+        "Data is entered once and moves on by itself",
+        "The routine runs itself and you get a short monthly report",
+      ],
+    },
+    statement:
+      "We automate the routine so you have time for the work only you can do.",
     trust: {
       title: "How we work",
       subtitle: "No surprises — a clear process and clear terms from the first conversation.",
       steps: [
         {
-          title: "1. Free conversation",
-          desc: "Tell us what's eating time in your business — we reply within 1 business day with a concrete proposal.",
+          title: "1. Free 30-minute audit",
+          desc: "We look at how your business runs and which repetitive tasks are worth automating. You get a concrete, priced proposal - no commitment.",
         },
         {
           title: "2. Build",
-          desc: "We connect the tools you already use (WordPress, Gmail, Viber, WhatsApp, etc.) to the automation.",
+          desc: "We connect the tools you already use (WordPress, Gmail, Google Sheets, Telegram, etc.) and launch a first version you test with real data.",
         },
         {
-          title: "3. Support",
-          desc: "We keep it running — the monthly fee includes support and fixes, not just access.",
+          title: "3. Training",
+          desc: "We show you and your team where to see results, how to approve drafts and how to ask us for changes.",
+        },
+        {
+          title: "4. Support and reporting",
+          desc: "We keep everything running, make fixes and send you a short report every month. The monthly fee pays for support, not \"access\".",
         },
       ],
       badges: [
@@ -579,7 +631,7 @@ export const content = {
     },
     contact: {
       title: "Ready to automate?",
-      subtitle: "Reach out and we'll get back within 1 business day.",
+      subtitle: "Tell us briefly about your business and what takes up most of your time. We'll write back within 1 business day to set up a call.",
       cta: "Send inquiry",
       form: {
         nameLabel: "Name",
@@ -587,8 +639,8 @@ export const content = {
         emailLabel: "Email",
         emailPlaceholder: "you@company.com",
         messageLabel: "Message",
-        messagePlaceholder: "What do you need help with?",
-        submitLabel: "Send inquiry",
+        messagePlaceholder: "E.g. we get 20 inquiries a week and answer them by hand",
+        submitLabel: "Request a free audit",
         requiredError: "Please fill in this field.",
         emailError: "Please enter a valid email.",
         sendingLabel: "Sending...",
@@ -606,7 +658,7 @@ export const content = {
       },
     },
     cta: {
-      contactBanner: "Have a question or need a custom quote?",
+      contactBanner: "Book a free 30-minute audit",
       contactBannerCta: "Get in touch",
     },
     footer: {

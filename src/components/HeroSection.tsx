@@ -7,7 +7,7 @@ import { content, type Locale } from "@/lib/content";
 export default function HeroSection({ locale }: { locale: Locale }) {
   const t = content[locale];
   const pricingHref = locale === "bg" ? "/pricing" : "/en/pricing";
-  const contactHref = locale === "bg" ? "/contact" : "/en/contact";
+  const contactHref = locale === "bg" ? "/#audit" : "/en#audit";
 
   return (
     <section className="relative flex min-h-[88svh] flex-col justify-center overflow-hidden">
@@ -28,13 +28,13 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           <p className="mt-6 max-w-md text-lg text-muted">{t.hero.subtitle}</p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
-              href={pricingHref}
+              href={contactHref}
               className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast shadow-[0_8px_30px_-8px_var(--accent)] transition hover:scale-[1.03] hover:opacity-90"
             >
               {t.hero.ctaPrimary}
             </Link>
             <Link
-              href={contactHref}
+              href={pricingHref}
               className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition hover:border-accent"
             >
               {t.hero.ctaSecondary}
