@@ -4,21 +4,21 @@ import SiteFooter from "@/components/SiteFooter";
 import AutomationsSection from "@/components/AutomationsSection";
 import ContactSection from "@/components/ContactSection";
 import { content } from "@/lib/content";
-import { alternates } from "@/lib/site";
+import { pageMeta } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `${content.en.automations.title} | Noxlytics`,
-  description: content.en.automations.subtitle,
-  alternates: alternates("/automations", "en"),
+  title: `${content.bg.automations.title} | Noxlytics`,
+  description: content.bg.automations.subtitle,
+  ...pageMeta("/automations", "bg", { title: `${content.bg.automations.title} | Noxlytics`, description: content.bg.automations.subtitle }),
 };
 
 export default function Page() {
   return (
     <div className="flex min-h-screen flex-col text-foreground">
-      <SiteHeader locale="en" altHref="/automations" />
-      <AutomationsSection locale="en" />
-      <ContactSection locale="en" teaser />
-      <SiteFooter locale="en" />
+      <SiteHeader locale="bg" altHref="/en/automations" />
+      <AutomationsSection locale="bg" />
+      <ContactSection locale="bg" teaser />
+      <SiteFooter locale="bg" />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
-import { alternates } from "@/lib/site";
+import { pageMeta } from "@/lib/site";
 import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/HeroSection";
 import AutomationsSection from "@/components/AutomationsSection";
@@ -11,21 +11,23 @@ import RoiCalculator from "@/components/RoiCalculator";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 
-export const metadata: Metadata = { alternates: alternates("/", "bg") };
+export const metadata: Metadata = {
+  ...pageMeta("/", "en"),
+};
 
 export default function Page() {
   return (
     <div className="flex min-h-screen flex-col text-foreground">
-      <SiteHeader locale="bg" altHref="/en" />
-      <HeroSection locale="bg" />
-      <IntegrationsMarquee locale="bg" />
-      <GoalsSection locale="bg" />
-      <AutomationsSection locale="bg" teaser />
-      <TrustSection locale="bg" />
-      <RoiCalculator locale="bg" />
-      <PricingSection locale="bg" />
-      <ContactSection locale="bg" teaser />
-      <SiteFooter locale="bg" />
+      <SiteHeader locale="en" altHref="/" />
+      <HeroSection locale="en" />
+      <IntegrationsMarquee locale="en" />
+      <GoalsSection locale="en" />
+      <AutomationsSection locale="en" teaser />
+      <TrustSection locale="en" />
+      <RoiCalculator locale="en" />
+      <PricingSection locale="en" />
+      <ContactSection locale="en" teaser />
+      <SiteFooter locale="en" />
     </div>
   );
 }

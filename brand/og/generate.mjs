@@ -22,14 +22,14 @@ const copy = {
     title: "Агенти, които работят",
     accent: "вместо теб",
     flow: ["Запитване", "Агент", "Резултат"],
-    out: "src/app/opengraph-image.png",
+    out: "public/og-bg.png",
   },
   en: {
     label: "AI automations for business",
     title: "Agents that work",
     accent: "for you",
     flow: ["Inquiry", "Agent", "Result"],
-    out: "src/app/en/opengraph-image.png",
+    out: "public/og-en.png",
   },
 };
 

@@ -29,7 +29,7 @@ export const content = {
       tags: { trigger: "Задействане", agent: "Агент", result: "Резултат" },
       done: "Готово, без ръчна работа",
       scenarios: [
-        { name: "Нов лийд от сайта", steps: ["Запитване от уеб формата", "Записва в таблица с източника", "Viber до теб до минута"] },
+        { name: "Нов лийд от сайта", steps: ["Запитване от уеб формата", "Записва в таблица с източника", "Известие до теб до минута"] },
         { name: "Нова статия", steps: ["Тема от плана за съдържание", "SEO статия със снимки", "Публикувана в блога и в мрежите"] },
         { name: "Понеделник 08:00", steps: ["Данни от магазина и рекламите", "Обобщение на седмицата", "Отчетът е изпратен"] },
       ],
@@ -51,7 +51,7 @@ export const content = {
           steps: [
             "Запитване от сайта, Facebook или Instagram",
             "Записва се в таблица заедно с източника",
-            "Известие до теб във Viber до минута",
+            "Известие до теб в Telegram, Viber или по имейл до минута",
             "Автоматичен follow-up имейл, ако няма отговор",
           ],
         },
@@ -84,7 +84,7 @@ export const content = {
           steps: [
             "Данни от магазина, рекламите и запитванията",
             "Обобщение всеки понеделник сутрин",
-            "Изпращане по имейл или Viber",
+            "Изпращане по имейл, Telegram или Viber",
             "Сигнал, ако нещо падне под нормалното",
           ],
         },
@@ -143,7 +143,7 @@ export const content = {
           list: [
             "Захващане на запитвания от сайта и Facebook Lead Ads",
             "Записване в таблица заедно с източника",
-            "Известие до теб във Viber до минута",
+            "Известие до теб в Telegram, Viber или по имейл до минута",
             "Follow-up имейл, ако клиентът не отговори",
             "Записване на срещи директно в календара",
           ],
@@ -334,7 +334,7 @@ export const content = {
       tags: { trigger: "Trigger", agent: "Agent", result: "Result" },
       done: "Done, no manual work",
       scenarios: [
-        { name: "New lead from the site", steps: ["Inquiry from the web form", "Logged in a sheet with its source", "Viber alert to you within a minute"] },
+        { name: "New lead from the site", steps: ["Inquiry from the web form", "Logged in a sheet with its source", "An alert to you within a minute"] },
         { name: "New article", steps: ["Topic from the content plan", "SEO article with images", "Published on the blog and socials"] },
         { name: "Monday 08:00", steps: ["Data from the store and ads", "Weekly summary", "Report delivered"] },
       ],
@@ -356,7 +356,7 @@ export const content = {
           steps: [
             "Inquiry from your site, Facebook or Instagram",
             "Logged in a sheet with its source",
-            "Viber alert to you within a minute",
+            "An alert to you on Telegram, Viber or email within a minute",
             "Automatic follow-up email if there's no reply",
           ],
         },
@@ -389,7 +389,7 @@ export const content = {
           steps: [
             "Data from your store, ads and inquiries",
             "A summary every Monday morning",
-            "Delivered by email or Viber",
+            "Delivered by email, Telegram or Viber",
             "An alert if something drops below normal",
           ],
         },
@@ -448,7 +448,7 @@ export const content = {
           list: [
             "Capturing inquiries from your site and Facebook Lead Ads",
             "Logging them in a sheet with their source",
-            "A Viber alert to you within a minute",
+            "An alert to you on Telegram, Viber or email within a minute",
             "A follow-up email if the client doesn't reply",
             "Booking meetings straight into your calendar",
           ],

@@ -146,7 +146,9 @@ CSS custom properties, redefined under `.dark`:
   `SiteHeader` (28px) and `SiteFooter` (20px). Keep its geometry in sync with
   `brand/logo/generate.mjs` if the symbol changes.
 - Share/icons: `node brand/og/generate.mjs` (repo root) renders
-  `src/app/opengraph-image.png`, `src/app/en/opengraph-image.png`,
+  `public/og-bg.png`, `public/og-en.png` (referenced explicitly by
+  `pageMeta()` - NOT the opengraph-image file convention, because page-level
+  openGraph objects dropped the inherited file image on subpages),
   `apple-icon.png` (opaque tile, iOS needs it), `src/app/icon.svg` = copy of
   `brand/logo/noxlytics-favicon-adaptive.svg` (TRANSPARENT, Rumen's request
   2026-10-30; follows the browser theme via prefers-color-scheme inside the
@@ -168,6 +170,18 @@ CSS custom properties, redefined under `.dark`:
   Bulgarian site unreachable on noxlytics.com and contradicted the canonical/
   hreflang URLs - deleted. If `noxlytics.bg` is bought later, it 308-redirects
   to `noxlytics.com` (Vercel domain redirect), no host-based rewrites.
+- **Two root layouts (2026-11-27):** `app/(bg)/layout.tsx` (lang="bg") and
+  `app/(en)/layout.tsx` (lang="en", routes under `app/(en)/en/...`), both
+  render `components/RootShell.tsx` (fonts, globals.css, theme script,
+  background). There is NO `app/layout.tsx`. Unmatched URLs ->
+  `app/global-not-found.tsx` (bilingual, needs `experimental.globalNotFound`
+  in next.config). Switching bg<->en is a full page load (different root
+  layouts) - expected. Root metadata per language: `rootMetadata()` in
+  `lib/site.ts`.
+- Every page uses `pageMeta(bgPath, locale, {title?, description?})` from
+  `lib/site.ts`: absolute canonical + hreflang + full openGraph incl. og:url
+  and og:image. Next normalises the home URL to `https://noxlytics.com` (no
+  slash) everywhere; sitemap matches.
 - Every page declares canonical + hreflang (bg root / en under /en,
   x-default = bg) via `alternates()`. `sitemap.xml` lists only pages with real
   content (/, /automations + en mirrors) with hreflang incl. self.
@@ -207,7 +221,9 @@ CSS custom properties, redefined under `.dark`:
   maintenance risk if copy drifts).
 - **Service scope (Rumen, 2026-10-30):** NO Econt, Speedy, Microinvest or
   CRM-system work - he hasn't built them and won't promise them. Leads =
-  simple n8n flows (form -> sheet -> Viber alert -> follow-up email). Removed
+  simple n8n flows (form -> sheet -> Telegram alert -> follow-up email).
+  Alert copy says "Telegram, Viber or email" (Viber bots cost 100 EUR/mo, so
+  Viber only if the client pays for the bot). Removed
   from all copy, goals tab 3 (now "content on autopilot"), hero flow scenario
   2 (now "new article"), marquee and metadata. Don't reintroduce them.
 - Automations catalogue lives in `content.automations.items` (6 areas, each

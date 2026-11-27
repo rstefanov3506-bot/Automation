@@ -10,7 +10,7 @@ const PAGES = ["/", "/automations"];
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return PAGES.flatMap((path) => {
-    const bg = `${siteUrl}${path === "/" ? "" : path}` || siteUrl;
+    const bg = path === "/" ? siteUrl : `${siteUrl}${path}`;
     const en = `${siteUrl}/en${path === "/" ? "" : path}`;
     const languages = { bg, en, "x-default": bg };
     return [

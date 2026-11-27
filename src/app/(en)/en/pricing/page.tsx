@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
-import { alternates, noindexRobots } from "@/lib/site";
+import { pageMeta, noindexRobots } from "@/lib/site";
 import SiteFooter from "@/components/SiteFooter";
 import PageSkeleton from "@/components/PageSkeleton";
 import { content } from "@/lib/content";
 
 // Placeholder until real content exists: kept out of search results.
 export const metadata: Metadata = {
-  alternates: alternates("/pricing", "en"),
+  ...pageMeta("/pricing", "en"),
   robots: noindexRobots,
 };
 

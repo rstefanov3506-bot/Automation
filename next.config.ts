@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  experimental: {
+    // Two root layouts (app/(bg), app/(en)) -> one shared 404 page.
+    globalNotFound: true,
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
