@@ -20,6 +20,12 @@ Repo: `rstefanov3506-bot/Automation` (GitHub renamed it from `automation`
 to `Automation` — old remote URL still works, git just prints a notice).
 Stack: Next.js 16 App Router + Turbopack, Tailwind CSS v4, GSAP
 (ScrollTrigger, quickTo/quickSetter, gsap.context for cleanup).
+**Builds use webpack (`npm run build` = `next build --webpack`, 2026-11-27):**
+Turbopack's build dies on Hostinger (its PostCSS loader runs in a separate node
+process that the shared host kills). Tailwind is wired through the standard
+`postcss.config.mjs` + `@tailwindcss/postcss`, which works for both webpack
+builds and Turbopack dev. Do NOT go back to the `@tailwindcss/turbopack`
+loader rule in next.config: webpack ignores it and the site ships without CSS.
 
 ## Standing operational constraints (do not relearn these the hard way)
 
