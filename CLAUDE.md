@@ -352,6 +352,15 @@ CSS custom properties, redefined under `.dark`:
 Full detail for any of the above: `git log` (commit messages are
 written to be self-explanatory) and `.impeccable/critique/*.md`.
 
+- **Privacy policy + company footer (2026-11-27):** `/privacy` + `/en/privacy`
+  render `lib/privacy.ts` via `components/PrivacyPolicy.tsx`. Controller:
+  РУВЕСА ЕООД / RUVESA EOOD, EIK 202036157 (same company as petsbg.net),
+  hello@noxlytics.com. Footer shows company + EIK + email + policy link;
+  the form's consent note links to it. Processors listed: Vercel,
+  Cloudflare, Google, Brevo (+ own server in BG). Telegram is deliberately
+  NOT a recipient: the n8n Telegram alert must carry no personal data.
+  Keep this text in sync with the real pipeline; not reviewed by a lawyer.
+
 ## Open / deferred items (don't start these unprompted)
 
 - Filling in `/automations`, `/pricing`, `/contact` real content

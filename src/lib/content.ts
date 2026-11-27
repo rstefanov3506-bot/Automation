@@ -292,7 +292,7 @@ export const content = {
           "Не успяхме да изпратим запитването. Опитай пак или ни пиши директно на имейла по-долу.",
         captchaError: "Моля, изчакай проверката срещу спам и опитай пак.",
         consentNote:
-          "С изпращането се съгласяваш да използваме данните ти само за да отговорим на запитването.",
+          "С изпращането се съгласяваш да използваме данните ти само за да отговорим на запитването. Подробности:",
         fallbackLabel: "Или пиши директно на:",
         copyLabel: "Копирай",
         copiedLabel: "Копирано!",
@@ -304,6 +304,8 @@ export const content = {
     },
     footer: {
       rights: "Всички права запазени.",
+      privacy: "Политика за поверителност",
+      eik: "ЕИК",
     },
   },
   en: {
@@ -597,7 +599,7 @@ export const content = {
           "We couldn't send your inquiry. Please try again or email us directly at the address below.",
         captchaError: "Please wait for the spam check to finish and try again.",
         consentNote:
-          "By sending this form you agree that we use your details only to reply to your inquiry.",
+          "By sending this form you agree that we use your details only to reply to your inquiry. Details:",
         fallbackLabel: "Or email us directly at:",
         copyLabel: "Copy",
         copiedLabel: "Copied!",
@@ -609,6 +611,8 @@ export const content = {
     },
     footer: {
       rights: "All rights reserved.",
+      privacy: "Privacy policy",
+      eik: "Company ID",
     },
   },
 } as const;

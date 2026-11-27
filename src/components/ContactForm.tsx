@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { content, type Locale } from "@/lib/content";
 import Turnstile from "./Turnstile";
@@ -181,7 +182,15 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         </p>
       )}
 
-      <p className="mt-4 text-xs text-muted">{t.consentNote}</p>
+      <p className="mt-4 text-xs text-muted">
+        {t.consentNote}{" "}
+        <Link
+          href={locale === "bg" ? "/privacy" : "/en/privacy"}
+          className="underline underline-offset-2 hover:text-foreground"
+        >
+          {content[locale].footer.privacy}
+        </Link>
+      </p>
 
       <button
         type="submit"
