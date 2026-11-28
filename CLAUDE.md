@@ -27,6 +27,15 @@ process that the shared host kills). Tailwind is wired through the standard
 builds and Turbopack dev. Do NOT go back to the `@tailwindcss/turbopack`
 loader rule in next.config: webpack ignores it and the site ships without CSS.
 
+**Hosting (2026-11-28): Hostinger Business, Node.js Web App** deployed from
+GitHub `main` (auto-deploy on every push, build = `npm run build`). DNS stays in
+Cloudflare: `A @ 46.202.142.109` (DNS only), `www` proxied + Cloudflare redirect
+rule www -> apex (301). Env vars live in Hostinger (5: SITE_URL, Turnstile x2,
+n8n webhook URL + secret). Vercel is gone - ignore older Vercel mentions below.
+Hostinger shares the account with Rumen's WordPress sites: never put client
+data or extra secrets here. NEXT_PUBLIC_* values are inlined at build time, so
+changing one in Hostinger needs a redeploy.
+
 ## Standing operational constraints (do not relearn these the hard way)
 
 1. **Dev server hot-reload is unreliable in this sandbox.** After any edit
@@ -167,7 +176,7 @@ CSS custom properties, redefined under `.dark`:
 
 - `src/lib/site.ts`: `siteUrl` (NEXT_PUBLIC_SITE_URL, else Vercel prod URL)
   and **`allowIndexing` = the single go-live switch**
-  (`NEXT_PUBLIC_ALLOW_INDEXING=true` in Vercel). Default false (Rumen,
+  (`NEXT_PUBLIC_ALLOW_INDEXING=true` in Hostinger env). Default false (Rumen,
   2026-10-30: keep out of Google for now) -> sitewide meta noindex,nofollow
   (root layout) AND `robots.txt` Disallow: /. Both flip together.
 - **One domain, path-based languages (2026-11-25):** `noxlytics.com` serves
