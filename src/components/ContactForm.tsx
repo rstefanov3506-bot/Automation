@@ -21,6 +21,9 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   const [errors, setErrors] = useState<Errors>({});
   const [website, setWebsite] = useState(""); // honeypot
   const [token, setToken] = useState("");
+  // Turnstile loads only once the visitor starts using the form: no Cloudflare
+  // request (and no unverified token) for people who just read the page.
+  const [armed, setArmed] = useState(false);
   const [resetKey, setResetKey] = useState(0);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [formError, setFormError] = useState("");
@@ -43,6 +46,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
     setFormError("");
     if (Object.keys(next).length > 0) return;
     if (!token) {
+      setArmed(true);
       setFormError(t.captchaError);
       return;
     }
@@ -109,7 +113,13 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="relative mx-auto max-w-md text-left">
+    <form
+      onSubmit={onSubmit}
+      onFocusCapture={() => setArmed(true)}
+      onPointerDown={() => setArmed(true)}
+      noValidate
+      className="relative mx-auto max-w-md text-left"
+    >
       <div>
         <label htmlFor="contact-name" className="text-sm font-medium text-muted">
           {t.nameLabel}
@@ -172,9 +182,12 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         />
       </div>
 
-      {SITE_KEY && (
-        <Turnstile siteKey={SITE_KEY} language={locale} resetKey={resetKey} onToken={setToken} />
-      )}
+      {SITE_KEY &&
+        (armed ? (
+          <Turnstile siteKey={SITE_KEY} language={locale} resetKey={resetKey} onToken={setToken} />
+        ) : (
+          <div className="mt-4 min-h-[65px]" aria-hidden="true" />
+        ))}
 
       {formError && (
         <p role="alert" className="mt-4 text-sm text-red-500">

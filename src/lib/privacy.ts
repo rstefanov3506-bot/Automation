@@ -14,7 +14,7 @@ type Section = { h: string; p?: string[]; ul?: string[]; after?: string[] };
 export const privacy: Record<"bg" | "en", { title: string; updated: string; sections: Section[] }> = {
   bg: {
     title: "Политика за поверителност",
-    updated: "В сила от 27.11.2026",
+    updated: "В сила от 28.11.2026",
     sections: [
       {
         h: "1. Кой обработва данните ви",
@@ -47,7 +47,7 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
           "Използваме доставчици, които обработват данни от наше име и по наши указания:",
         ],
         ul: [
-          "Vercel - хостинг на сайта;",
+          "Hostinger - хостинг на сайта;",
           "Cloudflare - DNS, проверка срещу спам (Turnstile), пренасочване на имейли към нашата поща и защитена връзка до нашия сървър;",
           "Google - таблицата, в която записваме запитванията, и пощенската ни кутия;",
           "Brevo - изпращане на имейли от hello@noxlytics.com, включително автоматичното потвърждение за получено запитване.",
@@ -85,7 +85,7 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
   },
   en: {
     title: "Privacy policy",
-    updated: "Effective 27 November 2026",
+    updated: "Effective 28 November 2026",
     sections: [
       {
         h: "1. Who processes your data",
@@ -116,7 +116,7 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
         h: "4. Who else receives the data",
         p: ["We use providers that process data on our behalf and on our instructions:"],
         ul: [
-          "Vercel - website hosting;",
+          "Hostinger - website hosting;",
           "Cloudflare - DNS, spam check (Turnstile), forwarding email to our mailbox and a secure connection to our server;",
           "Google - the spreadsheet where we log inquiries, and our mailbox;",
           "Brevo - sending email from hello@noxlytics.com, including the automatic confirmation that we received your inquiry.",
