@@ -13,13 +13,13 @@ export default function AboutView({ locale }: { locale: Locale }) {
       <p className="mt-5 max-w-2xl text-lg text-muted">{t.intro}</p>
 
       <section className="edge-light mt-12 rounded-2xl border border-border bg-surface p-7">
-        <div className="flex items-center gap-5">
+        <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
           <Image
             src="/team/rumen-stefanov.jpg"
             alt={t.founderName}
-            width={96}
-            height={96}
-            className="h-24 w-24 shrink-0 rounded-full border border-border object-cover"
+            width={160}
+            height={160}
+            className="h-32 w-32 shrink-0 rounded-full border border-border object-cover sm:h-40 sm:w-40"
           />
           <div>
             <h2 className="text-xl font-semibold">{t.founderName}</h2>

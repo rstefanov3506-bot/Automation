@@ -113,7 +113,7 @@ export const about = {
     founderName: "Румен Стефанов",
     founderRole: "Основател",
     founderBio: [
-      "Работя в дигиталния маркетинг и уеб разработката и водя дигиталната агенция Webtopix: WordPress и WooCommerce сайтове, SEO, Google Ads и Meta Ads.",
+      "Завърших цялостната програма по дигитален маркетинг на СофтУни, със сертификати и диплома. Точно тя ме запали по уеб дизайна: първо WordPress, после Next.js, а оттам и по AI и автоматизациите.",
       "Преди това работих във фактуриране, банково дело и застрахователно консултиране - там видях отблизо колко време се губи в ръчно преписване на едни и същи данни.",
       "Днес автоматизации на Noxlytics пишат и подготвят SEO статии два пъти седмично за petsbg.net, logopedite.com и svatbendj.bg, а всяко запитване от този сайт получава автоматичен отговор и влиза в таблица до минута.",
     ],
@@ -135,7 +135,7 @@ export const about = {
     founderName: "Rumen Stefanov",
     founderRole: "Founder",
     founderBio: [
-      "I work in digital marketing and web development and run the digital agency Webtopix: WordPress and WooCommerce sites, SEO, Google Ads and Meta Ads.",
+      "I completed SoftUni's full digital marketing programme, with certificates and a diploma. That is what got me hooked on web design: first WordPress, then Next.js, and from there AI and automation.",
       "Before that I worked in invoicing, banking and insurance consulting - where I saw up close how much time goes into retyping the same data by hand.",
       "Today Noxlytics automations write and prepare SEO articles twice a week for petsbg.net, logopedite.com and svatbendj.bg, and every inquiry from this site gets an automatic reply and lands in a spreadsheet within a minute.",
     ],
