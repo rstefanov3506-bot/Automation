@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { about } from "@/lib/pages";
 import type { Locale } from "@/lib/content";
@@ -12,9 +13,19 @@ export default function AboutView({ locale }: { locale: Locale }) {
       <p className="mt-5 max-w-2xl text-lg text-muted">{t.intro}</p>
 
       <section className="edge-light mt-12 rounded-2xl border border-border bg-surface p-7">
-        {/* Photo slot: add /public/team/rumen.jpg and an <img> here once Rumen sends a photo. */}
-        <h2 className="text-xl font-semibold">{t.founderName}</h2>
-        <p className="label-mono mt-1 text-muted">{t.founderRole}</p>
+        <div className="flex items-center gap-5">
+          <Image
+            src="/team/rumen-stefanov.jpg"
+            alt={t.founderName}
+            width={96}
+            height={96}
+            className="h-24 w-24 shrink-0 rounded-full border border-border object-cover"
+          />
+          <div>
+            <h2 className="text-xl font-semibold">{t.founderName}</h2>
+            <p className="label-mono mt-1 text-muted">{t.founderRole}</p>
+          </div>
+        </div>
         <div className="mt-5 space-y-3 text-[15px] leading-relaxed text-muted">
           {t.founderBio.map((p) => (
             <p key={p}>{p}</p>
