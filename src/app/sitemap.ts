@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
 
-// Only pages with real content. /pricing and /contact are left out while they
-// are placeholders (they are also noindex). Each entry lists its bg/en pair
+// Only pages with real content. /pricing is left out while it is a placeholder
+// (it is also noindex). Legal pages are reachable from every footer. Each entry lists its bg/en pair
 // so crawlers get hreflang from the sitemap too - including the page itself,
 // which Next.js does not add automatically.
-const PAGES = ["/", "/automations"];
+const PAGES = ["/", "/automations", "/about", "/faq", "/contact"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

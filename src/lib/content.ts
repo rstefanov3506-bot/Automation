@@ -6,6 +6,8 @@ export const content = {
       links: [
         { label: "Автоматизации", href: "/automations" },
         { label: "Пакети", href: "/pricing" },
+        { label: "За нас", href: "/about" },
+        { label: "ЧЗВ", href: "/faq" },
         { label: "Контакти", href: "/contact" },
       ],
       cta: "Безплатен одит",
@@ -332,7 +334,11 @@ export const content = {
     },
     footer: {
       rights: "Всички права запазени.",
-      privacy: "Политика за поверителност",
+      privacy: "Поверителност",
+      privacyLong: "Политика за поверителност",
+      terms: "Общи условия",
+      cookies: "Бисквитки",
+      cookieSettings: "Настройки на бисквитките",
       eik: "ЕИК",
     },
   },
@@ -341,6 +347,8 @@ export const content = {
       links: [
         { label: "Automations", href: "/en/automations" },
         { label: "Pricing", href: "/en/pricing" },
+        { label: "About", href: "/en/about" },
+        { label: "FAQ", href: "/en/faq" },
         { label: "Contact", href: "/en/contact" },
       ],
       cta: "Free audit",
@@ -667,7 +675,11 @@ export const content = {
     },
     footer: {
       rights: "All rights reserved.",
-      privacy: "Privacy policy",
+      privacy: "Privacy",
+      privacyLong: "Privacy policy",
+      terms: "Terms",
+      cookies: "Cookies",
+      cookieSettings: "Cookie settings",
       eik: "Company ID",
     },
   },

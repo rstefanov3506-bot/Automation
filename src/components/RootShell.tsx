@@ -4,6 +4,8 @@ import "@fontsource-variable/rubik";
 import "../app/globals.css";
 import MouseDrone from "@/components/MouseDrone";
 import SiteBackground from "@/components/SiteBackground";
+import ConsentBanner from "@/components/ConsentBanner";
+import { consentInitScript } from "@/lib/consent";
 
 // Shared <html> shell for the two root layouts: app/(bg) and app/(en).
 // Two root layouts exist only so each language gets the right <html lang>.
@@ -29,12 +31,18 @@ export default function RootShell({
   return (
     <html lang={lang} className="dark h-full antialiased" suppressHydrationWarning>
       <head>
+        {/* Consent Mode v2 defaults (denied) must run before any tag. Empty
+            when NEXT_PUBLIC_GTM_ID is unset. */}
+        {consentInitScript() && (
+          <script dangerouslySetInnerHTML={{ __html: consentInitScript() }} />
+        )}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <SiteBackground />
         <MouseDrone />
         <div className="relative z-[1] flex min-h-full flex-1 flex-col">{children}</div>
+        <ConsentBanner locale={lang} />
       </body>
     </html>
   );

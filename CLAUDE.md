@@ -36,6 +36,21 @@ Hostinger shares the account with Rumen's WordPress sites: never put client
 data or extra secrets here. NEXT_PUBLIC_* values are inlined at build time, so
 changing one in Hostinger needs a redeploy.
 
+**Consent + legal pages (2026-11-28):** `lib/consent.ts` (Consent Mode v2
+"basic": defaults denied, GTM loads ONLY after consent, choice in localStorage
+`nox-consent` for 12 months, COOKIES list = source of the cookie policy table),
+`components/ConsentBanner.tsx` (accept/reject equally prominent, settings with
+2 categories, footer "Cookie settings" reopens it, withdrawing clears tracking
+cookies + reloads). Everything is OFF until `NEXT_PUBLIC_GTM_ID` is set in
+Hostinger (then redeploy). GA4 / Google Ads / Meta Pixel live as tags INSIDE GTM
+(no separate gtag code - avoids double counting); each tag must require
+analytics_storage or ad_storage in GTM consent settings. When a new tag adds
+cookies, add them to COOKIES. Pages: /terms, /cookies (lib/legal.ts),
+/faq (+FAQPage JSON-LD), /about, /contact (lib/pages.ts), all with /en mirrors;
+`LegalPage` renders privacy/terms/cookies. Company address lives in
+`lib/privacy.ts` `company`. Security headers (HSTS, nosniff, XFO DENY,
+Referrer-Policy, Permissions-Policy, CSP without script-src) in next.config.
+
 ## Standing operational constraints (do not relearn these the hard way)
 
 1. **Dev server hot-reload is unreliable in this sandbox.** After any edit

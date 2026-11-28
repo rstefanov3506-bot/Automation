@@ -201,7 +201,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           href={locale === "bg" ? "/privacy" : "/en/privacy"}
           className="underline underline-offset-2 hover:text-foreground"
         >
-          {content[locale].footer.privacy}
+          {content[locale].footer.privacyLong}
         </Link>
       </p>
 

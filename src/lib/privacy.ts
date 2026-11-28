@@ -6,12 +6,22 @@ export const company = {
   name: "РУВЕСА ЕООД",
   nameEn: "RUVESA EOOD",
   eik: "202036157",
+  vat: "BG202036157",
+  address: "гр. Панагюрище 4500, ул. „Оборище“ 66",
+  addressEn: "66 Oborishte St., 4500 Panagyurishte, Bulgaria",
   email: "hello@noxlytics.com",
 };
 
-type Section = { h: string; p?: string[]; ul?: string[]; after?: string[] };
+export type Section = {
+  h: string;
+  p?: string[];
+  ul?: string[];
+  table?: { head: string[]; rows: string[][] };
+  after?: string[];
+};
+export type LegalDoc = { title: string; updated: string; sections: Section[] };
 
-export const privacy: Record<"bg" | "en", { title: string; updated: string; sections: Section[] }> = {
+export const privacy: Record<"bg" | "en", LegalDoc> = {
   bg: {
     title: "Политика за поверителност",
     updated: "В сила от 28.11.2026",
@@ -19,7 +29,7 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
       {
         h: "1. Кой обработва данните ви",
         p: [
-          `${company.name}, ЕИК ${company.eik}, с търговско наименование Noxlytics („ние“). Имейл за всички въпроси относно личните данни: ${company.email}.`,
+          `${company.name}, ЕИК ${company.eik}, седалище и адрес на управление: ${company.address}, с търговско наименование Noxlytics („ние“). Имейл за всички въпроси относно личните данни: ${company.email}.`,
         ],
       },
       {
@@ -28,9 +38,10 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
           "От формата за запитване: име, имейл, съобщение, езика и страницата, от която е изпратено, дата и час.",
           "Ако ни пишете по имейл: адреса и съдържанието на писмата.",
           "Технически данни (IP адрес, данни за браузъра), които хостингът на сайта и проверката срещу спам обработват, за да работи и да е защитен сайтът.",
+          "Само ако се съгласите в банера за бисквитки: данни за посещението (кои страници разглеждате, откъде идвате, устройство) чрез Google Analytics, и данни за рекламни кампании чрез Google Ads и Meta (Facebook, Instagram).",
         ],
         after: [
-          "Не използваме рекламни или аналитични бисквитки. Сайтът пази в браузъра ви само настройки за изглед (светла или тъмна тема, показване на анимирания курсор). Те не се изпращат към нас.",
+          "Без съгласие не зареждаме аналитични и рекламни инструменти и не записваме техни бисквитки. Сайтът пази в браузъра ви само необходимото: настройки за изглед (тема, анимиран курсор) и избора ви за бисквитките. Подробности: Политика за бисквитки (/cookies). Можете да промените избора си по всяко време от „Настройки на бисквитките“ в долната част на всяка страница.",
         ],
       },
       {
@@ -38,6 +49,7 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
         ul: [
           "За да отговорим на запитването ви и да подготвим предложение - по ваше искане, преди евентуален договор (чл. 6, ал. 1, б. „б“ от GDPR).",
           "За да защитим сайта и формата от спам и злоупотреби - законен интерес (чл. 6, ал. 1, б. „е“ от GDPR).",
+          "За статистика на посещенията и за измерване на рекламите ни - само с ваше съгласие (чл. 6, ал. 1, б. „а“ от GDPR), което можете да оттеглите по всяко време.",
           "Ако станете клиент - за изпълнение на договора и на законовите ни задължения, например счетоводни (чл. 6, ал. 1, б. „б“ и „в“ от GDPR).",
         ],
       },
@@ -50,7 +62,8 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
           "Hostinger - хостинг на сайта;",
           "Cloudflare - DNS, проверка срещу спам (Turnstile), пренасочване на имейли към нашата поща и защитена връзка до нашия сървър;",
           "Google - таблицата, в която записваме запитванията, и пощенската ни кутия;",
-          "Brevo - изпращане на имейли от hello@noxlytics.com, включително автоматичното потвърждение за получено запитване.",
+          "Brevo - изпращане на имейли от hello@noxlytics.com, включително автоматичното потвърждение за получено запитване;",
+          "само с ваше съгласие: Google (Tag Manager, Analytics, Ads) и Meta Platforms Ireland (Meta Pixel) - статистика и измерване на реклами.",
         ],
       },
       {
@@ -90,7 +103,7 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
       {
         h: "1. Who processes your data",
         p: [
-          `${company.nameEn} (${company.name}), company ID (EIK) ${company.eik}, trading as Noxlytics ("we"). Email for any personal data question: ${company.email}.`,
+          `${company.nameEn} (${company.name}), company ID (EIK) ${company.eik}, registered office: ${company.addressEn}, trading as Noxlytics ("we"). Email for any personal data question: ${company.email}.`,
         ],
       },
       {
@@ -99,9 +112,10 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
           "From the inquiry form: name, email, message, the language and page it was sent from, date and time.",
           "If you email us: your address and the content of the emails.",
           "Technical data (IP address, browser details) processed by the site's hosting and the spam check so the site works and stays protected.",
+          "Only if you agree in the cookie banner: visit data (pages viewed, where you came from, device) via Google Analytics, and ad campaign data via Google Ads and Meta (Facebook, Instagram).",
         ],
         after: [
-          "We don't use advertising or analytics cookies. The site only stores display settings in your browser (light or dark theme, the animated cursor). They are not sent to us.",
+          "Without consent we don't load analytics or advertising tools and none of their cookies are set. The site only stores what is necessary in your browser: display settings (theme, animated cursor) and your cookie choice. Details: Cookie policy (/en/cookies). You can change your choice at any time via \"Cookie settings\" at the bottom of every page.",
         ],
       },
       {
@@ -109,6 +123,7 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
         ul: [
           "To reply to your inquiry and prepare a proposal - at your request, before a possible contract (Art. 6(1)(b) GDPR).",
           "To protect the site and the form from spam and abuse - legitimate interest (Art. 6(1)(f) GDPR).",
+          "For visit statistics and to measure our ads - only with your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.",
           "If you become a client - to perform the contract and meet our legal obligations, e.g. accounting (Art. 6(1)(b) and (c) GDPR).",
         ],
       },
@@ -119,7 +134,8 @@ export const privacy: Record<"bg" | "en", { title: string; updated: string; sect
           "Hostinger - website hosting;",
           "Cloudflare - DNS, spam check (Turnstile), forwarding email to our mailbox and a secure connection to our server;",
           "Google - the spreadsheet where we log inquiries, and our mailbox;",
-          "Brevo - sending email from hello@noxlytics.com, including the automatic confirmation that we received your inquiry.",
+          "Brevo - sending email from hello@noxlytics.com, including the automatic confirmation that we received your inquiry;",
+          "only with your consent: Google (Tag Manager, Analytics, Ads) and Meta Platforms Ireland (Meta Pixel) - statistics and ad measurement.",
         ],
       },
       {

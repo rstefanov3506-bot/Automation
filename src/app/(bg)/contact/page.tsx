@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
-import { pageMeta, noindexRobots } from "@/lib/site";
 import SiteFooter from "@/components/SiteFooter";
-import PageSkeleton from "@/components/PageSkeleton";
-import { content } from "@/lib/content";
+import ContactView from "@/components/ContactView";
+import { pageMeta } from "@/lib/site";
 
-// Placeholder until real content exists: kept out of search results.
+const title = "Контакти | Noxlytics";
+
 export const metadata: Metadata = {
-  ...pageMeta("/contact", "bg"),
-  robots: noindexRobots,
+  title,
+  description: "Пиши ни или заяви безплатен 30-минутен одит. Отговаряме до 1 работен ден.",
+  ...pageMeta("/contact", "bg", { title, description: "Пиши ни или заяви безплатен 30-минутен одит. Отговаряме до 1 работен ден." }),
 };
 
 export default function Page() {
   return (
     <div className="flex min-h-screen flex-col text-foreground">
       <SiteHeader locale="bg" altHref="/en/contact" />
-      <PageSkeleton locale="bg" title={content.bg.contact.title} />
+      <ContactView locale="bg" />
       <SiteFooter locale="bg" />
     </div>
   );
